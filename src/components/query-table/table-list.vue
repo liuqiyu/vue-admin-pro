@@ -28,19 +28,22 @@
       </template>
       <el-table-column
         v-if="operation && operation.options.length > 0"
+        header-align="center"
         :fixed="operation.fixed"
         :label="operation.label"
         :width="operation.width">
         <template slot-scope="scope">
-          <a class="table-btn"
-             v-show="operationShow(btn, scope.row)"
+          <el-button class="table-btn"
              v-for="(btn, i) in operation.options"
              :key="btn.label+i"
-             type="text"
+             :icon="btn.icon"
+             :size="btn.size || 'mini'"
+             v-show="operationShow(btn, scope.row)"
+             :type="btn.type || 'primary'"
              :disabled="operationDisabled(btn, scope.row)"
              @click.stop="handleCommand(btn, scope.row)">
             {{btn.label}}
-          </a>
+          </el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -124,7 +127,6 @@ export default {
 <style scoped lang="scss">
   @import './../../assets/scss/variable';
   .table-btn {
-    color: $primary;
     margin-right: 8px;
     cursor: pointer;
   }

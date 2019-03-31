@@ -1,6 +1,6 @@
 <template>
   <el-form-item :label="item.label">
-    <!--input-->
+    <!--input 文本-->
     <el-input
       v-if="item.type === 'text'"
       :value="value"
@@ -13,7 +13,7 @@
         {{ typeof item.complex === 'object' ? item.complex.val : item.complex }}</template>
     </el-input>
 
-    <!--select-->
+    <!--select 下拉框-->
     <el-select v-else-if="item.type === 'select'"
                :disabled="isDisabled(item)"
                :value="value"
@@ -28,14 +28,28 @@
       </el-option>
     </el-select>
 
-    <!--daterange-->
+    <!--daterange 日期旋选择器-->
     <el-date-picker v-else-if="item.type === 'daterange'"
                     :value="value"
                     type="daterange"
+                    :format="item.format || 'yyyy-MM-dd'"
+                    :value-format="item.valueFormat || 'yyyy-MM-dd'"
                     range-separator="至"
                     start-placeholder="开始日期"
                     end-placeholder="结束日期"
-                    @change="bindChange">
+                    @input="datePickerChange">
+    </el-date-picker>
+
+    <!--datetimerange 时间选择器-->
+    <el-date-picker v-else-if="item.type === 'datetimerange'"
+                    :value="value"
+                    type="datetimerange"
+                    :format="item.format || 'yyyy-MM-dd HH:mm:ss'"
+                    :value-format="item.valueFormat || 'yyyy-MM-dd HH:mm:ss'"
+                    range-separator="至"
+                    start-placeholder="开始日期"
+                    end-placeholder="结束日期"
+                    @input="datePickerChange">
     </el-date-picker>
   </el-form-item>
 </template>
@@ -56,9 +70,10 @@ export default {
   },
   methods: {
     bindChange (e) {
-      alert(1)
-      console.log(e)
       this.$emit('input', e)
+    },
+    datePickerChange (val) {
+      this.bindChange(val)
     },
     isDisabled (item) {
       if (typeof item.disabled === 'function') {

@@ -9,8 +9,9 @@
       </template>
       <el-form-item class="query-form-btns">
         <el-button type="primary" icon="iconfont icon-search" @click="onSubmit">
-          查询</el-button>
-        <el-button type="text" icon="iconfont icon-reset" @click="onSubmit">重置</el-button>
+          查询
+        </el-button>
+        <el-button type="text" icon="iconfont icon-reset" @click="onReset">重置</el-button>
       </el-form-item>
     </el-form>
   </div>
@@ -40,17 +41,21 @@ export default {
   },
   methods: {
     onSubmit () {
-      // console.log('submit!');
+      console.log('submit!')
+      console.log(this.model)
+      this.$emit('formSubmit', this.model)
+    },
+    onReset () {
+      console.log('reset!')
       console.log(this.model)
     },
     createModel () {
       this.formFields.forEach((item) => {
-        // if (item.type === 'daterange') {
-        //   this.$set(this.model, item.columnName, []);
-        // } else {
-        //
-        // }
-        this.$set(this.model, item.columnName, '')
+        if (item.type === 'daterange') {
+          this.$set(this.model, item.columnName, [])
+        } else {
+          this.$set(this.model, item.columnName, '')
+        }
       })
     }
   }

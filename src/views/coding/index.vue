@@ -29,8 +29,14 @@ export default {
         {
           label: '日期范围',
           type: 'daterange',
-          placeholder: '请选择时间',
+          placeholder: '请选择日期范围',
           columnName: 'daterange'
+        },
+        {
+          label: '时间范围',
+          type: 'datetimerange',
+          placeholder: '请选择时间范围',
+          columnName: 'datetimerange'
         }
       ],
       // 表格配置
@@ -52,16 +58,41 @@ export default {
           {
             label: '年龄',
             key: 'age',
+            width: '100px'
+          },
+          {
+            label: '姓名',
+            key: 'name',
+            width: '100px'
+          },
+          {
+            label: '性别',
+            key: 'gender',
+            width: '100px'
+          },
+          {
+            label: '年龄',
+            key: 'age',
             width: ''
           }
         ],
         operation: {
           fixed: 'right',
           label: '操作',
-          width: '100px',
+          width: '200px',
           options: [
             {
               label: '123',
+              icon: 'el-icon-info',
+              size: 'mini',
+              func: () => {
+                alert(123)
+              }
+            },
+            {
+              label: '321',
+              icon: 'el-icon-info',
+              type: 'primary',
               func: () => {
                 alert(123)
               }

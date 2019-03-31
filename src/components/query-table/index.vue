@@ -3,7 +3,8 @@
     <!--<search-pager :option="option"-->
                   <!--:tools="tools"></search-pager>-->
 
-    <query-form :form-fields="formFields"></query-form>
+    <query-form :form-fields="formFields"
+                @formSubmit="formSubmit"></query-form>
 
     <slot name="middle-tools"></slot>
 
@@ -12,7 +13,7 @@
       :operation="tables.operation"
       :tableData="tableData"></table-list>
     <el-pagination
-      class="lqy-pagination"
+      class="asp-pagination"
       background
       @size-change="handleSizeChange"
       @current-change="handleCurrentChange"
@@ -67,6 +68,10 @@ export default {
     loadTable () {
       this.fetchTable()
     },
+    // 搜索
+    formSubmit (model) {
+      this.fetchTable()
+    },
     async fetchTable () {
       try {
         this.loading = true
@@ -99,4 +104,9 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped lang="scss">
+.asp-pagination {
+  text-align: right;
+  padding: 10px 0;
+}
+</style>
