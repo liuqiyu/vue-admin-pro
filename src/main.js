@@ -1,9 +1,19 @@
 import Vue from 'vue'
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
 import App from './App.vue'
-import router from './router'
+import router from './router/index'
 import store from './store'
+import AspUI from './components'
+import './assets/scss/index.scss'
+import http from './utils/http'
 
 Vue.config.productionTip = false
+
+Vue.use(ElementUI)
+Vue.use(AspUI)
+
+Vue.prototype.$http = http
 
 new Vue({
   router,

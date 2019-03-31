@@ -1,0 +1,45 @@
+/*
+T01 21 16 B     T02 21 14 B     T03 21 12 B     T04 21 12 N     T05 22 12 N
+T06 23 12 N     T07 $d 12 N     T08 $t 12 N     T09 12 12 N     T10 11 16 B
+T11 11 14 B     T12 11 12 B     T13 11 12 N     T14 -- 12 B     T15 21 14 N
+T16 22 14 N     T17 白 12 B     T18 -- 12 B     T19 白 12 N
+*/
+//主色
+$primary: #7352bf;
+$primary-hover: #9571e9;
+$primary-active: #6749ac;
+$success: #00b94d;
+$success-hover: #33c771;
+$success-active: #00a745;
+$warning: #ffc300;
+$warning-hover: #ffcf33;
+$warning-active: #e6b000;
+$danger: #ff5555;
+$danger-hover: #ff7070;
+$danger-active: #b2352d;
+$info: #909399;
+$info-hover: #a6a9ad;
+$info-active: #82848a;
+//辅助色
+$--color-11: #ff9300; //菜单栏、tab栏 active 状态
+$--color-15: #fefadc; //表单 hover 状态
+//基本色
+$--color-21: #333333; //标题/正文
+$--color-22: #666666; //辅助文本1
+$--color-23: #999999; //辅助文本2
+$--color-24: #dcdae2; //边框/分割线
+$--color-25: #e8e6ee; //tab栏背景
+$--color-26: #f1f1f5; //左侧菜单栏背景、tab栏 hover、表单详情 title 背景
+$--color-27: #ececf5; //失效状态
+$--color-28: #f8f8fa; //表格斑栏
+$--color-29: #ffffff; //白色背景
+//字体
+$--font-14: #9a9aa6;
+//自定义
+$theme: #9571e9;
+$border-color: #dcdae2;
+$disable-color: #dddddd;
+
+:root {
+  --menu-width: 160px;
+}
