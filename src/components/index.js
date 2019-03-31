@@ -3,13 +3,13 @@ import Vue from 'vue'
 // 全局组件
 import QueryTable from './query-table/index'
 // import SearchPager from './query-table/search-pager'
-// import QueyForm from './query-table/query-form'
+import QueyForm from './query-table/query-form'
 import TableList from './query-table/table-list'
 
 const components = [
   QueryTable,
   // SearchPager,
-  // QueyForm,
+  QueyForm,
   TableList
 ]
 

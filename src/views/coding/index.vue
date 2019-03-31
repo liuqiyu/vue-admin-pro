@@ -1,6 +1,7 @@
 <template>
     <div>
-      <query-table :tables="tables"></query-table>
+      <query-table :tables="tables"
+                   :form-fields="formFields"></query-table>
     </div>
 </template>
 
@@ -10,6 +11,29 @@ export default {
   name: 'coding',
   data () {
     return {
+      // 表单配置
+      formFields: [
+        {
+          label: '姓名',
+          type: 'text',
+          placeholder: '请输入姓名',
+          columnName: 'name'
+        },
+        {
+          label: '状态',
+          type: 'select',
+          placeholder: '请选中状态',
+          columnName: 'status',
+          lookup: ''
+        },
+        {
+          label: '日期范围',
+          type: 'daterange',
+          placeholder: '请选择时间',
+          columnName: 'daterange'
+        }
+      ],
+      // 表格配置
       tables: {
         url: {
           method: '/overview/list'
