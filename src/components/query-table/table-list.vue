@@ -5,7 +5,10 @@
       class="default-table"
       :height="tableHeight"
       :data="tableData"
+      :default-sort = "{prop: 'name', order: 'descending'}"
       style="width: 100%"
+      @sort-change="sortChange"
+      @row-dblclick="rowDblClick"
       @selection-change="handleSelectionChange">
       <el-table-column
         prop="index"
@@ -21,6 +24,7 @@
       </el-table-column>
       <template v-for="(col, i) in columns">
         <el-table-column
+          sortable="custom"
           :prop="col.key"
           :key="col.key + i"
           :label="col.label"
@@ -101,8 +105,21 @@ export default {
       }
       btn.func(row)
     },
+    // 选中
     handleSelectionChange (val) {
-      this.multipleSelection = val
+      // this.multipleSelection = val
+      if (!this.options.selectionChange) {
+        return
+      }
+      this.options.selectionChange(val)
+    },
+    // 双击行
+    rowDblClick (row, column, event) {
+      // console.log(row, column, event)
+      if (!this.options.rowDblClick) {
+        return
+      }
+      this.options.rowDblClick(row)
     },
     operationDisabled (btn, row) {
       if (typeof btn.disabled === 'function') {
@@ -118,6 +135,13 @@ export default {
         return btn.show(row)
       }
       return btn.show
+    },
+    // 自定义排序 custom
+    sortChange ({ column, prop, order }) {
+      console.log(column)
+      console.log(prop)
+      console.log(order)
+      this.$emit('sortChange', { column, prop, order })
     },
     handleResize () {
       // const bodyHeight = window.innerHeight || document.documentElement.clientHeight

@@ -66,11 +66,18 @@ export default {
         options: {
           type: 'selection',
           page: true,
+          defaultSort: {
+            keys: ['name', 'name'],
+            prop: 'name',
+            order: 'descending'
+          },
           rowDblClick: (row) => {
             console.log(row)
+            alert('双击')
           },
           selectionChange: (val) => {
             console.log(val)
+            alert('选中')
           }
         },
         columns: [

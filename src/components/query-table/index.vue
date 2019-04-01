@@ -11,7 +11,8 @@
       :columns="tables.columns"
       :operation="tables.operation"
       :options="tables.options"
-      :tableData="tableData"></table-list>
+      :tableData="tableData"
+      @sort-change="sortChange"></table-list>
     <el-pagination
       class="asp-pagination"
       background
@@ -117,6 +118,9 @@ export default {
       this.currentPage = val
       console.log(val + '换2')
       this.fetchTable()
+    },
+    sortChange (val) {
+      console.log(val)
     }
   }
 }
