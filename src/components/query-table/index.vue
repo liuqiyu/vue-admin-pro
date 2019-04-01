@@ -1,7 +1,6 @@
 <template>
   <div class="query-table" v-loading="loading">
-    <!--<search-pager :option="option"-->
-                  <!--:tools="tools"></search-pager>-->
+    <tool-bar :tools="tools"></tool-bar>
 
     <query-form :form-fields="formFields"
                 @formSubmit="formSubmit"></query-form>
@@ -75,16 +74,34 @@ export default {
     async fetchTable () {
       try {
         this.loading = true
-        const data = await this.$http.get(this.tables.url.method, {
-          params: {
-            id: 1234
+        // const data = await this.$http.get(this.tables.url.method, {
+        //   params: {
+        //     id: 1234
+        //   }
+        // })
+        // this.tableData = data.data
+        this.tableData = [
+          {
+            name: 1,
+            gender: 1,
+            age: 1
+          },
+          {
+            name: 1,
+            gender: 1,
+            age: 1
+          },
+          {
+            name: 1,
+            gender: 1,
+            age: 1
           }
-        })
-        this.tableData = data.data
+        ]
         this.tableData.forEach((item, index) => {
           this.$set(this.tableData[index], 'index', ((this.currentPage - 1) * this.pageSize) + (1 + index))
         })
-        this.total = data.total
+        // this.total = data.total
+        this.total = 100
         this.loading = false
       } catch (e) {
         console.log(e)

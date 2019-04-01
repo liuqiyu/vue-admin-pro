@@ -1,6 +1,7 @@
 <template>
     <div>
-      <query-table :tables="tables"
+      <query-table :tools="tools"
+                   :tables="tables"
                    :form-fields="formFields"></query-table>
     </div>
 </template>
@@ -11,6 +12,24 @@ export default {
   name: 'coding',
   data () {
     return {
+      tools: [
+        {
+          label: '新增',
+          icon: 'el-icon-success',
+          type: 'primary',
+          func: () => {
+            alert('新增')
+          }
+        },
+        {
+          label: '修改',
+          icon: 'el-icon-error',
+          type: 'primary',
+          func: () => {
+            alert('修改')
+          }
+        }
+      ],
       // 表单配置
       formFields: [
         {
