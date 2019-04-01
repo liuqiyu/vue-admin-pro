@@ -63,16 +63,6 @@ export default {
         url: {
           method: '/overview/list'
         },
-        options: {
-          type: 'selection',
-          page: true,
-          rowDblClick: (row) => {
-            console.log(row)
-          },
-          selectionChange: (val) => {
-            console.log(val)
-          }
-        },
         columns: [
           {
             label: '姓名',

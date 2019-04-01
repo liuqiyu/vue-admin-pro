@@ -14,6 +14,7 @@
         width="50">
       </el-table-column>
       <el-table-column
+        v-if="options.type === 'selection'"
         type="selection"
         fixed="left"
         width="50">
@@ -56,6 +57,11 @@ export default {
   props: {
     // 参数
     attr: {
+      type: Object,
+      default: () => {}
+    },
+    // 表格选项
+    options: {
       type: Object,
       default: () => {}
     },

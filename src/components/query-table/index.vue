@@ -10,6 +10,7 @@
     <table-list
       :columns="tables.columns"
       :operation="tables.operation"
+      :options="tables.options"
       :tableData="tableData"></table-list>
     <el-pagination
       class="asp-pagination"
