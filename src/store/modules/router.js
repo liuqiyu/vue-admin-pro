@@ -1,13 +1,15 @@
 const router = {
   state: {
-    route: []
+    mainNav: [],
+    chooseRouter: []
   },
   getters: {
-    route: state => {
+    mainNav: state => {
       const arr = []
-      state.route.forEach((item) => {
+      state.mainNav.forEach((item) => {
         arr.push({
-          name: item.meta.name
+          name: item.meta.name,
+          path: item.path
         })
       })
       return arr
@@ -15,7 +17,11 @@ const router = {
   },
   mutations: {
     SET_ROUTER (state, route) {
-      state.route = route
+      state.mainNav = route
+    },
+    CHOOSE_ROUTER (state) {
+      console.log(state.mainNav)
+      state.chooseRouter = state.mainNav
     }
   },
   actions: {

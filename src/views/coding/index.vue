@@ -1,7 +1,6 @@
 <template>
     <div>
-      <query-table :tools="tools"
-                   :tables="tables"
+      <query-table :tools="tools" :tables="tables"
                    :form-fields="formFields"></query-table>
     </div>
 </template>
@@ -58,7 +57,7 @@ export default {
           columnName: 'datetimerange'
         }
       ],
-      // 表格配置
+      // 表格配置312
       tables: {
         url: {
           method: '/overview/list'

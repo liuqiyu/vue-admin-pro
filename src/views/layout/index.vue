@@ -2,9 +2,8 @@
     <div class="asp-layout">
       <el-container class="asp-container">
         <el-header class="asp-header">
-          <router-link to="/coding/index">coding-index</router-link>
-          |
-          <router-link to="/coding/add">coding-add</router-link>
+          <topbar></topbar>
+          <navbar></navbar>
         </el-header>
         <el-main class="asp-main">
           <keep-alive>
@@ -16,8 +15,14 @@
 </template>
 
 <script>
+import topbar from './topbar'
+import navbar from './navbar'
 export default {
-  name: 'index'
+  name: 'index',
+  components: {
+    topbar,
+    navbar
+  }
 }
 </script>
 
@@ -33,11 +38,10 @@ export default {
     display: flex;
     flex-direction: column;
     .asp-header {
-      height: 60px !important;
+      height: 80px !important;
+      padding: 0 !important;
       flex: none;
-      background: #000;
       color: #fff;
-      line-height: 60px;
     }
     .asp-main {
       flex: 1;
