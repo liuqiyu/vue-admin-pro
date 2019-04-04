@@ -90,23 +90,23 @@ export default {
             label: '告警时间',
             key: 'date'
           },
-          {
-            label: '局站/机房',
-            type: 'btn-text',
-            style: 'red',
-            key: 'site',
-            func: (row) => {
-              this.alert()
-            }
-          },
-          {
-            label: '设备类型',
-            key: 'type',
-            type: 'point',
-            color: () => {
-              return 'red'
-            }
-          },
+          // {
+          //   label: '局站/机房',
+          //   type: 'btn-text',
+          //   style: 'red',
+          //   key: 'site',
+          //   func: (row) => {
+          //     this.alert()
+          //   }
+          // },
+          // {
+          //   label: '设备类型',
+          //   key: 'type',
+          //   type: 'point',
+          //   color: () => {
+          //     return 'red'
+          //   }
+          // },
           {
             label: '告警量',
             key: 'num'
@@ -125,16 +125,6 @@ export default {
           label: '操作',
           width: '200px',
           options: [
-            // {
-            //   label: '123',
-            //   type: 'button',
-            //   icon: 'el-icon-info',
-            //   size: 'mini',
-            //   show: false,
-            //   func: () => {
-            //     alert(123)
-            //   }
-            // },
             {
               label: '增',
               icon: 'el-icon-circle-check-outline',

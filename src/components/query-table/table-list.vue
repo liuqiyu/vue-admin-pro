@@ -80,7 +80,8 @@
                         placement="top-start"
                         :key="btn.label+i">
                 <span class="operation-icon"
-                      :class="btn.icon"></span>
+                      :class="btn.icon"
+                      @click.stop="handleCommand(btn, scope.row)"></span>
             </el-tooltip>
           </template>
         </template>

@@ -175,42 +175,6 @@ export default {
             num: '输出电压过高',
             message: '输出电压过高告警',
             sbname: '1#开关电源'
-          },
-          {
-            leavel: '一级',
-            date: '2019-10-10 10:10:10',
-            site: '科技园',
-            type: '开关电源',
-            num: '输出电压过高',
-            message: '输出电压过高告警',
-            sbname: '1#开关电源'
-          },
-          {
-            leavel: '一级',
-            date: '2019-10-10 10:10:10',
-            site: '科技园',
-            type: '开关电源',
-            num: '输出电压过高',
-            message: '输出电压过高告警',
-            sbname: '1#开关电源'
-          },
-          {
-            leavel: '一级',
-            date: '2019-10-10 10:10:10',
-            site: '科技园',
-            type: '开关电源',
-            num: '输出电压过高',
-            message: '输出电压过高告警',
-            sbname: '1#开关电源'
-          },
-          {
-            leavel: '一级',
-            date: '2019-10-10 10:10:10',
-            site: '科技园',
-            type: '开关电源',
-            num: '输出电压过高',
-            message: '输出电压过高告警',
-            sbname: '1#开关电源'
           }
         ]
         this.tableData.forEach((item, index) => {
