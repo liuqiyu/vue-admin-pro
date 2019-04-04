@@ -42,6 +42,7 @@ export default {
       padding: 0 !important;
       flex: none;
       color: #fff;
+      z-index: 111;
     }
     .asp-main {
       flex: 1;

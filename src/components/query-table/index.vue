@@ -1,8 +1,10 @@
 <template>
   <div class="query-table" v-loading="loading">
-    <tool-bar :tools="tools"></tool-bar>
+    <tool-bar v-if="tools.length > 0"
+              :tools="tools"></tool-bar>
 
-    <query-form :form-fields="formFields"
+    <query-form v-if="formFields.length > 0"
+                :form-fields="formFields"
                 @formSubmit="formSubmit"></query-form>
 
     <slot name="middle-tools"></slot>
@@ -61,6 +63,7 @@ export default {
   },
   created () {
     this.initTables()
+    console.log(this.tools)
   },
   methods: {
     initTables () {
@@ -84,19 +87,130 @@ export default {
         // this.tableData = data.data
         this.tableData = [
           {
-            name: 1,
-            gender: 1,
-            age: 1
+            leavel: '一级',
+            date: '2019-10-10 10:10:10',
+            site: '科技园',
+            type: '开关电源',
+            num: '输出电压过高',
+            message: '输出电压过高告警',
+            sbname: '1#开关电源'
           },
           {
-            name: 1,
-            gender: 1,
-            age: 1
+            leavel: '一级',
+            date: '2019-10-10 10:10:10',
+            site: '科技园',
+            type: '开关电源',
+            num: '输出电压过高',
+            message: '输出电压过高告警',
+            sbname: '1#开关电源'
           },
           {
-            name: 1,
-            gender: 1,
-            age: 1
+            leavel: '一级',
+            date: '2019-10-10 10:10:10',
+            site: '科技园',
+            type: '开关电源',
+            num: '输出电压过高',
+            message: '输出电压过高告警',
+            sbname: '1#开关电源'
+          },
+          {
+            leavel: '一级',
+            date: '2019-10-10 10:10:10',
+            site: '科技园',
+            type: '开关电源',
+            num: '输出电压过高',
+            message: '输出电压过高告警',
+            sbname: '1#开关电源'
+          },
+          {
+            leavel: '一级',
+            date: '2019-10-10 10:10:10',
+            site: '科技园',
+            type: '开关电源',
+            num: '输出电压过高',
+            message: '输出电压过高告警',
+            sbname: '1#开关电源'
+          },
+          {
+            leavel: '一级',
+            date: '2019-10-10 10:10:10',
+            site: '科技园',
+            type: '开关电源',
+            num: '输出电压过高',
+            message: '输出电压过高告警',
+            sbname: '1#开关电源'
+          },
+          {
+            leavel: '一级',
+            date: '2019-10-10 10:10:10',
+            site: '科技园',
+            type: '开关电源',
+            num: '输出电压过高',
+            message: '输出电压过高告警',
+            sbname: '1#开关电源'
+          },
+          {
+            leavel: '一级',
+            date: '2019-10-10 10:10:10',
+            site: '科技园',
+            type: '开关电源',
+            num: '输出电压过高',
+            message: '输出电压过高告警',
+            sbname: '1#开关电源'
+          },
+          {
+            leavel: '一级',
+            date: '2019-10-10 10:10:10',
+            site: '科技园',
+            type: '开关电源',
+            num: '输出电压过高',
+            message: '输出电压过高告警',
+            sbname: '1#开关电源'
+          },
+          {
+            leavel: '一级',
+            date: '2019-10-10 10:10:10',
+            site: '科技园',
+            type: '开关电源',
+            num: '输出电压过高',
+            message: '输出电压过高告警',
+            sbname: '1#开关电源'
+          },
+          {
+            leavel: '一级',
+            date: '2019-10-10 10:10:10',
+            site: '科技园',
+            type: '开关电源',
+            num: '输出电压过高',
+            message: '输出电压过高告警',
+            sbname: '1#开关电源'
+          },
+          {
+            leavel: '一级',
+            date: '2019-10-10 10:10:10',
+            site: '科技园',
+            type: '开关电源',
+            num: '输出电压过高',
+            message: '输出电压过高告警',
+            sbname: '1#开关电源'
+          },
+          {
+            leavel: '一级',
+            date: '2019-10-10 10:10:10',
+            site: '科技园',
+            type: '开关电源',
+            num: '输出电压过高',
+            message: '输出电压过高告警',
+            sbname: '1#开关电源'
+          },
+          {
+            leavel: '一级',
+            date: '2019-10-10 10:10:10',
+            site: '科技园',
+            type: '开关电源',
+            num: '输出电压过高',
+            message: '输出电压过高告警',
+            sbname: '1#开关电源'
           }
         ]
         this.tableData.forEach((item, index) => {

@@ -1,6 +1,7 @@
 <template>
     <div>
-      <query-table :tools="tools" :tables="tables"
+      <query-table :tools="tools"
+                   :tables="tables"
                    :form-fields="formFields"></query-table>
     </div>
 </template>
@@ -81,34 +82,42 @@ export default {
         },
         columns: [
           {
-            label: '姓名',
-            key: 'name',
-            width: '100px'
+            label: '告警级别',
+            type: 'tag',
+            key: 'leavel'
           },
           {
-            label: '性别',
-            key: 'gender',
-            width: '100px'
+            label: '告警时间',
+            key: 'date'
           },
           {
-            label: '年龄',
-            key: 'age',
-            width: '100px'
+            label: '局站/机房',
+            type: 'btn-text',
+            style: 'red',
+            key: 'site',
+            func: (row) => {
+              this.alert()
+            }
           },
           {
-            label: '姓名',
-            key: 'name',
-            width: '100px'
+            label: '设备类型',
+            key: 'type',
+            type: 'point',
+            color: () => {
+              return 'red'
+            }
           },
           {
-            label: '性别',
-            key: 'gender',
-            width: '100px'
+            label: '告警量',
+            key: 'num'
           },
           {
-            label: '年龄',
-            key: 'age',
-            width: ''
+            label: '告警信息',
+            key: 'message'
+          },
+          {
+            label: '设备名称',
+            key: 'sbname'
           }
         ],
         operation: {
@@ -116,18 +125,44 @@ export default {
           label: '操作',
           width: '200px',
           options: [
+            // {
+            //   label: '123',
+            //   type: 'button',
+            //   icon: 'el-icon-info',
+            //   size: 'mini',
+            //   show: false,
+            //   func: () => {
+            //     alert(123)
+            //   }
+            // },
             {
-              label: '123',
-              icon: 'el-icon-info',
-              size: 'mini',
+              label: '增',
+              icon: 'el-icon-circle-check-outline',
+              type: 'icon',
               func: () => {
                 alert(123)
               }
             },
             {
-              label: '321',
-              icon: 'el-icon-info',
-              type: 'primary',
+              label: '删',
+              icon: 'el-icon-circle-close-outline',
+              type: 'icon',
+              func: () => {
+                alert(123)
+              }
+            },
+            {
+              label: '改',
+              icon: 'el-icon-edit-outline',
+              type: 'icon',
+              func: () => {
+                alert(123)
+              }
+            },
+            {
+              label: '查',
+              icon: 'el-icon-zoom-in',
+              type: 'icon',
               func: () => {
                 alert(123)
               }
@@ -135,6 +170,11 @@ export default {
           ]
         }
       }
+    }
+  },
+  methods: {
+    alert () {
+      alert(312)
     }
   }
 }

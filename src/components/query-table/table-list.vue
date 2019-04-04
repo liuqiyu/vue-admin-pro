@@ -2,7 +2,7 @@
   <div class="table-list" style="width: 100%">
     <el-table
       v-bind="attr"
-      class="default-table"
+      class="asp-table"
       :height="tableHeight"
       :data="tableData"
       :default-sort = "{prop: 'name', order: 'descending'}"
@@ -24,31 +24,65 @@
       </el-table-column>
       <template v-for="(col, i) in columns">
         <el-table-column
+          class="table-column"
           sortable="custom"
           :prop="col.key"
           :key="col.key + i"
           :label="col.label"
           :width="col.width">
+          <template slot-scope="scope">
+            <!--文本-->
+            <span v-if="col.type === undefined || col.type === 'text'">{{scope.row[col.key]}}</span>
+
+            <!--标签-->
+            <el-tag v-else-if="col.type === 'tag'"
+                    type="success">标签二</el-tag>
+
+            <!--字体可点击按钮-->
+            <span v-else-if="col.type === 'btn-text'"
+                  :style="{color: col.style}"
+                  class="text-btn"
+                  @click.stop="handleCommand(col, scope.row)">{{scope.row[col.key]}}</span>
+
+            <!--文本带红点-->
+            <div v-else-if="col.type === 'point'"
+                  class="text-point">
+              <span class="point"
+                    :style="{background: setColor(col, scope.row)}"></span>
+              {{scope.row[col.key]}}
+            </div>
+          </template>
         </el-table-column>
       </template>
       <el-table-column
         v-if="operation && operation.options.length > 0"
-        header-align="center"
+        header-align="left"
         :fixed="operation.fixed"
         :label="operation.label"
         :width="operation.width">
         <template slot-scope="scope">
-          <el-button class="table-btn"
-             v-for="(btn, i) in operation.options"
-             :key="btn.label+i"
-             :icon="btn.icon"
-             :size="btn.size || 'mini'"
-             v-show="operationShow(btn, scope.row)"
-             :type="btn.type || 'primary'"
-             :disabled="operationDisabled(btn, scope.row)"
-             @click.stop="handleCommand(btn, scope.row)">
-            {{btn.label}}
-          </el-button>
+          <template v-for="(btn, i) in operation.options">
+            <el-button v-if="btn.type === 'button'"
+                       class="table-btn"
+                       :key="btn.label+i"
+                       :icon="btn.icon"
+                       :size="btn.size || 'mini'"
+                       v-show="operationShow(btn, scope.row)"
+                       :type="btn.type || 'primary'"
+                       :disabled="operationDisabled(btn, scope.row)"
+                       @click.stop="handleCommand(btn, scope.row)">
+              {{btn.label}}
+            </el-button>
+            <el-tooltip v-else-if="btn.type === 'icon'"
+                        class="item"
+                        effect="dark"
+                        :content="btn.label"
+                        placement="top-start"
+                        :key="btn.label+i">
+                <span class="operation-icon"
+                      :class="btn.icon"></span>
+            </el-tooltip>
+          </template>
         </template>
       </el-table-column>
     </el-table>
@@ -99,6 +133,15 @@ export default {
     // this.$bus.$off('GLOBAL_RESIZE', this.handleResize);
   },
   methods: {
+    setColor (col, row) {
+      if (!col.color) {
+        return '#fff'
+      }
+      if (typeof col.color === 'function') {
+        return col.color(row)
+      }
+      return col.color
+    },
     handleCommand (btn, row) {
       if (!btn.func) {
         return
@@ -159,5 +202,31 @@ export default {
   .table-btn {
     margin-right: 8px;
     cursor: pointer;
+  }
+
+  .asp-table {
+    .text-btn {
+      color: #409EFF;
+      cursor: pointer;
+    }
+    .text-point {
+      .point {
+        display: inline-block;
+        margin-right: 10px;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: #fff;
+      }
+    }
+  }
+
+  .operation-icon {
+    margin: 0 10px;
+    cursor: pointer;
+    font-size: 16px;
+    &:hover {
+      color: #000;
+    }
   }
 </style>
