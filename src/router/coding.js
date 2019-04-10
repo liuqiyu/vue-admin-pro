@@ -1,6 +1,7 @@
 import Layout from './../views/layout'
 const Index = () => import(/* webpackChunkName: "coding" */ './../views/coding')
 const Add = () => import(/* webpackChunkName: "coding" */ '../views/coding/add')
+const Table = () => import(/* webpackChunkName: "coding" */ '../views/coding/table.vue')
 
 export default [
   {
@@ -25,6 +26,14 @@ export default [
         meta: {
           tag: '/coding/index',
           title: '编程-新增'
+        }
+      },
+      {
+        path: 'table',
+        component: Table,
+        meta: {
+          tag: '/coding/index',
+          title: '编程-列表'
         }
       }
     ]
