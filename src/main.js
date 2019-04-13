@@ -7,6 +7,13 @@ import store from './store/index'
 import AspUI from './components'
 import './assets/scss/index.scss'
 import http from './utils/http'
+import * as filters from './utils/filter'
+
+console.log(filters)
+
+Object.keys(filters).forEach((key) => {
+  Vue.filter(key, filters[key])
+})
 
 Vue.config.productionTip = false
 

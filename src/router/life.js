@@ -1,13 +1,14 @@
 import Layout from './../views/layout'
-const Index = () => import(/* webpackChunkName: "coding" */ './../views/life')
-const Add = () => import(/* webpackChunkName: "coding" */ '../views/life/add')
+const Index = () => import(/* webpackChunkName: "life" */ './../views/life')
+const Add = () => import(/* webpackChunkName: "life" */ './../views/life/add')
 
 export default [
   {
     path: '/life',
     name: 'life',
     meta: {
-      name: '生活'
+      name: '生活',
+      dropMenu: true
     },
     component: Layout,
     children: [

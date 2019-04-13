@@ -9,7 +9,8 @@ const router = {
       state.mainNav.forEach((item) => {
         arr.push({
           name: item.meta.name,
-          path: item.path
+          path: item.path,
+          dropMenu: item.meta.dropMenu
         })
       })
       return arr

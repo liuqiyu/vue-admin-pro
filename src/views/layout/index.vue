@@ -6,6 +6,7 @@
           <navbar></navbar>
         </el-header>
         <el-main class="asp-main">
+          <tagsView></tagsView>
           <keep-alive>
             <router-view></router-view>
           </keep-alive>
@@ -17,11 +18,13 @@
 <script>
 import topbar from './topbar'
 import navbar from './navbar'
+import tagsView from './tags-view'
 export default {
   name: 'index',
   components: {
     topbar,
-    navbar
+    navbar,
+    tagsView
   }
 }
 </script>

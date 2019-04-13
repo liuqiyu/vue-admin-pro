@@ -3,23 +3,21 @@
     <div class="left-nav"
          @mouseover="hoverNavbar"
          @mouseleave="leaveNavbar">
-      <ul>
+      <el-menu :default-active="activeIndex"
+               background-color="#000"
+               text-color="#999"
+               :router="true"
+               active-text-color="#46BAFE"
+               class="el-menu-demo"
+               mode="horizontal"
+               @select="handleSelect">
         <template v-for="(item, idx) in $store.getters.mainNav">
-          <router-link v-if="!item.dropMenu"
-                       :to="item.path"
-                       tag='li'
-                       data-type="link"
-                       class="f-item"
-                       :key="idx">
-            {{item.name}}
-          </router-link>
-          <li v-else
-            class="f-item"
-              data-type="li"
-            :to="item.path"
-            :key="idx">{{item.name}}</li>
+          <el-menu-item :index="item.path"
+                        :route="item.path"
+                        :key="idx">{{item.name}}</el-menu-item>
         </template>
-      </ul>
+
+      </el-menu>
       <div class="drop-menu" v-show="showDropMenu">
         <ul>
           <router-link tag="li"
@@ -37,13 +35,19 @@ export default {
   name: 'navbar',
   mounted () {
     console.log(this.$store.router)
+    console.log(this.$route)
   },
   data () {
     return {
+      activeIndex: '1',
+      activeIndex2: '1',
       showDropMenu: false
     }
   },
   methods: {
+    handleSelect (key, keyPath) {
+      console.log(key, keyPath)
+    },
     hoverNavbar (e) {
       console.log(e.target.getAttribute('data-type'))
       if (e.target.getAttribute('data-type') && e.target.getAttribute('data-type') === 'li') {

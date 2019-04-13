@@ -1,129 +1,61 @@
 <template>
-    <div>
-      <query-table :tools="tools"
-                   :tables="tables"
-                   :form-fields="formFields"></query-table>
-    </div>
+  <el-tree
+    :props="props"
+    :load="loadNode"
+    lazy
+    show-checkbox
+    @check-change="handleCheckChange">
+  </el-tree>
 </template>
 
 <script>
-
 export default {
-  name: 'coding',
   data () {
     return {
-      tools: [
-        {
-          label: '新增',
-          icon: 'el-icon-success',
-          type: 'primary',
-          func: () => {
-            alert('新增')
-          }
-        },
-        {
-          label: '修改',
-          icon: 'el-icon-error',
-          type: 'primary',
-          func: () => {
-            alert('修改')
-          }
-        }
-      ],
-      // 表单配置
-      formFields: [
-        {
-          label: '姓名',
-          type: 'text',
-          placeholder: '请输入姓名',
-          columnName: 'name'
-        },
-        {
-          label: '状态',
-          type: 'select',
-          placeholder: '请选中状态',
-          columnName: 'status',
-          lookup: ''
-        },
-        {
-          label: '日期范围',
-          type: 'daterange',
-          placeholder: '请选择日期范围',
-          columnName: 'daterange'
-        },
-        {
-          label: '时间范围',
-          type: 'datetimerange',
-          placeholder: '请选择时间范围',
-          columnName: 'datetimerange'
-        }
-      ],
-      // 表格配置
-      tables: {
-        url: {
-          method: '/overview/list'
-        },
-        columns: [
-          {
-            label: '姓名',
-            key: 'name',
-            width: '100px'
-          },
-          {
-            label: '性别',
-            key: 'gender',
-            width: '100px'
-          },
-          {
-            label: '年龄',
-            key: 'age',
-            width: '100px'
-          },
-          {
-            label: '姓名',
-            key: 'name',
-            width: '100px'
-          },
-          {
-            label: '性别',
-            key: 'gender',
-            width: '100px'
-          },
-          {
-            label: '年龄',
-            key: 'age',
-            width: ''
-          }
-        ],
-        operation: {
-          fixed: 'right',
-          label: '操作',
-          width: '200px',
-          options: [
-            {
-              label: '123',
-              icon: 'el-icon-info',
-              size: 'mini',
-              func: () => {
-                alert(123)
-              }
-            },
-            {
-              label: '321',
-              icon: 'el-icon-info',
-              type: 'primary',
-              func: () => {
-                alert(123)
-              }
-            }
-          ]
-        }
+      props: {
+        label: 'name',
+        children: 'zones'
+      },
+      count: 1
+    }
+  },
+  methods: {
+    handleCheckChange (data, checked, indeterminate) {
+      console.log(data, checked, indeterminate)
+    },
+    handleNodeClick (data) {
+      console.log(data)
+    },
+    loadNode (node, resolve) {
+      if (node.level === 0) {
+        return resolve([{ name: 'region1' }, { name: 'region2' }])
       }
+      // if (node.level > 3) return resolve([])
+
+      var hasChild
+      if (node.data.name === 'region1') {
+        hasChild = true
+      } else if (node.data.name === 'region2') {
+        hasChild = false
+      } else {
+        hasChild = Math.random() > 0.5
+      }
+
+      setTimeout(() => {
+        var data
+        if (hasChild) {
+          data = [{
+            name: 'zone' + this.count++
+          }, {
+            name: 'zone' + this.count++
+          }]
+        } else {
+          data = []
+        }
+
+        resolve(data)
+      }, 500)
     }
   }
 }
 </script>
-
-<style scoped>
-
-</style>

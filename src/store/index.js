@@ -1,15 +1,17 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import router from './modules/router'
+import tagsView from './modules/tagsView'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   modules: {
-    router
+    router,
+    tagsView
   },
   state: {
-    name: 123
+    name: 321
   },
   getters: {
     name: state => state.name

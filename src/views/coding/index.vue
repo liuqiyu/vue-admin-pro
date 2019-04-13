@@ -3,7 +3,9 @@
 <!--      <query-table :tools="tools"-->
 <!--                   :tables="tables"-->
 <!--                   :form-fields="formFields"></query-table>-->
-      <iframe src="http://www.baidu.com" frameborder="0" width="1200" height="600"></iframe>
+      {{ 12321321 | thousands}}
+      {{ new Date() | month}}
+<!--      {{ new Date() | date('YYYY-MM-DD HH:mm:ss')}}-->
     </div>
 </template>
 
