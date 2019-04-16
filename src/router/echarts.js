@@ -4,28 +4,28 @@ const Add = () => import(/* webpackChunkName: "echarts" */ '../views/echarts/add
 
 export default [
   {
-    path: '/echarts',
+    path: '/',
     name: 'echarts',
     meta: {
-      name: '地图',
+      title: '地图',
       dropMenu: true
     },
     component: Layout,
     children: [
       {
-        path: 'index',
+        path: 'echarts/index',
         component: Index,
         meta: {
           tag: '/echarts/index',
-          title: '地图-首页'
+          title: '首页'
         }
       },
       {
-        path: 'add',
+        path: 'echarts/add',
         component: Add,
         meta: {
           tag: '/echarts/index',
-          title: '地图-新增'
+          title: '新增'
         }
       }
     ]

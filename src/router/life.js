@@ -4,28 +4,28 @@ const Add = () => import(/* webpackChunkName: "life" */ './../views/life/add')
 
 export default [
   {
-    path: '/life',
+    path: '/',
     name: 'life',
     meta: {
-      name: '生活',
+      title: '生活',
       dropMenu: true
     },
     component: Layout,
     children: [
       {
-        path: 'index',
+        path: 'life/index',
         component: Index,
         meta: {
           tag: '/coding/index',
-          title: '编程-首页'
+          title: '首页'
         }
       },
       {
-        path: 'add',
+        path: 'life/add',
         component: Add,
         meta: {
           tag: '/coding/index',
-          title: '编程-新增'
+          title: '新增'
         }
       }
     ]

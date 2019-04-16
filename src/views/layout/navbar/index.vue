@@ -1,34 +1,34 @@
 <template>
   <div class="nav-bar">
-    <div class="left-nav"
-         @mouseover="hoverNavbar"
-         @mouseleave="leaveNavbar">
-      <ul>
-        <template v-for="(item, idx) in $store.getters.mainNav">
-          <router-link v-if="!item.dropMenu"
-                       :to="item.path"
-                       tag='li'
-                       data-type="link"
-                       class="f-item"
-                       :key="idx">
-            {{item.name}}
-          </router-link>
-          <li v-else
-            class="f-item"
-              data-type="li"
-            :to="item.path"
-            :key="idx">{{item.name}}</li>
-        </template>
-      </ul>
-      <div class="drop-menu" v-show="showDropMenu">
-        <ul>
-          <router-link tag="li"
-                       to="/coding/index">代码首页</router-link>
-          <router-link tag="li"
-                       to="/coding/add">添加</router-link>
-        </ul>
-      </div>
-    </div>
+    <el-menu
+      :default-active="$route.path"
+      class="el-menu-vertical-demo"
+      :router="true"
+      @open="handleOpen"
+      @close="handleClose"
+      background-color="#292C31"
+      text-color="#fff"
+      active-text-color="#46BAFE">
+      <template v-for="(item, index) in $store.getters.mainNav">
+        <el-submenu v-if="item.children && item.children.length > 0"
+                    :index="item.title"
+                    :key="index">
+          <template slot="title">
+            <i class="el-icon-location"></i>
+            <span>{{item.title}}</span>
+          </template>
+          <el-menu-item v-for="(cell, key) in item.children"
+                        :index="cell.path"
+                        :key="key">{{cell.title}}</el-menu-item>
+        </el-submenu>
+        <el-menu-item v-else
+                      :index="item.path"
+                      :key="index">
+          <i class="el-icon-menu"></i>
+          <span slot="title">{{item.title}}</span>
+        </el-menu-item>
+      </template>
+    </el-menu>
   </div>
 </template>
 
@@ -36,26 +36,21 @@
 export default {
   name: 'navbar',
   mounted () {
-    console.log(this.$store.router)
+    console.log(this.$route)
   },
   data () {
     return {
+      activeIndex: '1',
+      activeIndex2: '1',
       showDropMenu: false
     }
   },
   methods: {
-    hoverNavbar (e) {
-      console.log(e.target.getAttribute('data-type'))
-      if (e.target.getAttribute('data-type') && e.target.getAttribute('data-type') === 'li') {
-        this.showDropMenu = true
-      }
+    handleOpen (key, keyPath) {
+      console.log(key, keyPath)
     },
-    leaveNavbar (e) {
-      this.showDropMenu = false
-      console.log(e.target.getAttribute('data-type'))
-      if (e.target.getAttribute('data-type') && e.target.getAttribute('data-type') === 'link') {
-        this.showDropMenu = false
-      }
+    handleClose (key, keyPath) {
+      console.log(key, keyPath)
     }
   }
 }
@@ -65,40 +60,7 @@ export default {
   .nav-bar {
     position: relative;
     width: 100%;
-    height: 34px;
-    background: #000000;
-    padding: 0 20px;
-    line-height: 34px;
-    display: flex;
-    justify-content: space-between;
-    .left-nav {
-      > ul {
-        overflow: hidden;
-      }
-      .f-item {
-        float: left;
-        margin-right: 10px;
-        font-size: 12px;
-        cursor: pointer;
-      }
-    }
-    .drop-menu {
-      position: absolute;
-      top: 34px;
-      left: 0;
-      width: 100%;
-      height: 100px;
-      background: #FDFDFD;
-      color: #000;
-      padding: 20px;
-      box-shadow: 0 2px 3px rgba(0, 0, 0, .3);
-      z-index: 99;
-      ul li {
-        float: left;
-        margin-right: 10px;
-        cursor: pointer;
-      }
-    }
+    /*background: #000000;*/
   }
   .router-link-exact-active {
     color: red;

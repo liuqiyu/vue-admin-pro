@@ -9,11 +9,12 @@ export default {
 </script>
 
 <style scoped lang="scss">
+  @import './../../../assets/scss/variable';
   .top-bar {
     width: 100%;
     height: 60px;
     line-height: 60px;
-    background: #292C31;
+    background: $top-bg;
     padding: 0 20px;
     font-size: 20px;
   }

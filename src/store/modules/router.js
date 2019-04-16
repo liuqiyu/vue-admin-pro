@@ -4,21 +4,32 @@ const router = {
     chooseRouter: []
   },
   getters: {
-    mainNav: state => {
-      const arr = []
-      state.mainNav.forEach((item) => {
-        arr.push({
-          name: item.meta.name,
-          path: item.path,
-          dropMenu: item.meta.dropMenu
-        })
-      })
-      return arr
-    }
+    mainNav: state => state.mainNav
   },
   mutations: {
     SET_ROUTER (state, route) {
-      state.mainNav = route
+      const arr = []
+      route.forEach((item) => {
+        if (item.children && item.children.length <= 1) {
+          arr.push({
+            title: item.meta.title,
+            path: `${item.path}${item.children[0].path}`
+          })
+        } else {
+          const arrChild = []
+          item.children.forEach((cell) => {
+            arrChild.push({
+              title: cell.meta.title,
+              path: `${item.path}${cell.path}`
+            })
+          })
+          arr.push({
+            title: item.meta.title,
+            children: arrChild
+          })
+        }
+      })
+      state.mainNav = arr
     },
     CHOOSE_ROUTER (state) {
       console.log(state.mainNav)

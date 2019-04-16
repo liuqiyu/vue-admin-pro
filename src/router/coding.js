@@ -5,39 +5,38 @@ const Table = () => import(/* webpackChunkName: "coding" */ '../views/coding/tab
 
 export default [
   {
-    path: '/coding',
+    path: '/',
     name: 'coding',
     meta: {
-      name: '编程',
-      dropMenu: true
+      title: '编程'
     },
     component: Layout,
     children: [
       {
-        path: 'index',
+        path: 'coding/index',
         name: '/coding/index',
         component: Index,
         meta: {
           tag: '/coding',
-          title: '编程-首页'
+          title: '列表'
         }
       },
       {
-        path: 'add',
-        name: '/coding/add',
+        path: 'coding/pane',
+        name: '/coding/pane',
         component: Add,
         meta: {
           tag: '/coding',
-          title: '编程-新增'
+          title: '布局'
         }
       },
       {
-        path: 'table',
+        path: 'coding/table',
         name: '/coding/table',
         component: Table,
         meta: {
           tag: '/coding',
-          title: '编程-列表'
+          title: '表格'
         }
       }
     ]

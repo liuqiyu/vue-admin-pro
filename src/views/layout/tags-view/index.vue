@@ -103,7 +103,10 @@ export default {
 
 <style scoped lang="scss">
   .tags-view-wrapper {
+    flex: none;
+    height: 35px;
     width: 100%;
+    border-bottom: 1px solid #e1e1e1;
     .tags-view-item {
       display: inline-block;
       position: relative;
