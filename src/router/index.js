@@ -11,13 +11,12 @@ const routerModule = getRoutes(require.context('./', false, /\.js$/), './index.j
 
 console.log(routerModule)
 
-const routes = [
+export const routes = [
   {
-    path: '/',
+    path: '',
     name: 'home',
     meta: {
-      title: '首页',
-      dropMenu: false
+      title: '首页'
     },
     redirect: 'home',
     component: Layout,
@@ -25,7 +24,12 @@ const routes = [
       {
         path: 'home',
         name: 'home',
-        component: home
+        component: home,
+        meta: {
+          tag: '/home',
+          title: '首页',
+          affix: true
+        }
       }
     ]
   },

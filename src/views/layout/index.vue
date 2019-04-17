@@ -80,10 +80,12 @@ export default {
       padding: 0 !important;
       display: flex;
       flex-direction: column;
+      overflow: hidden;
       .asp-content {
         flex: 1;
         height: 100%;
         padding: 20px;
+        overflow-y: auto;
       }
     }
   }
