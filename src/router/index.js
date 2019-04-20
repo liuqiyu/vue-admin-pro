@@ -7,29 +7,36 @@ import { getRoutes } from './../utils/router'
 
 Vue.use(Router)
 
-console.log(store)
-
 const routerModule = getRoutes(require.context('./', false, /\.js$/), './index.js')
 
-const routes = [
+console.log(routerModule)
+
+export const routes = [
   {
-    path: '/',
+    path: '',
     name: 'home',
     meta: {
-      name: '首页',
-      dropMenu: false
+      title: '首页'
     },
+    redirect: 'home',
     component: Layout,
     children: [
       {
-        path: '',
+        path: 'home',
         name: 'home',
-        component: home
+        component: home,
+        meta: {
+          tag: '/home',
+          title: '首页',
+          affix: true
+        }
       }
     ]
   },
   ...routerModule
 ]
+
+console.log(routes)
 
 store.commit('SET_ROUTER', routes)
 

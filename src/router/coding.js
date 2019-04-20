@@ -6,12 +6,11 @@ const Table = () => import(/* webpackChunkName: "coding" */ '../views/coding/tab
 export default [
   {
     path: '/coding',
-    name: 'coding',
-    meta: {
-      name: '编程',
-      dropMenu: true
-    },
+    name: 'Coding',
     component: Layout,
+    meta: {
+      title: '编程'
+    },
     children: [
       {
         path: 'index',
@@ -19,16 +18,17 @@ export default [
         component: Index,
         meta: {
           tag: '/coding',
-          title: '编程-首页'
+          title: '列表',
+          affix: false
         }
       },
       {
-        path: 'add',
-        name: '/coding/add',
+        path: 'pane',
+        name: '/coding/pane',
         component: Add,
         meta: {
           tag: '/coding',
-          title: '编程-新增'
+          title: '布局'
         }
       },
       {
@@ -37,7 +37,7 @@ export default [
         component: Table,
         meta: {
           tag: '/coding',
-          title: '编程-列表'
+          title: '表格'
         }
       }
     ]

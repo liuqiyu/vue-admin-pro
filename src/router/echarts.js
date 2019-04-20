@@ -6,26 +6,27 @@ export default [
   {
     path: '/echarts',
     name: 'echarts',
-    meta: {
-      name: '地图',
-      dropMenu: true
-    },
     component: Layout,
+    meta: {
+      title: '地图'
+    },
     children: [
       {
         path: 'index',
+        name: '/echarts/index',
         component: Index,
         meta: {
           tag: '/echarts/index',
-          title: '地图-首页'
+          title: '图表1'
         }
       },
       {
         path: 'add',
+        name: '/echarts/add',
         component: Add,
         meta: {
           tag: '/echarts/index',
-          title: '地图-新增'
+          title: '图表2'
         }
       }
     ]

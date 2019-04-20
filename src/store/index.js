@@ -11,7 +11,7 @@ export default new Vuex.Store({
     tagsView
   },
   state: {
-    name: 321
+    name: '更改'
   },
   getters: {
     name: state => state.name

@@ -6,26 +6,27 @@ export default [
   {
     path: '/life',
     name: 'life',
-    meta: {
-      name: '生活',
-      dropMenu: true
-    },
     component: Layout,
+    meta: {
+      title: '生活'
+    },
     children: [
       {
         path: 'index',
+        name: '/life/index',
         component: Index,
         meta: {
-          tag: '/coding/index',
-          title: '编程-首页'
+          tag: '/add/index',
+          title: '生活1'
         }
       },
       {
         path: 'add',
+        name: '/life/add',
         component: Add,
         meta: {
-          tag: '/coding/index',
-          title: '编程-新增'
+          tag: '/add/index',
+          title: '生活2'
         }
       }
     ]
