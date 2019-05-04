@@ -1,6 +1,7 @@
 import Layout from './../views/layout'
 const Index = () => import(/* webpackChunkName: "echarts" */ './../views/echarts')
 const Add = () => import(/* webpackChunkName: "echarts" */ '../views/echarts/add')
+const Map = () => import(/* webpackChunkName: "echarts" */ '../views/echarts/map')
 
 export default [
   {
@@ -27,6 +28,15 @@ export default [
         meta: {
           tag: '/echarts/index',
           title: '图表2'
+        }
+      },
+      {
+        path: 'map',
+        name: '/echarts/map',
+        component: Map,
+        meta: {
+          tag: '/echarts/index',
+          title: '地图'
         }
       }
     ]
