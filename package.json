@@ -13,6 +13,7 @@
     "element-ui": "^2.7.0",
     "moment": "^2.24.0",
     "pinyin": "^2.8.3",
+    "vis": "^4.21.0",
     "vue": "^2.6.6",
     "vue-router": "^3.0.1",
     "vue-splitpane": "^1.0.4",
