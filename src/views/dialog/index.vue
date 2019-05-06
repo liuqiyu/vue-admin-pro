@@ -1,6 +1,7 @@
 <template>
   <div>
-    <button @click="click">点击</button>312312321
+    <button @click="click">点击aa</button>
+    <button @click="click1">点击bb</button>
     <!--弹出框-->
     <qy-dialog v-bind="dialogOption"
                 @close="closeDynamicDialog"
@@ -16,9 +17,12 @@
 
 <script>
 import aa from './aa'
+import bb from './bb'
+
 export default {
   components: {
-    aa
+    aa,
+    bb
   },
   data () {
     return {
@@ -33,7 +37,10 @@ export default {
   },
   methods: {
     click () {
-      this.showDynamicDialog('aa', '新增任务', '850px')
+      this.showDynamicDialog('aa', 'aa新增任务', '850px')
+    },
+    click1 () {
+      this.showDynamicDialog('bb', 'bb新增任务', '850px')
     },
     showDynamicDialog (view, title, width = '1200px') {
       this.dialogOption.show = true
@@ -41,7 +48,14 @@ export default {
       this.dialogOption.title = title
       this.dialogOption.width = width
     },
-    closeDynamicDialog () {
+    closeDynamicDialog (boolean) {
+      if (boolean) {
+        this.$refs.queryTable.loadTable()
+      }
+      this.dialogOption.show = false
+      this.dialogOption.view = null
+      this.dialogOption.title = null
+      this.dialogOption.width = 0
     }
   }
 }
