@@ -6,7 +6,6 @@
 
 <script>
 import echarts from 'echarts'
-import '../../../node_modules/echarts/map/js/china.js' // 引入中国地图数据
 
 export default {
   name: 'echarts',

@@ -3,6 +3,7 @@ const Index = () => import(/* webpackChunkName: "echarts" */ './../views/echarts
 const Add = () => import(/* webpackChunkName: "echarts" */ '../views/echarts/add')
 const Topo1 = () => import(/* webpackChunkName: "echarts" */ '../views/echarts/topo1')
 const Topo2 = () => import(/* webpackChunkName: "echarts" */ '../views/echarts/topo2')
+const Map = () => import(/* webpackChunkName: "echarts" */ '../views/echarts/map')
 
 export default [
   {
@@ -47,6 +48,15 @@ export default [
         meta: {
           tag: '/echarts/index',
           title: '拓扑图2'
+        }
+      },
+      {
+        path: 'map',
+        name: '/echarts/map',
+        component: Map,
+        meta: {
+          tag: '/echarts/index',
+          title: '地图'
         }
       }
     ]

@@ -86,6 +86,8 @@ export default {
         height: 100%;
         padding: 20px;
         overflow-y: auto;
+        background-image: url("./../../assets/images/main-bg.jpg");
+        background-size: cover;
       }
     }
   }
