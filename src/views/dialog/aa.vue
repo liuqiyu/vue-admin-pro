@@ -6,20 +6,24 @@
     <p>需要注意的是内容是默认不居中的</p>
     <p>需要注意的是内容是默认不居中的</p>
     <p>需要注意的是内容是默认不居中的</p>
-    <qy-dialog v-bind="dialogOption"
-               @close="closeDynamicDialog"
-               :view.sync="dialogOption.view"
-               :visible.sync="dialogOption.show">
-      <component :is="dialogOption.view"
-                 :dialog-data="dialogData"
-                 @close="closeDynamicDialog">
-      </component>
-    </qy-dialog>
+    <el-date-picker
+      v-model="value1"
+      type="date"
+      placeholder="选择日期">
+    </el-date-picker>
+<br/>
+    32131231
   </div>
 </template>
 
 <script>
 export default {
+  props: ['abc'],
+  data () {
+    return {
+      value1: ''
+    }
+  }
 }
 </script>
 

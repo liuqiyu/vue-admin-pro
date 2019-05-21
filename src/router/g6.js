@@ -1,22 +1,22 @@
 import Layout from './../views/layout'
-const Index = () => import(/* webpackChunkName: "coding" */ './../views/vis')
+const Index = () => import(/* webpackChunkName: "g6" */ './../views/g6')
 
 export default [
   {
-    path: '/vis',
-    name: 'Vis',
+    path: '/g6',
+    name: 'G6',
     component: Layout,
     meta: {
-      title: 'vis'
+      title: 'g6'
     },
     children: [
       {
         path: 'index',
-        name: '/vis/index',
+        name: '/g6/index',
         component: Index,
         meta: {
-          tag: '/vis',
-          title: 'vis',
+          tag: '/g6',
+          title: '首页',
           affix: false
         }
       }

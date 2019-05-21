@@ -3,7 +3,7 @@ import { Message } from 'element-ui'
 // import { HOST } from './../config';
 
 const service = axios.create({
-  baseURL: 'http://localhost:3000',
+  baseURL: 'http://localhost:5858',
   timeout: 20000
 })
 

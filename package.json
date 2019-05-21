@@ -3,17 +3,18 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "dev": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@antv/g6": "^3.0.4",
+    "@antv/g6-editor": "^1.2.0",
     "axios": "^0.18.0",
     "echarts": "^4.2.1",
-    "element-ui": "^2.7.0",
+    "element-ui": "^2.8.2",
     "moment": "^2.24.0",
     "pinyin": "^2.8.3",
-    "vis": "^4.21.0",
     "vue": "^2.6.6",
     "vue-router": "^3.0.1",
     "vue-splitpane": "^1.0.4",

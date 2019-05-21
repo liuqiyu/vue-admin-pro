@@ -6,6 +6,8 @@
       {{ 12321321 | thousands}}
       {{ new Date() | month}}
 <!--      {{ new Date() | date('YYYY-MM-DD HH:mm:ss')}}-->
+      <el-input v-model="$store.state.name"></el-input>
+      {{$store.state.name}}
       <div class="map-tooltip">
         <span class="icon iconfont iconjiaobiao"></span>
         <header class="title">成都数据中心</header>

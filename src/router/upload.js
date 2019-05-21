@@ -1,22 +1,22 @@
 import Layout from './../views/layout'
-const Index = () => import(/* webpackChunkName: "coding" */ './../views/topo')
+const Index = () => import(/* webpackChunkName: "g6" */ './../views/upload')
 
 export default [
   {
-    path: '/topo',
-    name: 'Topo',
+    path: '/upload',
+    name: 'upload',
     component: Layout,
     meta: {
-      title: '拓扑'
+      title: 'upload'
     },
     children: [
       {
         path: 'index',
-        name: '/topo/index',
+        name: '/upload/index',
         component: Index,
         meta: {
-          tag: '/topo',
-          title: '拓扑',
+          tag: '/upload',
+          title: '首页',
           affix: false
         }
       }
