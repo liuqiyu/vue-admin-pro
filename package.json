@@ -14,10 +14,8 @@
     "echarts": "^4.2.1",
     "element-ui": "^2.8.2",
     "moment": "^2.24.0",
-    "pinyin": "^2.8.3",
     "vue": "^2.6.6",
     "vue-router": "^3.0.1",
-    "vue-splitpane": "^1.0.4",
     "vuex": "^3.0.1"
   },
   "devDependencies": {

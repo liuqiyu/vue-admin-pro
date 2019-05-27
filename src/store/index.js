@@ -11,7 +11,7 @@ export default new Vuex.Store({
     tagsView
   },
   state: {
-    name: '更改'
+    resolutionRatio: (document.documentElement.clientWidth / 1920)
   },
   getters: {
     name: state => state.name
