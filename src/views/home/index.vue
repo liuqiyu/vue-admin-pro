@@ -1,11 +1,21 @@
 <template>
-  <div id="mynetwork">123321</div>
+  <div id="mynetwork">
+    <button @click="click">点击</button>
+  </div>
 </template>
 
 <script>
 export default {
   name: 'index',
-  mounted () {
+  methods: {
+    click () {
+      this.$router.push({
+        path: '/a/index',
+        query: {
+          a: 1
+        }
+      })
+    }
   }
 }
 </script>

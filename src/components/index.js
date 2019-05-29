@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import directives from '../directives'
-// import http from './../utils/http'
+import http from './../utils/http'
 // 全局组件
 import QueryTable from './query-table/index'
 import ToolBar from './query-table/tool-bar'
@@ -18,7 +18,7 @@ const components = [
 
 const setPrototype = () => {
   Vue.prototype.$bus = new Vue()
-  // Vue.prototype.$http = http
+  Vue.prototype.$http = http
   // Vue.component('full-calendar', fullCalendar)
 }
 

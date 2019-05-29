@@ -4,6 +4,7 @@ import Layout from './../views/layout'
 import home from './../views/home'
 import store from './../store'
 import { getRoutes } from './../utils/router'
+import login from './../views/login'
 
 Vue.use(Router)
 
@@ -11,7 +12,7 @@ const routerModule = getRoutes(require.context('./', false, /\.js$/), './index.j
 
 console.log(routerModule)
 
-export const routes = [
+export const layoutRoutes = [
   {
     path: '',
     name: 'home',
@@ -36,9 +37,20 @@ export const routes = [
   ...routerModule
 ]
 
-console.log(routes)
 
-store.commit('SET_ROUTER', routes)
+store.commit('SET_ROUTER', layoutRoutes)
+
+const routes = [
+  {
+    path: '/login',
+    name: 'login',
+    meta: {
+      title: '登录页'
+    },
+    component: login
+  },
+  ...layoutRoutes
+]
 
 export default new Router({
   mode: 'hash',
