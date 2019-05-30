@@ -6,16 +6,19 @@
              :rules="rules"
              :model="formData">
       <div class="form-title">
-        通用性后台管理系统
+        通用型后台管理系统
       </div>
       <el-form-item prop="username">
-        <el-input v-model="formData.username" placeholder="账号">
+        <el-input v-model="formData.username"
+                  placeholder="账号">
           <i slot="prefix"
              class="el-input__icon el-icon-s-custom"></i>
         </el-input>
       </el-form-item>
       <el-form-item prop="password">
-        <el-input v-model="formData.password" placeholder="密码">
+        <el-input v-model="formData.password"
+                  type="password"
+                  placeholder="密码">
           <i slot="prefix"
              class="el-input__icon el-icon-s-cooperation"></i>
         </el-input>
@@ -34,6 +37,7 @@ export default {
   name: 'login',
   data () {
     return {
+      redirect: '',
       formData: {
         username: '',
         password: ''
@@ -48,6 +52,14 @@ export default {
       }
     }
   },
+  watch: {
+    $route: {
+      handler (route) {
+        this.redirect = route.query.redirect || ''
+      },
+      immediate: true
+    }
+  },
   methods: {
     submitForm () {
       this.$refs['ruleForm'].validate(async (valid) => {
@@ -57,7 +69,7 @@ export default {
             password: this.formData.password
           }).then(res => {
             if (res.code === 200) {
-              this.$router.push({ path: '/' })
+              this.$router.push({ path: this.redirect || '/' })
             }
           })
         } else {

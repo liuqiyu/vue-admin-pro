@@ -1,16 +1,43 @@
 import http from './../../utils/http'
+import { setSession, removeSession } from '@/utils/auth'
+
 const user = {
   state: {
+    sessionID: localStorage.getItem('sessionID'),
+    userInfo: JSON.parse(localStorage.getItem('userInfo')) || {}
   },
   getters: {
   },
   mutations: {
+    SET_SESSIONID (state, value) {
+      state.sessionID = value
+    },
+    SEET_USERINFO (state, value) {
+      state.userInfo = value
+    }
   },
   actions: {
     login ({ commit }, formData) {
       return new Promise((resolve, reject) => {
         http.post('/users/login', formData).then(res => {
-          resolve(res.data)
+          // localStorage.setItem('sessionID', res.data.sessionID)
+          setSession(res.data.sessionID)
+          localStorage.setItem('userInfo', JSON.stringify(res.data.data))
+          commit('SET_SESSIONID', res.data.sessionID)
+          commit('SEET_USERINFO', res.data.data)
+          resolve(res)
+        }).catch(err => {
+          reject(err)
+        })
+      })
+    },
+    logout ({ commit }) {
+      return new Promise((resolve, reject) => {
+        http.post('/users/logout').then(res => {
+          removeSession() // 清空session
+          commit('SET_SESSIONID', '')
+          commit('SEET_USERINFO', {})
+          resolve(res)
         }).catch(err => {
           reject(err)
         })

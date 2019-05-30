@@ -10,8 +10,6 @@ Vue.use(Router)
 
 const routerModule = getRoutes(require.context('./', false, /\.js$/), './index.js')
 
-console.log(routerModule)
-
 export const layoutRoutes = [
   {
     path: '',
