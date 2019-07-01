@@ -35,7 +35,6 @@ export const layoutRoutes = [
   ...routerModule
 ]
 
-
 store.commit('SET_ROUTER', layoutRoutes)
 
 const routes = [

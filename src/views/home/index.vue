@@ -1,27 +1,30 @@
 <template>
-  <div id="mynetwork">
-    <button @click="click">点击</button>
+  <div>
+    {{a}}
+    <comp v-model="a"></comp>
   </div>
+
 </template>
 
 <script>
+import comp from './comp'
 export default {
   name: 'index',
-  methods: {
-    click () {
-      this.$router.push({
-        path: '/a/index',
-        query: {
-          a: 1
-        }
-      })
+  components: {
+    comp
+  },
+  data () {
+    return {
+      a: [
+        [0.5, 0],
+        [0.5, 1],
+        [0, 0.5],
+        [1, 0.5]
+      ]
     }
   }
 }
 </script>
 
 <style scoped lang="scss">
-#mynetwork {
-  font-size: 0.14rem;
-}
 </style>

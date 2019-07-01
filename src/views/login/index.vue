@@ -33,6 +33,8 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   name: 'login',
   data () {
@@ -64,13 +66,16 @@ export default {
     submitForm () {
       this.$refs['ruleForm'].validate(async (valid) => {
         if (valid) {
-          this.$store.dispatch('login', {
-            username: this.formData.username,
-            password: this.formData.password
-          }).then(res => {
-            if (res.code === 200) {
-              this.$router.push({ path: this.redirect || '/' })
-            }
+          // this.$store.dispatch('login', {
+          //   username: this.formData.username,
+          //   password: this.formData.password
+          // }).then(res => {
+          //   if (res.code === 200) {
+          //     this.$router.push({ path: this.redirect || '/' })
+          //   }
+          // })
+          axios.get('http://localhost:5858/editor/add', {}).then((res) => {
+            console.log(res)
           })
         } else {
           console.log('error submit!!')

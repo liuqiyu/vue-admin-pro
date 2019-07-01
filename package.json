@@ -5,14 +5,16 @@
   "scripts": {
     "dev": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "prod": "node vue.prod.js",
+    "dll": "webpack -p --progress --config ./webpack.dll.conf.js",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
     "@antv/g6": "^3.0.4",
-    "@antv/g6-editor": "^1.2.0",
     "axios": "^0.18.0",
     "echarts": "^4.2.1",
     "element-ui": "^2.8.2",
+    "express-urlrewrite": "^1.2.0",
     "moment": "^2.24.0",
     "nprogress": "^0.2.0",
     "vue": "^2.6.6",
@@ -25,6 +27,7 @@
     "@vue/cli-service": "^3.5.0",
     "@vue/eslint-config-standard": "^4.0.0",
     "babel-eslint": "^10.0.1",
+    "babel-polyfill": "^6.26.0",
     "eslint": "^5.8.0",
     "eslint-plugin-vue": "^5.0.0",
     "node-sass": "^4.9.0",

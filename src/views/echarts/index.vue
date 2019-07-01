@@ -20,6 +20,7 @@ export default {
       options: {
         tooltip: {
           trigger: 'item',
+          enterable: true,
           formatter: function (params) {
             // console.log(params)
             if (params.seriesType === 'scatter') {
@@ -57,7 +58,7 @@ export default {
           backgroundColor: 'rgba(0,48,255,0.9)',
           borderColor: 'rgba(102,204,255,1)',
           borderWidth: 2,
-          alwaysShowContent: false
+          alwaysShowContent: true
         },
         // 左下角图标
         visualMap: {
