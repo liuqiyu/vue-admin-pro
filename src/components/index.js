@@ -6,15 +6,9 @@ import QueryTable from './query-table/index'
 import ToolBar from './query-table/tool-bar'
 import QueyForm from './query-table/query-form'
 import TableList from './query-table/table-list'
-import QyDialog from './qy-dialog'
+import YyDialog from './yy-dialog'
 
-const components = [
-  QueryTable,
-  ToolBar,
-  QueyForm,
-  TableList,
-  QyDialog
-]
+const components = [QueryTable, ToolBar, QueyForm, TableList, YyDialog]
 
 const setPrototype = () => {
   Vue.prototype.$bus = new Vue()
@@ -22,12 +16,12 @@ const setPrototype = () => {
   // Vue.component('full-calendar', fullCalendar)
 }
 
-const setDirective = (Vue) => {
+const setDirective = Vue => {
   Object.keys(directives).forEach(v => Vue.directive(v, directives[v]))
 }
 
 const install = () => {
-  components.forEach((component) => {
+  components.forEach(component => {
     Vue.component(component.name, component)
   })
   setPrototype(Vue)

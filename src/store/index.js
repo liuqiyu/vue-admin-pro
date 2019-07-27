@@ -13,15 +13,12 @@ export default new Vuex.Store({
     user
   },
   state: {
-    resolutionRatio: (document.documentElement.clientWidth / 1920)
+    resolutionRatio: document.documentElement.clientWidth / 1920
   },
   getters: {
-    name: state => state.name
+    name: state => state.name,
+    routes: state => state.router.routes
   },
-  mutations: {
-
-  },
-  actions: {
-
-  }
+  mutations: {},
+  actions: {}
 })

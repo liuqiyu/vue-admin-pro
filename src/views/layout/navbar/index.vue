@@ -1,42 +1,33 @@
 <template>
   <div class="nav-bar">
-    <el-menu
-      :default-active="$route.path"
-      class="el-menu-vertical-demo"
-      :router="true"
-      @open="handleOpen"
-      @close="handleClose"
-      background-color="#292C31"
-      text-color="#fff"
-      active-text-color="#46BAFE">
-      <template v-for="(item, index) in $store.getters.mainNav">
-        <el-submenu v-if="item.children && item.children.length > 0"
-                    :index="item.title"
-                    :key="index">
-          <template slot="title">
-            <i class="el-icon-location"></i>
-            <span>{{item.title}}</span>
-          </template>
-          <el-menu-item v-for="(cell, key) in item.children"
-                        :index="cell.path"
-                        :key="key">{{cell.title}}</el-menu-item>
-        </el-submenu>
-        <el-menu-item v-else
-                      :index="item.path"
-                      :key="index">
-          <i class="el-icon-menu"></i>
-          <span slot="title">{{item.title}}</span>
-        </el-menu-item>
-      </template>
+    <el-menu :default-active="$route.path"
+             class="el-menu-vertical-demo"
+             :router="true"
+             @open="handleOpen"
+             @close="handleClose"
+             background-color="#292C31"
+             text-color="#fff"
+             active-text-color="#46BAFE">
+      <nav-item v-for="(route, index) in routes"
+                :key="index"
+                :item="route"
+                :base-path="route.path"></nav-item>
     </el-menu>
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+import NavItem from './nav-item'
 export default {
   name: 'navbar',
-  mounted () {
-    console.log(this.$route)
+  components: {
+    NavItem
+  },
+  computed: {
+    ...mapGetters([
+      'routes'
+    ])
   },
   data () {
     return {
@@ -57,12 +48,12 @@ export default {
 </script>
 
 <style scoped lang="scss">
-  .nav-bar {
-    position: relative;
-    width: 100%;
-    /*background: #000000;*/
-  }
-  .router-link-exact-active {
-    color: red;
-  }
+.nav-bar {
+  position: relative;
+  width: 100%;
+  /*background: #000000;*/
+}
+.router-link-exact-active {
+  color: red;
+}
 </style>

@@ -3,7 +3,10 @@
     <el-dropdown trigger="click">
       <span class="el-dropdown-link">
         <div class="avatar">
-            <img width="40" height="40" src="@/assets/images/main-bg.jpg" alt="">
+          <img width="40"
+               height="40"
+               src="@/assets/images/main-bg.jpg"
+               alt="">
         </div>
         <span class="name">
           刘岂宇
@@ -27,8 +30,14 @@ export default {
       console.log('修改信息')
     },
     logout () {
-      this.$store.dispatch('logout').then(() => {
+      this.$store.dispatch('logout').then(res => {
         console.log('注销')
+        if (res.code === 200) {
+          this.$message.success(res.message)
+          this.$router.push({ path: '/login' })
+        } else {
+          this.$message.error('注销失败！')
+        }
       })
     }
   }
@@ -36,30 +45,30 @@ export default {
 </script>
 
 <style scoped lang="scss">
-  .right-tools {
-    display: flex;
-    align-items: center;
-    /deep/ .el-dropdown {
-      .el-dropdown-link {
-        /*display: block;*/
+.right-tools {
+  display: flex;
+  align-items: center;
+  /deep/ .el-dropdown {
+    .el-dropdown-link {
+      /*display: block;*/
+      height: 40px;
+      display: flex;
+      align-items: center;
+      .avatar {
+        width: 40px;
         height: 40px;
-        display: flex;
-        align-items: center;
-        .avatar {
-          width: 40px;
-          height: 40px;
-          border-radius: 50%;
-          border: 1px solid #e1e1e1;
-          overflow: hidden;
-          margin-right: 10px;
-        }
-        .name {
-          color: #f1f1f1;
-        }
-        > i {
-          color: #f5f5f5;
-        }
+        border-radius: 50%;
+        border: 1px solid #e1e1e1;
+        overflow: hidden;
+        margin-right: 10px;
+      }
+      .name {
+        color: #f1f1f1;
+      }
+      > i {
+        color: #f5f5f5;
       }
     }
   }
+}
 </style>

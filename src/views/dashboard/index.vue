@@ -39,7 +39,7 @@
 
 <script>
 export default {
-  name: 'index',
+  name: 'dashboard',
   methods: {
     click () {
       this.$router.push({
@@ -61,10 +61,10 @@ export default {
   width: 300px;
   position: relative;
   padding: 10px 15px 5px 25px;
-  background:rgba(9,8,76,1);
+  background: rgba(9, 8, 76, 1);
   color: #fff;
-  >.title {
-    color: #FFE566;
+  > .title {
+    color: #ffe566;
     font-size: 18px;
   }
   .address {
@@ -90,8 +90,8 @@ export default {
         width: 80px;
         flex: none;
         text-overflow: ellipsis;
-        white-space:nowrap;
-        overflow:hidden;
+        white-space: nowrap;
+        overflow: hidden;
       }
     }
   }

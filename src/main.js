@@ -11,14 +11,16 @@ import http from './utils/http'
 import * as filters from './utils/filter'
 import './permission'
 import './utils/rem'
+import './mock/index'
+console.log(process.env.NODE_ENV)
 
-Object.keys(filters).forEach((key) => {
+Object.keys(filters).forEach(key => {
   Vue.filter(key, filters[key])
 })
 
 Vue.config.productionTip = false
 
-Vue.use(ElementUI)
+Vue.use(ElementUI, { size: 'mini' })
 Vue.use(AspUI)
 
 Vue.prototype.$http = http

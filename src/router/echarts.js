@@ -1,22 +1,21 @@
 import Layout from './../views/layout'
-const Index = () => import(/* webpackChunkName: "echarts" */ './../views/echarts/index.vue')
+const Index = () =>
+  import(/* webpackChunkName: "echarts" */ './../views/echarts/index.vue')
 
 export default [
   {
     path: '/echarts',
     name: 'echarts',
     component: Layout,
-    meta: {
-      title: '地图'
-    },
     children: [
       {
         path: 'index',
         name: '/echarts/index',
         component: Index,
         meta: {
+          icon: 'icon-ditumap29',
           tag: '/echarts/index',
-          title: '图表1'
+          title: '图表'
         }
       }
     ]

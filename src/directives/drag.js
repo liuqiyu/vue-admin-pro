@@ -21,8 +21,10 @@ export default {
 
     dialogHeaderEl.onmousedown = function (e) {
       // 隐藏 el-popper
-      let elArr = document.querySelectorAll('.el-popper:not([style*="display: none"])')
-      elArr && elArr.forEach(v => v.style.display = 'none')
+      let elArr = document.querySelectorAll(
+        '.el-popper:not([style*="display: none"])'
+      )
+      elArr && elArr.forEach(v => (v.style.display = 'none'))
       elArr = null
 
       // 鼠标按下，计算当前元素距离可视区的距离
@@ -59,13 +61,13 @@ export default {
         let top = e.clientY - disY
 
         // 边界处理
-        if (-(left) > minDragDomLeft) {
+        if (-left > minDragDomLeft) {
           left = -minDragDomLeft
         } else if (left > maxDragDomLeft) {
           left = maxDragDomLeft
         }
 
-        if (-(top) > minDragDomTop) {
+        if (-top > minDragDomTop) {
           top = -minDragDomTop
         } else if (top > maxDragDomTop) {
           top = maxDragDomTop

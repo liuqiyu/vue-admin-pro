@@ -1,28 +1,28 @@
 <template>
   <div>
-    <button @click="click">点击aa</button>
-    <button @click="click1">点击bb</button>
+    <button @click="click">弹窗</button>
     <!--弹出框-->
-    <qy-dialog v-bind="dialogOption"
-                @close="closeDynamicDialog"
-                :view.sync="dialogOption.view"
-                :visible.sync="dialogOption.show">
+    <yy-dialog v-bind="dialogOption"
+               @close="closeDynamicDialog"
+               :view.sync="dialogOption.view"
+               :visible.sync="dialogOption.show">
       <component :is="dialogOption.view"
                  :dialog-data="dialogData"
                  @close="closeDynamicDialog">
       </component>
-    </qy-dialog>
+    </yy-dialog>
   </div>
 </template>
 
 <script>
-import aa from './aa'
-import bb from './bb'
+import TestDialog from './test-dialog'
 
 export default {
   components: {
-    aa,
-    bb
+    TestDialog
+  },
+  mounted () {
+    this.fetchData()
   },
   data () {
     return {
@@ -36,11 +36,12 @@ export default {
     }
   },
   methods: {
-    click () {
-      this.showDynamicDialog('aa', 'aa新增任务', '850px')
+    async fetchData () {
+      const data = await this.$http.post('/getTable')
+      console.log(data)
     },
-    click1 () {
-      this.showDynamicDialog('bb', 'bb新增任务', '850px')
+    click () {
+      this.showDynamicDialog('TestDialog', '弹窗', '450px')
     },
     showDynamicDialog (view, title, width = '1200px') {
       this.dialogOption.show = true
@@ -62,5 +63,4 @@ export default {
 </script>
 
 <style scoped>
-
 </style>

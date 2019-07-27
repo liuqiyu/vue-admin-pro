@@ -4,7 +4,7 @@ import Vue from 'vue'
 // 最小宽度360，最大宽度1200，计算公式：16*2 + 160*N + (N-1)*8
 // 2: 360, 3: 528, 4: 696, 5: 864, 6: 1032, 7: 1200
 
-const QyDialog = Vue.component('qy-dialog', {
+const YyDialog = Vue.component('yy-dialog', {
   functional: true,
   render (h, self) {
     self.props.width = self.props.width || '360px'
@@ -45,21 +45,26 @@ const QyDialog = Vue.component('qy-dialog', {
     return h(
       'el-dialog',
       self.data,
-      self.children && self.children.map(t => {
-        if (t.data && t.data.attrs) {
-          t.data.attrs = { ...t.data.attrs, ...(t.componentOptions && t.componentOptions.propsData) }
-        }
-        if (t.data && t.data.on === undefined) {
-          t.data.on = t.data.on || (t.componentOptions && t.componentOptions.listeners)
-        }
-        return h(
-          (t.componentOptions && t.componentOptions.tag) || t.tag,
-          t.data,
-          t.children || (t.componentOptions && t.componentOptions.children)
-        )
-      })
+      self.children &&
+        self.children.map(t => {
+          if (t.data && t.data.attrs) {
+            t.data.attrs = {
+              ...t.data.attrs,
+              ...(t.componentOptions && t.componentOptions.propsData)
+            }
+          }
+          if (t.data && t.data.on === undefined) {
+            t.data.on =
+              t.data.on || (t.componentOptions && t.componentOptions.listeners)
+          }
+          return h(
+            (t.componentOptions && t.componentOptions.tag) || t.tag,
+            t.data,
+            t.children || (t.componentOptions && t.componentOptions.children)
+          )
+        })
     )
   }
 })
 
-export default QyDialog
+export default YyDialog

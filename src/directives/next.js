@@ -1,11 +1,15 @@
 let parentEl = null
 
-const findEl = (el) => {
+const findEl = el => {
   if (!el) return
   el = el.parentNode
   if (!el) return
   let n = el.className || ''
-  if (n.includes('el-dialog__wrapper') || n.includes('kye-query-form') || n.includes('kye-expand-page')) {
+  if (
+    n.includes('el-dialog__wrapper') ||
+    n.includes('kye-query-form') ||
+    n.includes('kye-expand-page')
+  ) {
     parentEl = el
   } else {
     findEl(el)
@@ -26,19 +30,35 @@ export const tabNext = (currentInput, el) => {
       inputs = parentEl ? parentEl.getElementsByTagName('input') : []
     }
     // date-picker手动收起picker面板
-    if (currentInput.parentElement && currentInput.parentElement.classList.contains('el-date-editor')) {
-      if (currentInput.parentElement.__vue__.$vnode.componentOptions.tag === 'kye-date-picker') {
+    if (
+      currentInput.parentElement &&
+      currentInput.parentElement.classList.contains('el-date-editor')
+    ) {
+      if (
+        currentInput.parentElement.__vue__.$vnode.componentOptions.tag ===
+        'kye-date-picker'
+      ) {
         currentInput.parentElement.__vue__.$children[0].pickerVisible = false
         currentInput.parentElement.__vue__.$children[0].picker.visible = false
-      } else if (currentInput.parentElement.__vue__.$vnode.componentOptions.tag === 'el-input') {
+      } else if (
+        currentInput.parentElement.__vue__.$vnode.componentOptions.tag ===
+        'el-input'
+      ) {
         currentInput.parentElement.__vue__.$parent.pickerVisible = false
         currentInput.parentElement.__vue__.$parent.picker.visible = false
       }
     }
 
-    inputs = Array.from(inputs).filter(t => !(t.disabled || (t.getBoundingClientRect().height === 0 && t.getBoundingClientRect().width === 0)))
+    inputs = Array.from(inputs).filter(
+      t =>
+        !(
+          t.disabled ||
+          (t.getBoundingClientRect().height === 0 &&
+            t.getBoundingClientRect().width === 0)
+        )
+    )
     for (let i = 0, len = inputs.length; i < len; i++) {
-      if (i === (len - 1)) {
+      if (i === len - 1) {
         inputs[0].focus()
         break
       } else if (currentInput === inputs[i]) {
@@ -51,7 +71,7 @@ export const tabNext = (currentInput, el) => {
 
 export default {
   bind (el) {
-    el.focusNextInput = (e) => {
+    el.focusNextInput = e => {
       let keyCode = e.keyCode || e.which
       if (keyCode === 13 && e.target.nodeName === 'INPUT') {
         tabNext(e.target, el)

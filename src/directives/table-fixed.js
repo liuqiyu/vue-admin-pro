@@ -22,7 +22,10 @@ export default {
     }
   },
   unbind (el, binding, vnode) {
-    vnode.context.$bus.$off(`scroll${vnode.context.$route.meta.tag}`, el.handleScroll)
+    vnode.context.$bus.$off(
+      `scroll${vnode.context.$route.meta.tag}`,
+      el.handleScroll
+    )
     el.handleScroll = null
   }
 }

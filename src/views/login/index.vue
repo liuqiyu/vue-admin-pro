@@ -33,8 +33,6 @@
 </template>
 
 <script>
-import axios from 'axios'
-
 export default {
   name: 'login',
   data () {
@@ -66,16 +64,16 @@ export default {
     submitForm () {
       this.$refs['ruleForm'].validate(async (valid) => {
         if (valid) {
-          // this.$store.dispatch('login', {
-          //   username: this.formData.username,
-          //   password: this.formData.password
-          // }).then(res => {
-          //   if (res.code === 200) {
-          //     this.$router.push({ path: this.redirect || '/' })
-          //   }
-          // })
-          axios.get('http://localhost:5858/editor/add', {}).then((res) => {
-            console.log(res)
+          this.$store.dispatch('login', {
+            username: this.formData.username,
+            password: this.formData.password
+          }).then(res => {
+            if (res.code === 200) {
+              this.$message.success(res.message)
+              this.$router.push({ path: this.redirect || '/' })
+            } else {
+              this.$message.error('登陆失败！')
+            }
           })
         } else {
           console.log('error submit!!')
@@ -88,31 +86,31 @@ export default {
 </script>
 
 <style scoped lang="scss">
-  // 外边框
-  .login-container {
-    min-height: 100%;
-    width: 100%;
-    background-color: #2d3a4b;
+// 外边框
+.login-container {
+  min-height: 100%;
+  width: 100%;
+  background-color: #2d3a4b;
+  overflow: hidden;
+  // 登录的中心盒子
+  .login-box {
+    position: relative;
+    width: 520px;
+    max-width: 100%;
+    padding: 160px 35px 0;
+    margin: 0 auto;
     overflow: hidden;
-    // 登录的中心盒子
-    .login-box {
-      position: relative;
-      width: 520px;
-      max-width: 100%;
-      padding: 160px 35px 0;
-      margin: 0 auto;
-      overflow: hidden;
-      // 标题
-      .form-title {
-        text-align: center;
-        font-size: 30px;
-        color: #fff;
-        padding: 20px 0 40px 0;
-      }
-      // 登录按钮
-      .login-button {
-        width: 100%;
-      }
+    // 标题
+    .form-title {
+      text-align: center;
+      font-size: 30px;
+      color: #fff;
+      padding: 20px 0 40px 0;
+    }
+    // 登录按钮
+    .login-button {
+      width: 100%;
     }
   }
+}
 </style>
