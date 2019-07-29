@@ -1,6 +1,6 @@
 import Layout from './../views/layout'
 const Index = () =>
-  import(/* webpackChunkName: "echarts" */ './../views/echarts/index.vue')
+  import(/* webpackChunkName: "echarts" */ './../views/echarts/index')
 
 export default [
   {

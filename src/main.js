@@ -10,7 +10,7 @@ import './assets/scss/index.scss'
 import http from './utils/http'
 import * as filters from './utils/filter'
 import './permission'
-import './utils/rem'
+// import './utils/rem'
 import './mock/index'
 console.log(process.env.NODE_ENV)
 

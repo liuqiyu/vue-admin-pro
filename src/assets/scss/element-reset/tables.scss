@@ -1,5 +1,14 @@
 .yy-admin {
   .el-table {
+    thead {
+      tr th {
+        padding: 0 !important;
+        .cell {
+          height: 40px;
+          line-height: 40px;
+        }
+      }
+    }
     td {
       padding: 6px 0 !important;
       .cell {

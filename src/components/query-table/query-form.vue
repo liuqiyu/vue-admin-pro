@@ -5,13 +5,19 @@
              size="mini"
              label-position="right">
       <template v-for="(item, index) in formFields">
-        <form-item :item="item" v-model="model[item.columnName]" :key="index"></form-item>
+        <form-item :item="item"
+                   v-model="model[item.columnName]"
+                   :key="index"></form-item>
       </template>
       <el-form-item class="query-form-btns">
-        <el-button type="primary" icon="iconfont icon-search" @click="onSubmit">
+        <el-button type="primary"
+                   icon="iconfont icon-sousuo"
+                   @click="onSubmit">
           查询
         </el-button>
-        <el-button type="text" icon="iconfont icon-reset" @click="onReset">重置</el-button>
+        <el-button type="text"
+                   icon="iconfont icon-zhongzhi"
+                   @click="onReset">重置</el-button>
       </el-form-item>
     </el-form>
   </div>
@@ -63,8 +69,24 @@ export default {
 </script>
 
 <style scoped lang="scss">
-  .query-form {
-    margin-bottom: 6px;
-    border-bottom: 1px solid #dcdae2;
+.query-form {
+  border-bottom: 1px solid #dcdae2;
+  /deep/ .el-form-item {
+    margin-bottom: 15px;
+    .el-form-item__content {
+      width: 150px !important;
+    }
   }
+  .query-form-btns {
+    /deep/ .el-button {
+      height: 28px;
+      .iconfont {
+        display: inline-block;
+        height: 12px !important;
+        font-size: 12px !important;
+        margin-right: 2px;
+      }
+    }
+  }
+}
 </style>

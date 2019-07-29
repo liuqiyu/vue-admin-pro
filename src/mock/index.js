@@ -5,9 +5,144 @@ import { success } from './send'
 Mock.mock(host + '/getTable', 'post', () => {
   const list = [
     {
-      label: '名称',
-      key: 'name',
-      value: '刘依冉'
+      name: '刘依冉',
+      age: '12天',
+      gender: 2,
+      nickname: '依依',
+      address: '南山'
+    },
+    {
+      name: '刘依冉',
+      age: '12天',
+      gender: 2,
+      nickname: '依依',
+      address: '南山'
+    },
+    {
+      name: '刘依冉',
+      age: '12天',
+      gender: 2,
+      nickname: '依依',
+      address: '南山'
+    },
+    {
+      name: '刘依冉',
+      age: '12天',
+      gender: 2,
+      nickname: '依依',
+      address: '南山'
+    },
+    {
+      name: '刘依冉',
+      age: '12天',
+      gender: 2,
+      nickname: '依依',
+      address: '南山'
+    },
+    {
+      name: '刘依冉',
+      age: '12天',
+      gender: 2,
+      nickname: '依依',
+      address: '南山'
+    },
+    {
+      name: '刘依冉',
+      age: '12天',
+      gender: 2,
+      nickname: '依依',
+      address: '南山'
+    },
+    {
+      name: '刘依冉',
+      age: '12天',
+      gender: 2,
+      nickname: '依依',
+      address: '南山'
+    },
+    {
+      name: '刘依冉',
+      age: '12天',
+      gender: 2,
+      nickname: '依依',
+      address: '南山'
+    },
+    {
+      name: '刘依冉',
+      age: '12天',
+      gender: 2,
+      nickname: '依依',
+      address: '南山'
+    },
+    {
+      name: '刘依冉',
+      age: '12天',
+      gender: 2,
+      nickname: '依依',
+      address: '南山'
+    },
+    {
+      name: '刘依冉',
+      age: '12天',
+      gender: 2,
+      nickname: '依依',
+      address: '南山'
+    },
+    {
+      name: '刘依冉',
+      age: '12天',
+      gender: 2,
+      nickname: '依依',
+      address: '南山'
+    },
+    {
+      name: '刘依冉',
+      age: '12天',
+      gender: 2,
+      nickname: '依依',
+      address: '南山'
+    },
+    {
+      name: '刘依冉',
+      age: '12天',
+      gender: 2,
+      nickname: '依依',
+      address: '南山'
+    },
+    {
+      name: '刘依冉',
+      age: '12天',
+      gender: 2,
+      nickname: '依依',
+      address: '南山'
+    },
+    {
+      name: '刘依冉',
+      age: '12天',
+      gender: 2,
+      nickname: '依依',
+      address: '南山'
+    },
+    {
+      name: '刘依冉',
+      age: '12天',
+      gender: 2,
+      nickname: '依依',
+      address: '南山'
+    },
+    {
+      name: '刘依冉',
+      age: '12天',
+      gender: 2,
+      nickname: '依依',
+      address: '南山'
+    },
+    {
+      name: '刘依冉',
+      age: '12天',
+      gender: 2,
+      nickname: '依依',
+      address: '南山'
     }
   ]
   return success(list)

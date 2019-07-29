@@ -1,5 +1,5 @@
 import Layout from './../views/layout'
-const Index = () => import(/* webpackChunkName: "coding" */ './../views/dialog')
+const Index = () => import(/* webpackChunkName: "dialog" */ './../views/dialog')
 
 export default [
   {
