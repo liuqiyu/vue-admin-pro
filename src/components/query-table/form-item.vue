@@ -1,15 +1,18 @@
 <template>
   <el-form-item :label="item.label">
     <!--input 文本-->
-    <el-input
-      v-if="item.type === 'text'"
-      :value="value"
-      @input="bindChange"
-      :disabled="isDisabled(item)"
-      :placeholder="item.placeholder" clearable>
-      <i v-if="!!item.icon" :slot="doIcon(item)" class="el-input__icon"
+    <el-input v-if="item.type === 'text'"
+              :value="value"
+              @input="bindChange"
+              :disabled="isDisabled(item)"
+              :placeholder="item.placeholder"
+              clearable>
+      <i v-if="!!item.icon"
+         :slot="doIcon(item)"
+         class="el-input__icon"
          :class="typeof item.icon === 'object' ? item.icon.class : item.icon"></i>
-      <template v-if="!!item.complex" :slot="doComplex(item)">
+      <template v-if="!!item.complex"
+                :slot="doComplex(item)">
         {{ typeof item.complex === 'object' ? item.complex.val : item.complex }}</template>
     </el-input>
 
@@ -18,13 +21,13 @@
                :disabled="isDisabled(item)"
                :value="value"
                :multiple="item.multiple"
-               :placeholder="item.placeholder" clearable
+               :placeholder="item.placeholder"
+               clearable
                @change="bindChange">
-      <el-option
-        v-for="(cell, index) in doSelectOptions()"
-        :key="cell.value + index"
-        :label="cell.label"
-        :value="cell.value">
+      <el-option v-for="(cell, index) in doSelectOptions()"
+                 :key="cell.value + index"
+                 :label="cell.label"
+                 :value="cell.value">
       </el-option>
     </el-select>
 
@@ -59,8 +62,8 @@ export default {
   name: 'form-item',
   props: ['value', 'item'],
   mounted () {
-    console.log(this.item)
-    console.log(this.value)
+    // console.log(this.item)
+    // console.log(this.value)
     // this.model.name = '123';
   },
   data () {

@@ -74,7 +74,7 @@ export default {
   /deep/ .el-form-item {
     margin-bottom: 15px;
     .el-form-item__content {
-      width: 150px !important;
+      width: 140px !important;
     }
   }
   .query-form-btns {

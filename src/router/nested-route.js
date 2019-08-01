@@ -13,7 +13,8 @@ export default [
     component: Layout,
     meta: {
       icon: 'icon-lianjie',
-      title: '嵌套路由'
+      title: '嵌套路由',
+      notLink: true
     },
     children: [
       {
@@ -40,7 +41,8 @@ export default [
         component: Route3,
         meta: {
           tag: '/echarts/index',
-          title: '路由3'
+          title: '路由3',
+          notLink: true
         },
         children: [
           {
@@ -49,7 +51,8 @@ export default [
             component: Route1,
             meta: {
               tag: '/echarts/index',
-              title: '路由3-1'
+              title: '路由3-1',
+              notLink: true
             },
             children: [
               {

@@ -13,12 +13,20 @@ export default new Vuex.Store({
     user
   },
   state: {
-    resolutionRatio: document.documentElement.clientWidth / 1920
+    isCollapse: false
   },
   getters: {
-    name: state => state.name,
+    isCollapse: state => state.isCollapse,
     routes: state => state.router.routes
   },
-  mutations: {},
+  mutations: {
+    IS_COLLAPSE (state) {
+      let $menu = document.querySelector('.yy-menu')
+      state.isCollapse = !state.isCollapse
+      state.isCollapse
+        ? ($menu.style.width = '63px')
+        : ($menu.style.width = '200px')
+    }
+  },
   actions: {}
 })

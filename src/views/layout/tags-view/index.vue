@@ -1,6 +1,7 @@
 <template>
   <div class="tags-view-wrapper">
-    <scroll-pane ref="scrollPane" class="tags-view-wrapper">
+    <scroll-pane ref="scrollPane"
+                 class="tags-view-wrapper">
       <router-link v-for="tag in visitedViews"
                    ref="tag"
                    :key="tag.path"
@@ -19,7 +20,7 @@
     <ul v-show="visible"
         :style="{left:left+'px',top:top+'px'}"
         class="contextmenu">
-<!--      <li @click="refreshSelectedTag(selectedTag)">刷新</li>-->
+      <!--      <li @click="refreshSelectedTag(selectedTag)">刷新</li>-->
       <li @click="closeSelectedTag(selectedTag)">关闭</li>
       <li @click="closeOthersTags">关闭其他</li>
       <li @click="closeAllTags(selectedTag)">关闭所有</li>
@@ -186,68 +187,69 @@ export default {
 </script>
 
 <style scoped lang="scss">
-  .tags-view-wrapper {
+.tags-view-wrapper {
+  position: relative;
+  flex: none;
+  height: 36px;
+  width: 100%;
+  border-bottom: 1px solid #e1e1e1;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.02), 0 0 3px 0 rgba(0, 0, 0, 0.01);
+  .tags-view-item {
+    display: inline-block;
     position: relative;
-    flex: none;
-    height: 36px;
-    width: 100%;
-    border-bottom: 1px solid #e1e1e1;
-    .tags-view-item {
-      display: inline-block;
-      position: relative;
-      cursor: pointer;
-      height: 28px;
-      line-height: 27px;
-      border: 1px solid #d8dce5;
-      color: #495060;
-      background: #fff;
-      padding: 0 12px;
-      font-size: 12px;
-      margin-left: 5px;
-      margin-top: 4px;
-      .close {
-        color: rgba(0, 0, 0, 0.3);
-        font-size: 13px;
-        &:hover {
-          color: #45B8FB;
-        }
-      }
-      &.active {
-        border-color: #45B8FB;
-        color: #000;
-        position: relative;
-        &:before {
-          content: '';
-          background: #45B8FB;
-          display: inline-block;
-          width: 8px;
-          height: 8px;
-          border-radius: 50%;
-          position: relative;
-          margin-right: 2px;
-        }
+    cursor: pointer;
+    height: 28px;
+    line-height: 27px;
+    border: 1px solid #d8dce5;
+    color: #495060;
+    background: #fff;
+    padding: 0 12px;
+    font-size: 12px;
+    margin-left: 5px;
+    margin-top: 4px;
+    .close {
+      color: rgba(0, 0, 0, 0.3);
+      font-size: 13px;
+      &:hover {
+        color: #45b8fb;
       }
     }
-    .contextmenu {
-      margin: 0;
-      background: #fff;
-      z-index: 100;
-      position: absolute;
-      list-style-type: none;
-      padding: 5px 0;
-      border-radius: 4px;
-      font-size: 12px;
-      font-weight: 400;
-      color: #333;
-      box-shadow: 2px 2px 3px 0 rgba(0, 0, 0, .3);
-      li {
-        margin: 0;
-        padding: 7px 16px;
-        cursor: pointer;
-        &:hover {
-          background: #eee;
-        }
+    &.active {
+      border-color: #45b8fb;
+      color: #000;
+      position: relative;
+      &:before {
+        content: "";
+        background: #45b8fb;
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        position: relative;
+        margin-right: 2px;
       }
     }
   }
+  .contextmenu {
+    margin: 0;
+    background: #fff;
+    z-index: 100;
+    position: absolute;
+    list-style-type: none;
+    padding: 5px 0;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 400;
+    color: #333;
+    box-shadow: 2px 2px 3px 0 rgba(0, 0, 0, 0.3);
+    li {
+      margin: 0;
+      padding: 7px 16px;
+      cursor: pointer;
+      &:hover {
+        background: #eee;
+      }
+    }
+  }
+}
 </style>

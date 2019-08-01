@@ -1,21 +1,25 @@
 <template>
-  <div class="query-table"
-       v-loading="loading">
-    <tool-bar v-if="tools.length > 0"
+  <div class="query-table">
+    <tool-bar ref="toolBar"
+              v-if="tools.length > 0"
               :tools="tools"></tool-bar>
 
-    <query-form v-if="formFields.length > 0"
+    <query-form ref="queryForm"
+                v-if="formFields.length > 0"
                 :form-fields="formFields"
                 @formSubmit="formSubmit"></query-form>
 
     <slot name="middle-tools"></slot>
 
-    <table-list :columns="tables.columns"
+    <table-list ref="tableList"
+                v-loading="loading"
+                :columns="tables.columns"
                 :operation="tables.operation"
                 :options="tables.options"
                 :tableData="tableData"
                 @sort-change="sortChange"></table-list>
     <el-pagination class="yy-pagination"
+                   ref="yyPagination"
                    background
                    @size-change="handleSizeChange"
                    @current-change="handleCurrentChange"
@@ -115,6 +119,9 @@ export default {
 <style scoped lang="scss">
 .yy-pagination {
   text-align: right;
-  padding: 10px 0;
+  padding: 10px 0 0 0;
+  /deep/ .btn-next {
+    margin-right: 0;
+  }
 }
 </style>

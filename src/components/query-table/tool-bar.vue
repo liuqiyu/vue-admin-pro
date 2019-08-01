@@ -6,6 +6,7 @@
                    :size="tool.size || 'mini'"
                    :icon="tool.icon || ''"
                    type="text"
+                   :disabled="setDisabled(tool)"
                    @click.stop="handleClick(tool)">{{tool.label}}</el-button>
       </template>
     </div>
@@ -27,6 +28,12 @@ export default {
         return
       }
       tool.func()
+    },
+    setDisabled (tool) {
+      if (tool.disabled && typeof tool.disabled === 'function') {
+        return tool.disabled()
+      }
+      return tool.disabled
     }
   }
 }
@@ -35,6 +42,7 @@ export default {
 <style scoped lang="scss">
 .yy-tool-bar {
   // margin-bottom: 10px;
+  padding-bottom: 5px;
   .tool-list {
     text-align: right;
     font-size: 14px;

@@ -1,6 +1,7 @@
 <template>
-  <div>
-    <query-table :form-fields="formFields"
+  <div class="content-container">
+    <query-table ref="queryTable"
+                 :form-fields="formFields"
                  :tools="tools"
                  :tables="tables"></query-table>
     <!--弹出框-->
@@ -27,7 +28,11 @@ export default {
         title: '',
         width: '1200px'
       },
-      dialogData: {},
+      dialogData: {
+        type: 'add',
+        label: '新增',
+        data: {}
+      },
       formFields: [
         {
           label: '姓名',
@@ -64,23 +69,20 @@ export default {
         {
           label: '刷新',
           icon: 'iconfont icon-shuaxin1',
-          func: () => {
-            alert('刷新')
-          }
+          func: () => this.$refs.queryTable.loadTable()
         },
         {
           label: '新增',
           icon: 'iconfont icon-xinzeng',
-          func: () => {
-            alert('新增')
-          }
+          func: () => this.handleAdd()
         },
         {
           label: '删除',
           icon: 'iconfont icon-shanchu',
-          func: () => {
-            alert('删除')
-          }
+          disabled: () => {
+            return !this.multipleSelection.length > 0
+          },
+          func: () => this.hanleDel()
         }
       ],
       tables: {
@@ -89,8 +91,14 @@ export default {
           method: '/getTable'
         },
         options: {
-          type: 'index',
-          page: true
+          type: 'selection',
+          page: true,
+          // 选中后操作
+          selectionChange: row => {
+            this.multipleSelection = row
+            console.log('选中', this.multipleSelection)
+            // if (row.length > 0)
+          }
         },
         columns: [
           {
@@ -132,15 +140,28 @@ export default {
             }
           ]
         }
-      }
+      },
+      multipleSelection: []
     }
   },
   components: {
     detailsDialog
   },
   methods: {
-    handleUpdate () {
-      this.showDynamicDialog('detailsDialog', '弹窗', '450px')
+    handleUpdate (row) {
+      this.$set(this.dialogData, 'type', 'details')
+      this.$set(this.dialogData, 'label', '编辑')
+      this.$set(this.dialogData, 'data', row)
+      this.showDynamicDialog('detailsDialog', '详情', '400px')
+    },
+    handleAdd () {
+      this.$set(this.dialogData, 'type', 'add')
+      this.$set(this.dialogData, 'label', '新增')
+      this.$set(this.dialogData, 'data', {})
+      this.showDynamicDialog('detailsDialog', '新增', '400px')
+    },
+    hanleDel () {
+      console.log('删除', this.multipleSelection)
     },
     showDynamicDialog (view, title, width = '1200px') {
       this.dialogOption.show = true

@@ -2,7 +2,7 @@
   <div class="table-list"
        style="width: 100%">
     <el-table v-bind="attr"
-              class="asp-table"
+              class="yy-table"
               :height="tableHeight"
               :data="tableData"
               :default-sort="{prop: 'name', order: 'descending'}"
@@ -124,10 +124,10 @@ export default {
   },
   mounted () {
     this.handleResize()
-    // this.$bus.$on('GLOBAL_RESIZE', this.handleResize);
+    this.$bus.$on('GLOBAL_RESIZE', this.handleResize)
   },
   beforeDestroy () {
-    // this.$bus.$off('GLOBAL_RESIZE', this.handleResize);
+    this.$bus.$off('GLOBAL_RESIZE', this.handleResize)
   },
   methods: {
     setColor (col, row) {
@@ -178,17 +178,17 @@ export default {
     },
     // 自定义排序 custom
     sortChange ({ column, prop, order }) {
-      console.log(column)
-      console.log(prop)
-      console.log(order)
+      // console.log(column)
+      // console.log(prop)
+      // console.log(order)
       this.$emit('sortChange', { column, prop, order })
     },
     handleResize () {
-      // const bodyHeight = window.innerHeight || document.documentElement.clientHeight
-      // const topbarHeight = document.querySelector('.topbar').clientHeight
-      // const lqySearchPagerHeight = document.querySelector('.lqy-search-pager').clientHeight
-      // const lqyPaginationHeight = document.querySelector('.lqy-pagination').clientHeight
-      // this.tableHeight = `${bodyHeight - topbarHeight - lqySearchPagerHeight - lqyPaginationHeight - 60}px`
+      const bodyHeight = window.innerHeight || document.documentElement.clientHeight
+      const topbarHeight = document.querySelector('.yy-tool-bar').clientHeight || 0
+      const queryFormHeight = document.querySelector('.query-form').clientHeight || 0
+      const yyPaginationHeight = document.querySelector('.yy-pagination').clientHeight || 0
+      this.tableHeight = `${bodyHeight - topbarHeight - queryFormHeight - yyPaginationHeight - 60 - 36 - 20 - 1}px`
     }
   }
 }
@@ -201,7 +201,7 @@ export default {
   cursor: pointer;
 }
 
-.asp-table {
+.yy-table {
   .text-btn {
     color: #409eff;
     cursor: pointer;

@@ -7,6 +7,7 @@
              @close="handleClose"
              background-color="#292C31"
              text-color="#fff"
+             :collapse="isCollapse"
              active-text-color="#46BAFE">
       <nav-item v-for="(route, index) in routes"
                 :key="index"
@@ -26,7 +27,8 @@ export default {
   },
   computed: {
     ...mapGetters([
-      'routes'
+      'routes',
+      'isCollapse'
     ])
   },
   data () {
