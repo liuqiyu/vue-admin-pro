@@ -86,9 +86,10 @@ export default {
         }
       ],
       tables: {
+        type: 'customHeader',
         url: {
           type: 'POST',
-          method: '/getTable'
+          method: '/getCustomHeaderTable'
         },
         options: {
           type: 'selection',
@@ -100,32 +101,7 @@ export default {
             // if (row.length > 0)
           }
         },
-        columns: [
-          {
-            label: '姓名',
-            key: 'name',
-            width: '180'
-          },
-          {
-            label: '昵称',
-            key: 'nickname',
-            width: '180'
-          },
-          {
-            label: '年龄',
-            key: 'age',
-            width: '180'
-          },
-          {
-            label: '性别',
-            key: 'gender',
-            width: '180'
-          },
-          {
-            label: '地址',
-            key: 'address'
-          }
-        ],
+        columns: [],
         operation: {
           fixed: 'right',
           label: '操作',

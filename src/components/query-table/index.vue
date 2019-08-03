@@ -82,13 +82,16 @@ export default {
     async fetchTable () {
       try {
         this.loading = true
-        const data = await this.$http.post(this.tables.url.method, {
+        const res = await this.$http.post(this.tables.url.method, {
           params: {
             id: 1234
           }
         })
-        console.log('query-table请求数据！', data)
-        this.tableData = data.data
+        console.log('query-table请求数据！', res)
+        if (this.tables.type === 'customHeader') {
+          this.tables.columns = res.data.header
+        }
+        this.tableData = res.data.data
         this.tableData.forEach((item, index) => {
           this.$set(this.tableData[index], 'index', ((this.currentPage - 1) * this.pageSize) + (1 + index))
         })

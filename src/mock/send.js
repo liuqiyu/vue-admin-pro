@@ -5,7 +5,9 @@
  */
 export const success = (data, message) => {
   return {
-    data,
+    data: {
+      data: data.data
+    },
     message: message || '操作成功',
     code: 200
   }

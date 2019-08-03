@@ -1,13 +1,13 @@
 const sessionKey = 'sessionID'
 
 export const setSession = sessionId => {
-  localStorage.setItem(sessionKey, sessionId)
+  sessionStorage.setItem(sessionKey, sessionId)
 }
 
 export const getSession = () => {
-  return localStorage.getItem(sessionKey)
+  return sessionStorage.getItem(sessionKey)
 }
 
 export const removeSession = () => {
-  localStorage.removeItem(sessionKey)
+  sessionStorage.removeItem(sessionKey)
 }

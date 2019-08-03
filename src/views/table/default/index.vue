@@ -82,7 +82,7 @@ export default {
           disabled: () => {
             return !this.multipleSelection.length > 0
           },
-          func: () => this.hanleDel()
+          func: () => this.handleDel()
         }
       ],
       tables: {
@@ -129,7 +129,7 @@ export default {
         operation: {
           fixed: 'right',
           label: '操作',
-          width: '100px',
+          width: '120px',
           // 操作数量
           options: [
             {
@@ -137,6 +137,12 @@ export default {
               // icon: 'iconfont iconwenjian',
               // type: 'icon', // icon 只是图标
               func: row => this.handleUpdate(row) // 回调
+            },
+            {
+              label: '删除',
+              // icon: 'iconfont iconwenjian',
+              // type: 'icon', // icon 只是图标
+              func: row => this.handleDel(row) // 回调
             }
           ]
         }
@@ -160,8 +166,12 @@ export default {
       this.$set(this.dialogData, 'data', {})
       this.showDynamicDialog('detailsDialog', '新增', '400px')
     },
-    hanleDel () {
+    handleDel (row) {
       console.log('删除', this.multipleSelection)
+      this.$message({
+        message: '删除成功！',
+        type: 'success'
+      })
     },
     showDynamicDialog (view, title, width = '1200px') {
       this.dialogOption.show = true

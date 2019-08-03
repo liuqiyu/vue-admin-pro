@@ -22,7 +22,7 @@ const user = {
           .post('/login', formData)
           .then(res => {
             setSession(res.data.sessionID)
-            localStorage.setItem('userInfo', JSON.stringify(res.data.data))
+            sessionStorage.setItem('userInfo', JSON.stringify(res.data.data))
             commit('SET_SESSIONID', res.data.sessionID)
             commit('SEET_USERINFO', res.data.data)
             resolve(res)
@@ -38,7 +38,7 @@ const user = {
           .post('/logout')
           .then(res => {
             removeSession() // 清空session
-            localStorage.removeItem('userInfo')
+            sessionStorage.removeItem('userInfo')
             commit('SET_SESSIONID', '')
             commit('SEET_USERINFO', {})
             resolve(res)
