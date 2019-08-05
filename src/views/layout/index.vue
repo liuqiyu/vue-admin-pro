@@ -2,7 +2,15 @@
   <div class="yy-layout">
     <el-container class="yy-container">
       <div class="yy-menu">
-        <div class="logo">Vue Admin Pro</div>
+        <div class="logo">
+          <div class="img">
+            <img src="@/assets/images/logo.png"
+                 alt="">
+          </div>
+          <span v-if="!isCollapse">
+            Vue Admin Pro
+          </span>
+        </div>
         <el-scrollbar class="scrollbar-wrapper">
           <navbar></navbar>
         </el-scrollbar>
@@ -25,6 +33,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import topbar from './topbar'
 import navbar from './navbar'
 import tagsView from './tags-view'
@@ -34,6 +43,11 @@ export default {
     topbar,
     navbar,
     tagsView
+  },
+  computed: {
+    ...mapGetters([
+      'isCollapse'
+    ])
   }
 }
 </script>
@@ -75,11 +89,31 @@ export default {
         flex: 0;
         line-height: 54px;
         color: #fff;
-        font-size: 18px;
-        text-align: center;
+        font-size: 14px;
+        // text-align: center;
         border-bottom: 1px solid #101117;
         font-family: "幼圆";
         box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
+        // display: flex;
+        // align-items: center;
+        .img {
+          display: inline-block;
+          width: 63px;
+          height: 54px;
+          line-height: 54px;
+          text-align: center;
+          // padding-left: 2px;
+          img {
+            width: 30px;
+            height: 30px;
+            vertical-align: middle;
+          }
+          span {
+            display: inline-block;
+            line-height: 54px;
+            white-space: nowrap;
+          }
+        }
       }
       .scrollbar-wrapper {
         height: 100%;

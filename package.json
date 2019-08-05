@@ -17,6 +17,7 @@
     "express-urlrewrite": "^1.2.0",
     "moment": "^2.24.0",
     "nprogress": "^0.2.0",
+    "screenfull": "^4.2.1",
     "vue": "^2.6.6",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1"

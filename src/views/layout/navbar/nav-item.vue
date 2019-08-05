@@ -13,12 +13,29 @@
                 :is-nest="true"
                 :base-path="resolvePath(cell.path)"></nav-item>
     </el-submenu>
-    <el-menu-item v-else
-                  :index="isNest ? resolvePath(item.path, isNest) : resolvePath(item.children[0].path, isNest)">
-      <i class="icon iconfont"
-         :class="isNest ? item.meta.icon : item.children[0].meta.icon"></i>
-      <span slot="title">{{isNest ? item.meta.title :item.children[0].meta.title}}</span>
-    </el-menu-item>
+    <template v-else>
+      <template>
+        <!-- 不是第一级 -->
+        <el-menu-item v-if="isNest"
+                      :index="resolvePath(item.path, isNest)">
+          <i class="icon iconfont"
+             :class="item.meta.icon"></i>
+          <span slot="title">{{item.meta.title}}</span>
+        </el-menu-item>
+
+        <!-- 第一级 -->
+        <!-- <el-menu-item v-else>
+          <i class="icon iconfont"></i>
+          <span slot="title">123</span>
+        </el-menu-item> -->
+        <el-menu-item v-else
+                      :index="resolvePath(item.children[0].path, isNest)">
+          <i class="icon iconfont"
+             :class="item.children[0].meta.icon"></i>
+          <span slot="title">{{isNest ? item.meta.title :item.children[0].meta.title}}</span>
+        </el-menu-item>
+      </template>
+    </template>
   </div>
 </template>
 
@@ -47,6 +64,18 @@ export default {
       return path.resolve(this.basePath, routePath)
     },
     chooseRoute (isNest) {
+      if (this.item.children) {
+        if (isNest) {
+          return this.item.children.length > 0
+        } else {
+          if (this.item.meta) {
+            // 需要层级
+            return this.item.children.length > 0
+          } else {
+            return this.item.children.length > 1
+          }
+        }
+      }
       return this.item.children && (isNest ? this.item.children.length > 0 : this.item.children.length > 1)
     }
   }
