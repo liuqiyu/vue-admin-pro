@@ -37,7 +37,8 @@ module.exports = {
     name: 'name',
     resolve: {
       alias: {
-        '@': resolve('src')
+        '@': resolve('src'),
+        static: resolve('public/static')
       }
     },
     //  为了节约编译的时间，这时间我们需要告诉 webpack 公共库文件已经编译好了，减少 webpack 对公共库的编译时间
