@@ -22,7 +22,7 @@
         <el-main class="yy-main">
           <tagsView></tagsView>
           <div class="yy-content">
-            <keep-alive>
+            <keep-alive :include="cachedViews">
               <router-view></router-view>
             </keep-alive>
           </div>
@@ -46,7 +46,8 @@ export default {
   },
   computed: {
     ...mapGetters([
-      'isCollapse'
+      'isCollapse',
+      'cachedViews'
     ])
   }
 }

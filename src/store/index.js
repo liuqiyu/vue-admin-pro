@@ -17,6 +17,7 @@ export default new Vuex.Store({
   },
   getters: {
     isCollapse: state => state.isCollapse,
+    cachedViews: state => state.tagsView.cachedViews,
     routes: state => state.router.routes
   },
   mutations: {
