@@ -24,10 +24,6 @@
         </el-menu-item>
 
         <!-- 第一级 -->
-        <!-- <el-menu-item v-else>
-          <i class="icon iconfont"></i>
-          <span slot="title">123</span>
-        </el-menu-item> -->
         <el-menu-item v-else
                       :index="resolvePath(item.children[0].path, isNest)">
           <i class="icon iconfont"
@@ -95,11 +91,5 @@ export default {
   overflow: hidden;
   visibility: hidden;
   display: inline-block;
-}
-</style>
-
-<style lang="scss">
-.el-menu--collapse .el-submenu__icon-arrow {
-  display: none !important;
 }
 </style>

@@ -22,7 +22,7 @@ export default new Vuex.Store({
   },
   mutations: {
     IS_COLLAPSE (state) {
-      let $menu = document.querySelector('.yy-menu')
+      let $menu = document.querySelector('.v-menu')
       state.isCollapse = !state.isCollapse
       state.isCollapse
         ? ($menu.style.width = '63px')

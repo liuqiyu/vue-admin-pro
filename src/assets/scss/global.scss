@@ -9,3 +9,32 @@ body,
 .content-container {
   padding: 10px 20px;
 }
+
+
+.v-dialog-dynamic {
+  .el-dialog__body {
+    padding: 0 !important;
+    max-height: none !important;
+    overflow-y: hidden !important;
+  }
+  .v-dialog-body {
+    // padding: 12px 16px;
+    max-height: 60vh;
+    overflow-y: auto;
+  }
+  .v-dialog-body_form {
+    padding: 12px 16px 1px 16px;
+    max-height: 60vh;
+    overflow-y: auto;
+  }
+  // 弹框里 el-tabs 多个 query-table
+  .v-dialog-tabs {
+    .el-tabs__header {
+      margin-bottom: 0;
+      padding: 4px 16px 0;
+    }
+    .kye-dialog-body {
+      padding-top: 6px;
+    }
+  }
+}

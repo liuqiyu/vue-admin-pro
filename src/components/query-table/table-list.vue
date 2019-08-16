@@ -2,7 +2,7 @@
   <div class="table-list"
        style="width: 100%">
     <el-table v-bind="attr"
-              class="yy-table"
+              class="v-table"
               :height="tableHeight"
               :data="tableData"
               :default-sort="{prop: 'name', order: 'descending'}"
@@ -185,10 +185,10 @@ export default {
     },
     handleResize () {
       const bodyHeight = window.innerHeight || document.documentElement.clientHeight
-      const topbarHeight = document.querySelector('.yy-tool-bar').clientHeight || 0
+      const topbarHeight = document.querySelector('.v-tool-bar').clientHeight || 0
       const queryFormHeight = document.querySelector('.query-form').clientHeight || 0
-      const yyPaginationHeight = document.querySelector('.yy-pagination').clientHeight || 0
-      this.tableHeight = `${bodyHeight - topbarHeight - queryFormHeight - yyPaginationHeight - 60 - 36 - 20 - 1}px`
+      const vPaginationHeight = document.querySelector('.v-pagination').clientHeight || 0
+      this.tableHeight = `${bodyHeight - topbarHeight - queryFormHeight - vPaginationHeight - 60 - 36 - 20 - 1}px`
     }
   }
 }
@@ -201,7 +201,7 @@ export default {
   cursor: pointer;
 }
 
-.yy-table {
+.v-table {
   .text-btn {
     color: #409eff;
     cursor: pointer;

@@ -18,8 +18,8 @@
                 :options="tables.options"
                 :tableData="tableData"
                 @sort-change="sortChange"></table-list>
-    <el-pagination class="yy-pagination"
-                   ref="yyPagination"
+    <el-pagination class="v-pagination"
+                   ref="vPagination"
                    background
                    @size-change="handleSizeChange"
                    @current-change="handleCurrentChange"
@@ -120,7 +120,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.yy-pagination {
+.v-pagination {
   text-align: right;
   padding: 10px 0 0 0;
   /deep/ .btn-next {

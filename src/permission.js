@@ -5,7 +5,6 @@ import { getSession } from '@/utils/auth'
 
 router.beforeEach((to, from, next) => {
   NProgress.start()
-  console.log(getSession())
   if (getSession()) {
     next()
   } else {

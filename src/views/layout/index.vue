@@ -1,7 +1,7 @@
 <template>
-  <div class="yy-layout">
-    <el-container class="yy-container">
-      <div class="yy-menu">
+  <div class="v-layout">
+    <el-container class="v-container">
+      <div class="v-menu">
         <div class="logo">
           <div class="img">
             <img src="@/assets/images/logo.png"
@@ -15,13 +15,13 @@
           <navbar></navbar>
         </el-scrollbar>
       </div>
-      <el-container class="yy-body">
-        <el-header class="yy-header">
+      <el-container class="v-body">
+        <el-header class="v-header">
           <topbar></topbar>
         </el-header>
-        <el-main class="yy-main">
+        <el-main class="v-main">
           <tagsView></tagsView>
-          <div class="yy-content">
+          <div class="v-content">
             <keep-alive :include="cachedViews">
               <router-view></router-view>
             </keep-alive>
@@ -55,29 +55,29 @@ export default {
 
 <style scoped lang="scss">
 @import "./../../assets/scss/variable";
-.yy-layout {
+.v-layout {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  .yy-container {
+  .v-container {
     width: 100%;
     height: 100%;
     overflow: hidden;
     display: flex;
     flex-direction: row;
-    .yy-header {
+    .v-header {
       height: 55px !important;
       padding: 0 !important;
       flex: none;
       color: #fff;
       z-index: 111;
     }
-    .yy-body {
+    .v-body {
       flex: 1;
       display: flex;
       flex-direction: column;
     }
-    .yy-menu {
+    .v-menu {
       height: 100%;
       width: 200px;
       transition: width 0.28s;
@@ -126,13 +126,13 @@ export default {
         }
       }
     }
-    .yy-main {
+    .v-main {
       flex: 1;
       padding: 0 !important;
       display: flex;
       flex-direction: column;
       overflow: hidden;
-      .yy-content {
+      .v-content {
         flex: 1;
         height: 100%;
         // padding: 20px;

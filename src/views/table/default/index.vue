@@ -5,7 +5,7 @@
                  :tools="tools"
                  :tables="tables"></query-table>
     <!--弹出框-->
-    <yy-dialog v-bind="dialogOption"
+    <v-dialog v-bind="dialogOption"
                @close="closeDynamicDialog"
                :view.sync="dialogOption.view"
                :visible.sync="dialogOption.show">
@@ -13,7 +13,7 @@
                  :dialog-data="dialogData"
                  @close="closeDynamicDialog">
       </component>
-    </yy-dialog>
+    </v-dialog>
   </div>
 </template>
 

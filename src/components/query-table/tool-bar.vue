@@ -1,5 +1,5 @@
 <template>
-  <div class="yy-tool-bar">
+  <div class="v-tool-bar">
     <div class="tool-list">
       <template v-for="(tool, idx) in tools">
         <el-button :key="idx"
@@ -40,7 +40,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.yy-tool-bar {
+.v-tool-bar {
   // margin-bottom: 10px;
   padding-bottom: 5px;
   .tool-list {

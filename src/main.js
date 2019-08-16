@@ -10,12 +10,7 @@ import './assets/scss/index.scss'
 import http from './utils/http'
 import * as filters from './utils/filter'
 import './permission'
-// import './utils/rem'
 import './mock/index'
-
-import aa from 'static/index.js'
-console.log(process.env.NODE_ENV)
-console.log(aa)
 
 Object.keys(filters).forEach(key => {
   Vue.filter(key, filters[key])

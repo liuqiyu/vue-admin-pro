@@ -16,8 +16,8 @@ export default {
       }
     })()
 
-    const reg_rate = /%/g
-    const reg_px = /px/g
+    const regRate = /%/g
+    const regPx = /px/g
 
     dialogHeaderEl.onmousedown = function (e) {
       // 隐藏 el-popper
@@ -48,11 +48,11 @@ export default {
       let styT = getStyle(dragDom, 'top')
 
       if (styL.includes('%')) {
-        styL = +document.body.clientWidth * (+styL.replace(reg_rate, '') / 100)
-        styT = +document.body.clientHeight * (+styT.replace(reg_rate, '') / 100)
+        styL = +document.body.clientWidth * (+styL.replace(regRate, '') / 100)
+        styT = +document.body.clientHeight * (+styT.replace(regRate, '') / 100)
       } else {
-        styL = +styL.replace(reg_px, '')
-        styT = +styT.replace(reg_px, '')
+        styL = +styL.replace(regPx, '')
+        styT = +styT.replace(regPx, '')
       }
 
       document.onmousemove = function (e) {

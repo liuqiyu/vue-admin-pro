@@ -3,10 +3,10 @@ import moment from 'moment'
 /**
  * 日期时间格式
  * @param date
- * @param fmt YYYY-MM-DD HH:mm:ss
+ * @param fmt vv-MM-DD HH:mm:ss
  * @returns {string}
  */
-export const date = (date, fmt = 'YYYY-MM-DD') => {
+export const date = (date, fmt = 'vv-MM-DD') => {
   let str = ''
   if (date) {
     str = moment(date).format(fmt)
@@ -20,7 +20,7 @@ export const date = (date, fmt = 'YYYY-MM-DD') => {
  * @param fmt
  * @returns {string}
  */
-export const time = (d, fmt = 'YYYY-MM-DD HH:mm:ss') => {
+export const time = (d, fmt = 'vv-MM-DD HH:mm:ss') => {
   return date(d, fmt)
 }
 
@@ -30,7 +30,7 @@ export const time = (d, fmt = 'YYYY-MM-DD HH:mm:ss') => {
  * @param fmt
  * @returns {string}
  */
-export const minute = (d, fmt = 'YYYY-MM-DD HH:mm') => {
+export const minute = (d, fmt = 'vv-MM-DD HH:mm') => {
   return date(d, fmt)
 }
 
@@ -50,7 +50,7 @@ export const second = (d, fmt = 'HH:mm:ss') => {
  * @param fmt
  * @returns {string}
  */
-export const month = (d, fmt = 'YYYY-MM') => {
+export const month = (d, fmt = 'vv-MM') => {
   return date(d, fmt)
 }
 

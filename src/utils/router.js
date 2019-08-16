@@ -3,7 +3,6 @@ export const getRoutes = (context, ignore) => {
   context.keys().forEach(key => {
     if (key !== ignore) {
       const arr = context(key).default
-      console.log(arr)
       if (arr) {
         children.push(arr)
       }
