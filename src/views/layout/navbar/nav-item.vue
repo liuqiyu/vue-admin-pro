@@ -14,23 +14,21 @@
                 :base-path="resolvePath(cell.path)"></nav-item>
     </el-submenu>
     <template v-else>
-      <template>
-        <!-- 不是第一级 -->
-        <el-menu-item v-if="isNest"
-                      :index="resolvePath(item.path, isNest)">
-          <i class="icon iconfont"
-             :class="item.meta.icon"></i>
-          <span slot="title">{{item.meta.title}}</span>
-        </el-menu-item>
+      <!-- 不是第一级 -->
+      <el-menu-item v-if="isNest"
+                    :index="resolvePath(item.path, isNest)">
+        <i class="icon iconfont"
+           :class="item.meta.icon"></i>
+        <span slot="title">{{item.meta.title}}</span>
+      </el-menu-item>
 
-        <!-- 第一级 -->
-        <el-menu-item v-else
-                      :index="resolvePath(item.children[0].path, isNest)">
-          <i class="icon iconfont"
-             :class="item.children[0].meta.icon"></i>
-          <span slot="title">{{isNest ? item.meta.title :item.children[0].meta.title}}</span>
-        </el-menu-item>
-      </template>
+      <!-- 第一级 -->
+      <el-menu-item v-else
+                    :index="resolvePath(item.children[0].path, isNest)">
+        <i class="icon iconfont"
+           :class="item.children[0].meta.icon"></i>
+        <span slot="title">{{isNest ? item.meta.title :item.children[0].meta.title}}</span>
+      </el-menu-item>
     </template>
   </div>
 </template>
@@ -82,14 +80,5 @@ export default {
 .icon {
   margin-right: 10px;
   font-size: 18px;
-}
-
-/deep/ .el-menu--collapse .el-menu-item span,
-.el-menu--collapse .el-submenu .el-submenu__title span {
-  height: 0;
-  width: 0;
-  overflow: hidden;
-  visibility: hidden;
-  display: inline-block;
 }
 </style>

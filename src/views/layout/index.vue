@@ -3,13 +3,12 @@
     <el-container class="v-container">
       <div class="v-menu">
         <div class="logo">
-          <div class="img">
-            <img src="@/assets/images/logo.png"
-                 alt="">
-          </div>
-          <span v-if="!isCollapse">
+          <img src="@/assets/images/logo.png"
+               alt="">
+          <h1 class="title"
+              v-if="!isCollapse">
             Vue Admin Pro
-          </span>
+          </h1>
         </div>
         <el-scrollbar class="scrollbar-wrapper">
           <navbar></navbar>
@@ -78,42 +77,41 @@ export default {
       flex-direction: column;
     }
     .v-menu {
+      position: relative;
       height: 100%;
       width: 200px;
       transition: width 0.28s;
       flex: none;
       background: $menu-bg;
-      display: flex;
-      flex-direction: column;
+      padding-top: 55px;
       .logo {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
         height: 54px;
-        flex: 0;
-        line-height: 54px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
         color: #fff;
         font-size: 14px;
         // text-align: center;
         border-bottom: 1px solid #101117;
         font-family: "幼圆";
         box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
-        // display: flex;
-        // align-items: center;
-        .img {
+        img {
+          width: 30px;
+          height: 30px;
+          vertical-align: middle;
+          margin-left: 13px;
+          margin-right: 13px;
+        }
+        .title {
           display: inline-block;
-          width: 63px;
-          height: 54px;
-          line-height: 54px;
-          text-align: center;
-          // padding-left: 2px;
-          img {
-            width: 30px;
-            height: 30px;
-            vertical-align: middle;
-          }
-          span {
-            display: inline-block;
-            line-height: 54px;
-            white-space: nowrap;
-          }
+          // line-height: 54px;
+          white-space: nowrap;
+          font-size: 16px;
         }
       }
       .scrollbar-wrapper {

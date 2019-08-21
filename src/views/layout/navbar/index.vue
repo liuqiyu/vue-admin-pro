@@ -58,4 +58,34 @@ export default {
 .router-link-exact-active {
   color: red;
 }
+
+/deep/ .el-menu--collapse .el-menu-item span,
+/deep/ .el-menu--collapse .el-submenu .el-submenu__title span {
+  height: 0;
+  width: 0;
+  overflow: hidden;
+  visibility: hidden;
+  display: inline-block;
+}
+
+/deep/ .el-submenu__icon-arrow {
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
+}
+
+/deep/ .el-menu--collapse .el-menu-item .el-submenu__icon-arrow,
+/deep/
+  .el-menu--collapse
+  .el-submenu
+  .el-submenu__title
+  .el-submenu__icon-arrow {
+  display: none;
+}
+
+/deep/ .el-submenu__title {
+  -webkit-transition: border-color 0.3s, background-color 0.3s, color 0.3s;
+  transition: border-color 0.3s, background-color 0.3s, color 0.3s;
+}
 </style>
