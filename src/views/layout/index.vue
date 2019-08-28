@@ -1,23 +1,13 @@
 <template>
   <div class="v-layout">
     <el-container class="v-container">
-      <div class="v-menu">
-        <div class="logo">
-          <img src="@/assets/images/logo.png"
-               alt="">
-          <h1 class="title"
-              v-if="!isCollapse">
-            Vue Admin Pro
-          </h1>
-        </div>
-        <el-scrollbar class="scrollbar-wrapper">
-          <navbar></navbar>
-        </el-scrollbar>
-      </div>
+      <topbar class="v-header"></topbar>
       <el-container class="v-body">
-        <el-header class="v-header">
-          <topbar></topbar>
-        </el-header>
+        <div class="v-menu">
+          <el-scrollbar class="scrollbar-wrapper">
+            <navbar></navbar>
+          </el-scrollbar>
+        </div>
         <el-main class="v-main">
           <tagsView></tagsView>
           <div class="v-content">
@@ -53,7 +43,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "./../../assets/scss/variable";
+@import "./../../style/variable";
 .v-layout {
   width: 100%;
   height: 100%;
@@ -63,18 +53,19 @@ export default {
     height: 100%;
     overflow: hidden;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     .v-header {
-      height: 55px !important;
-      padding: 0 !important;
+      width: 100%;
+      height: 50px !important;
       flex: none;
       color: #fff;
       z-index: 111;
+      background-image: linear-gradient(-179deg, #225dde 0%, #4a86f0 100%);
     }
     .v-body {
       flex: 1;
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
     }
     .v-menu {
       position: relative;
@@ -82,38 +73,8 @@ export default {
       width: 200px;
       transition: width 0.28s;
       flex: none;
-      background: $menu-bg;
-      padding-top: 55px;
-      .logo {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 54px;
-        overflow: hidden;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        color: #fff;
-        font-size: 14px;
-        // text-align: center;
-        border-bottom: 1px solid #101117;
-        font-family: "幼圆";
-        box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
-        img {
-          width: 30px;
-          height: 30px;
-          vertical-align: middle;
-          margin-left: 13px;
-          margin-right: 13px;
-        }
-        .title {
-          display: inline-block;
-          // line-height: 54px;
-          white-space: nowrap;
-          font-size: 16px;
-        }
-      }
+      background: #fff;
+      box-shadow: 0 0 8px 0 #cadaf5;
       .scrollbar-wrapper {
         height: 100%;
         margin: 0 !important;
@@ -133,8 +94,11 @@ export default {
       .v-content {
         flex: 1;
         height: 100%;
-        // padding: 20px;
         overflow-y: auto;
+        background: #f1f5fa;
+        > * {
+          padding: 20px;
+        }
       }
     }
   }

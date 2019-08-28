@@ -70,7 +70,9 @@ export default {
 
 <style scoped lang="scss">
 .query-form {
-  border-bottom: 1px solid #dcdae2;
+  background: #ffffff;
+  border: 1px solid #dee8f8;
+  padding: 10px 10px 0 10px;
   /deep/ .el-form-item {
     margin-bottom: 15px;
     .el-form-item__content {

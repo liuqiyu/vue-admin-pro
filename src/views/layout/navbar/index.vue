@@ -5,8 +5,8 @@
              :router="true"
              @open="handleOpen"
              @close="handleClose"
-             background-color="#292C31"
-             text-color="#fff"
+             background-color="#fff"
+             text-color="#1D2331"
              :collapse="isCollapse"
              active-text-color="#46BAFE">
       <nav-item v-for="(route, index) in routes"
@@ -53,10 +53,18 @@ export default {
 .nav-bar {
   position: relative;
   width: 100%;
-  /*background: #000000;*/
 }
 .router-link-exact-active {
   color: red;
+}
+
+/deep/ .el-menu {
+  border-right: none;
+  .el-menu-item,
+  .el-submenu__title {
+    height: 40px;
+    line-height: 40px;
+  }
 }
 
 /deep/ .el-menu--collapse .el-menu-item span,

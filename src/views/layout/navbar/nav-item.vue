@@ -1,5 +1,6 @@
 <template>
-  <div class="nav-item">
+  <div class="nav-item"
+       :class="{isNest: isNest}">
     <el-submenu v-if="chooseRoute(isNest)"
                 :index="resolvePath(item.path)">
       <template slot="title">
@@ -77,8 +78,35 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.icon {
-  margin-right: 10px;
-  font-size: 18px;
+/deep/ .is-active {
+  background: #e8f0fc !important;
+  > .el-submenu__title {
+    .icon,
+    span {
+      color: #46bafe;
+    }
+  }
+}
+
+.nav-item {
+  border-bottom: 1px solid #dee9fc;
+  .el-menu-item,
+  /deep/ .el-submenu__title {
+    &:hover {
+      background: #e8f0fc !important;
+    }
+  }
+  &.isNest {
+    border-bottom: none;
+    .el-menu-item,
+    /deep/ .el-submenu__title {
+      background: #f2f6fc !important;
+      color: #778096;
+    }
+  }
+  .icon {
+    margin-right: 10px;
+    font-size: 18px;
+  }
 }
 </style>

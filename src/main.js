@@ -6,7 +6,7 @@ import App from './App.vue'
 import router from './router/index'
 import store from './store/index'
 import AspUI from './components'
-import './assets/scss/index.scss'
+import './style/index.scss'
 import http from './utils/http'
 import * as filters from './utils/filter'
 import './permission'
@@ -18,7 +18,9 @@ Object.keys(filters).forEach(key => {
 
 Vue.config.productionTip = false
 
-Vue.use(ElementUI, { size: 'mini' })
+Vue.use(ElementUI, {
+  size: 'mini'
+})
 Vue.use(AspUI)
 
 Vue.prototype.$http = http

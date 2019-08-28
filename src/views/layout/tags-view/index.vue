@@ -190,15 +190,14 @@ export default {
 .tags-view-wrapper {
   position: relative;
   flex: none;
-  height: 36px;
+  height: 40px;
   width: 100%;
-  border-bottom: 1px solid #e1e1e1;
-  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.02), 0 0 3px 0 rgba(0, 0, 0, 0.01);
+  box-shadow: 0 1px 0 0 #dee9fc;
   .tags-view-item {
     display: inline-block;
     position: relative;
     cursor: pointer;
-    height: 28px;
+    height: 30px;
     line-height: 27px;
     border: 1px solid #d8dce5;
     color: #495060;

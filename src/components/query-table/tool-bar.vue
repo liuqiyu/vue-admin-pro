@@ -44,7 +44,7 @@ export default {
   // margin-bottom: 10px;
   padding-bottom: 5px;
   .tool-list {
-    text-align: right;
+    text-align: left;
     font-size: 14px;
     /deep/ .iconfont {
       margin-right: 5px;

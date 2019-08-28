@@ -1,8 +1,5 @@
 <template>
   <div class="query-table">
-    <tool-bar ref="toolBar"
-              v-if="tools.length > 0"
-              :tools="tools"></tool-bar>
 
     <query-form ref="queryForm"
                 v-if="formFields.length > 0"
@@ -11,24 +8,30 @@
 
     <slot name="middle-tools"></slot>
 
-    <table-list ref="tableList"
-                v-loading="loading"
-                :columns="tables.columns"
-                :operation="tables.operation"
-                :options="tables.options"
-                :tableData="tableData"
-                @sort-change="sortChange"></table-list>
-    <el-pagination class="v-pagination"
-                   ref="vPagination"
-                   background
-                   @size-change="handleSizeChange"
-                   @current-change="handleCurrentChange"
-                   :current-page="currentPage"
-                   :page-sizes="[10, 20, 30, 40]"
-                   :page-size="pageSize"
-                   layout="sizes, prev, pager, next"
-                   :total="total">
-    </el-pagination>
+    <div class="table-wrapper">
+      <tool-bar ref="toolBar"
+                v-if="tools.length > 0"
+                :tools="tools"></tool-bar>
+      <table-list ref="tableList"
+                  v-loading="loading"
+                  :columns="tables.columns"
+                  :operation="tables.operation"
+                  :options="tables.options"
+                  :tableData="tableData"
+                  @sort-change="sortChange"></table-list>
+      <el-pagination class="v-pagination"
+                     ref="vPagination"
+                     background
+                     @size-change="handleSizeChange"
+                     @current-change="handleCurrentChange"
+                     :current-page="currentPage"
+                     :page-sizes="[10, 20, 30, 40]"
+                     :page-size="pageSize"
+                     layout="sizes, prev, pager, next"
+                     :total="total">
+      </el-pagination>
+    </div>
+
     <slot name="bottom-tools"></slot>
   </div>
 </template>
@@ -120,6 +123,12 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.table-wrapper {
+  background: #ffffff;
+  border: 1px solid #dee8f8;
+  margin-top: 12px;
+  padding: 12px 20px 12px 20px;
+}
 .v-pagination {
   text-align: right;
   padding: 10px 0 0 0;

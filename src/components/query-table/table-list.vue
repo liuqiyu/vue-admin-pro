@@ -2,6 +2,7 @@
   <div class="table-list"
        style="width: 100%">
     <el-table v-bind="attr"
+              border
               class="v-table"
               :height="tableHeight"
               :data="tableData"
@@ -195,7 +196,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "./../../assets/scss/variable";
+@import "./../../style/variable";
 .table-btn {
   margin-right: 8px;
   cursor: pointer;

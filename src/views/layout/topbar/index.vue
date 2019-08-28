@@ -1,7 +1,12 @@
 <template>
   <div class="top-bar">
-    <div class="left-bar">
-      <breadcrumb></breadcrumb>
+    <div class="logo">
+      <img src="@/assets/images/logo.png"
+           alt="">
+      <h1 class="title"
+          v-if="!isCollapse">
+        Vue Admin Pro
+      </h1>
     </div>
     <right-tools></right-tools>
   </div>
@@ -9,30 +14,43 @@
 
 <script>
 import rightTools from './right-tools'
-import breadcrumb from './breadcrumb'
 
 export default {
   name: 'index',
   components: {
-    rightTools,
-    breadcrumb
+    rightTools
   }
 }
 </script>
 
 <style scoped lang="scss">
-@import "./../../../assets/scss/variable";
+@import "./../../../style/variable";
 .top-bar {
   width: 100%;
-  height: 55px !important;
-  background: #fff;
-  padding: 0 20px;
-  font-size: 20px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #e1e1e1;
-  box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
+  padding: 0 20px;
+  .logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: #fff;
+    font-size: 14px;
+    font-family: "幼圆";
+    img {
+      width: 30px;
+      height: 30px;
+      vertical-align: middle;
+      margin-right: 13px;
+    }
+    .title {
+      display: inline-block;
+      // line-height: 54px;
+      white-space: nowrap;
+      font-size: 18px;
+    }
+  }
 }
 </style>
