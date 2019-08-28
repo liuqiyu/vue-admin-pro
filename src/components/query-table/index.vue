@@ -2,6 +2,7 @@
   <div class="query-table">
 
     <query-form ref="queryForm"
+                class="query-form"
                 v-if="formFields.length > 0"
                 :form-fields="formFields"
                 @formSubmit="formSubmit"></query-form>
@@ -10,9 +11,11 @@
 
     <div class="table-wrapper">
       <tool-bar ref="toolBar"
+                class="v-tool-bar"
                 v-if="tools.length > 0"
                 :tools="tools"></tool-bar>
       <table-list ref="tableList"
+                  class="v-table-list"
                   v-loading="loading"
                   :columns="tables.columns"
                   :operation="tables.operation"
@@ -27,7 +30,7 @@
                      :current-page="currentPage"
                      :page-sizes="[10, 20, 30, 40]"
                      :page-size="pageSize"
-                     layout="sizes, prev, pager, next"
+                     layout="total, sizes, prev, pager, next, jumper"
                      :total="total">
       </el-pagination>
     </div>
@@ -123,17 +126,42 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.query-table {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.query-form {
+  flex: none;
+}
 .table-wrapper {
+  flex: 1;
+  height: 100%;
   background: #ffffff;
   border: 1px solid #dee8f8;
   margin-top: 12px;
-  padding: 12px 20px 12px 20px;
-}
-.v-pagination {
-  text-align: right;
-  padding: 10px 0 0 0;
-  /deep/ .btn-next {
-    margin-right: 0;
+  padding: 12px 20px 8px 20px;
+  display: flex;
+  flex-direction: column;
+  .v-table-list {
+    flex: 1;
+    height: 100%;
+    overflow: hidden;
+  }
+  .v-tool-bar {
+    flex: none;
+  }
+  .v-pagination {
+    flex: none;
+    text-align: right;
+    padding: 8px 0 0 0;
+    /deep/ .btn-next {
+      margin-right: 0;
+    }
+    /deep/ .el-pagination__total,
+    /deep/ .el-pagination__sizes {
+      float: left;
+    }
   }
 }
 </style>

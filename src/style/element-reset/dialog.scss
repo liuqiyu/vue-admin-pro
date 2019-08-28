@@ -1,13 +1,31 @@
 .v-admin {
-  /deep/.el-dialog__body {
-    padding: 15px 20px 20px 20px !important;
+  .el-dialog {
+    .el-dialog__header {
+      height: 55px;
+      border-bottom: 1px solid #DEE9FC;
+      padding: 15px 20px !important;
 
+      .el-dialog__headerbtn {
+        top: 15px !important;
+
+        >i {
+          color: #7EA1EE;
+        }
+      }
+    }
+  }
+
+
+  .el-dialog__body {
     .v-dialog-body {
-      padding: 0 10px 10px 10px;
+      padding: 15px 30px !important;
     }
 
     .v-dialog_footer {
+      border-top: 1px solid #DFE9FC;
       text-align: right;
+      background: #F1F5FA;
+      padding: 10px 20px;
     }
   }
 }

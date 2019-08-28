@@ -8,7 +8,7 @@
              background-color="#fff"
              text-color="#1D2331"
              :collapse="isCollapse"
-             active-text-color="#46BAFE">
+             active-text-color="#4676E5">
       <nav-item v-for="(route, index) in routes"
                 :key="index"
                 :item="route"

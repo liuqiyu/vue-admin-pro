@@ -5,7 +5,8 @@
         <el-button :key="idx"
                    :size="tool.size || 'mini'"
                    :icon="tool.icon || ''"
-                   type="text"
+                   type="primary"
+                   plain
                    :disabled="setDisabled(tool)"
                    @click.stop="handleClick(tool)">{{tool.label}}</el-button>
       </template>

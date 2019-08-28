@@ -66,6 +66,7 @@ export default {
       flex: 1;
       display: flex;
       flex-direction: row;
+      height: 100%;
     }
     .v-menu {
       position: relative;
@@ -96,8 +97,10 @@ export default {
         height: 100%;
         overflow-y: auto;
         background: #f1f5fa;
+        height: 100%;
         > * {
-          padding: 20px;
+          padding: 12px 12px 2px 12px;
+          height: 100%;
         }
       }
     }

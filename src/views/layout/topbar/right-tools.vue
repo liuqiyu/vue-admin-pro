@@ -3,10 +3,7 @@
     <el-dropdown trigger="click">
       <span class="el-dropdown-link">
         <div class="avatar">
-          <img width="40"
-               height="40"
-               src="@/assets/images/main-bg.jpg"
-               alt="">
+
         </div>
         <span class="name">
           刘岂宇

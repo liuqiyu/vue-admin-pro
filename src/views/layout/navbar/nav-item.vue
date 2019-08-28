@@ -83,7 +83,7 @@ export default {
   > .el-submenu__title {
     .icon,
     span {
-      color: #46bafe;
+      color: #4676e5;
     }
   }
 }

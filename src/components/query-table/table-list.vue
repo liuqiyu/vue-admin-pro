@@ -120,7 +120,7 @@ export default {
   data () {
     return {
       multipleSelection: [],
-      tableHeight: null
+      tableHeight: '100%'
     }
   },
   mounted () {
@@ -185,11 +185,11 @@ export default {
       this.$emit('sortChange', { column, prop, order })
     },
     handleResize () {
-      const bodyHeight = window.innerHeight || document.documentElement.clientHeight
-      const topbarHeight = document.querySelector('.v-tool-bar').clientHeight || 0
-      const queryFormHeight = document.querySelector('.query-form').clientHeight || 0
-      const vPaginationHeight = document.querySelector('.v-pagination').clientHeight || 0
-      this.tableHeight = `${bodyHeight - topbarHeight - queryFormHeight - vPaginationHeight - 60 - 36 - 20 - 1}px`
+      // const bodyHeight = window.innerHeight || document.documentElement.clientHeight
+      // const topbarHeight = document.querySelector('.v-tool-bar').clientHeight || 0
+      // const queryFormHeight = document.querySelector('.query-form').clientHeight || 0
+      // const vPaginationHeight = document.querySelector('.v-pagination').clientHeight || 0
+      // this.tableHeight = `${bodyHeight - topbarHeight - queryFormHeight - vPaginationHeight - 60 - 36 - 20 - 1}px`
     }
   }
 }

@@ -37,8 +37,8 @@ export default {
     flex-direction: row;
     align-items: center;
     color: #fff;
-    font-size: 14px;
-    font-family: "幼圆";
+    font-size: 16px;
+    // font-family: "幼圆";
     img {
       width: 30px;
       height: 30px;
