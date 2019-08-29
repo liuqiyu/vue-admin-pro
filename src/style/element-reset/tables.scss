@@ -1,20 +1,30 @@
 .v-admin {
   .el-table {
+    &.el-table--border {
+      border-color: #DFE9FC;
+    }
+
     thead {
       tr th {
         padding: 0 !important;
+        border-bottom: none !important;
+        background: #EBF1FC !important;
+        border-right-color: rgba(195, 213, 255, 0.5);
 
         .cell {
-          height: 40px;
-          line-height: 40px;
+          height: 34px;
+          line-height: 34px;
         }
       }
     }
 
     td {
-      padding: 6px 0 !important;
+      padding: 0 !important;
+      border: none !important;
 
       .cell {
+        height: 34px;
+        line-height: 34px;
         color: #666 !important;
       }
     }

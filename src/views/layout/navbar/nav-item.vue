@@ -16,12 +16,15 @@
     </el-submenu>
     <template v-else>
       <!-- 不是第一级 -->
-      <el-menu-item v-if="isNest"
-                    :index="resolvePath(item.path, isNest)">
-        <i class="icon iconfont"
-           :class="item.meta.icon"></i>
-        <span slot="title">{{item.meta.title}}</span>
-      </el-menu-item>
+      <template v-if="isNest">
+        <el-menu-item v-if="!item.meta.pageType"
+                      :index="resolvePath(item.path, isNest)">
+          <i class="icon iconfont"
+             :class="item.meta.icon"></i>
+          <span slot="title">{{item.meta.title}}</span>
+        </el-menu-item>
+
+      </template>
 
       <!-- 第一级 -->
       <el-menu-item v-else
@@ -90,18 +93,29 @@ export default {
 
 .nav-item {
   border-bottom: 1px solid #dee9fc;
-  .el-menu-item,
+  /deep/ .el-menu-item,
   /deep/ .el-submenu__title {
     &:hover {
       background: #e8f0fc !important;
+      .icon,
+      span {
+        color: #4676e5 !important;
+      }
     }
   }
   &.isNest {
     border-bottom: none;
-    .el-menu-item,
+    /deep/ .el-menu-item,
     /deep/ .el-submenu__title {
       background: #f2f6fc !important;
       color: #778096;
+      &:hover {
+        background: #e8f0fc !important;
+        .icon,
+        span {
+          color: #4676e5 !important;
+        }
+      }
     }
   }
   .icon {

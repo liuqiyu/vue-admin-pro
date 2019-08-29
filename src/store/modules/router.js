@@ -3,8 +3,9 @@ const router = {
     routes: []
   },
   mutations: {
-    SET_ROUTER (state, route) {
-      state.routes = route
+    SET_ROUTER (state, routes) {
+      console.log(routes)
+      state.routes = routes
     }
   },
   actions: {}

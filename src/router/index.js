@@ -2,7 +2,9 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Layout from './../views/layout'
 import store from './../store'
-import { getRoutes } from './../utils/router'
+import {
+  getRoutes
+} from './../utils/router'
 import login from './../views/login'
 
 Vue.use(Router)
@@ -12,41 +14,37 @@ const routerModule = getRoutes(
   './index.js'
 )
 
-export const layoutRoutes = [
-  {
-    path: '',
-    // name: 'dashboard',
-    redirect: 'dashboard',
-    component: Layout,
-    children: [
-      {
-        path: 'dashboard',
-        name: 'dashboard',
-        component: () => import('@/views/dashboard'),
-        meta: {
-          icon: 'icon-shouye',
-          tag: '/dashboard',
-          title: '首页',
-          affix: true
-        }
-      }
-    ]
-  },
-  ...routerModule
+export const layoutRoutes = [{
+  path: '',
+  // name: 'dashboard',
+  redirect: 'dashboard',
+  component: Layout,
+  children: [{
+    path: 'dashboard',
+    name: 'dashboard',
+    component: () => import('@/views/dashboard'),
+    meta: {
+      icon: 'icon-shouye',
+      tag: '/dashboard',
+      title: '首页',
+      affix: true
+    }
+  }]
+},
+...routerModule
 ]
 
 store.commit('SET_ROUTER', layoutRoutes)
 
-const routes = [
-  {
-    path: '/login',
-    name: 'login',
-    meta: {
-      title: '登录页'
-    },
-    component: login
+const routes = [{
+  path: '/login',
+  name: 'login',
+  meta: {
+    title: '登录页'
   },
-  ...layoutRoutes
+  component: login
+},
+...layoutRoutes
 ]
 
 export default new Router({
