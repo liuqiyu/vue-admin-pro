@@ -3,6 +3,7 @@
        style="width: 100%">
     <el-table v-bind="attr"
               border
+              stripe
               class="v-table"
               :height="tableHeight"
               :data="tableData"
