@@ -65,6 +65,7 @@
                        :key="btn.label+i"
                        :icon="btn.icon"
                        :size="btn.size || 'mini'"
+                       v-auth="btn.auth || null"
                        v-show="operationShow(btn, scope.row)"
                        type="text"
                        :disabled="operationDisabled(btn, scope.row)"
@@ -74,6 +75,7 @@
             <el-tooltip v-else-if="btn.type === 'icon'"
                         class="item"
                         effect="dark"
+                        v-auth="btn.auth || null"
                         :content="btn.label"
                         placement="top-start"
                         :key="btn.label+i">
@@ -84,6 +86,7 @@
           </template>
         </template>
       </el-table-column>
+      <template slot="empty">暂无五五五五五五五五</template>
     </el-table>
   </div>
 </template>

@@ -7,8 +7,9 @@ import ToolBar from './query-table/tool-bar'
 import QueyForm from './query-table/query-form'
 import TableList from './query-table/table-list'
 import vDialog from './v-dialog'
+import vDetailsPage from './v-details-page'
 
-const components = [QueryTable, ToolBar, QueyForm, TableList, vDialog]
+const components = [QueryTable, ToolBar, QueyForm, TableList, vDialog, vDetailsPage]
 
 const setPrototype = () => {
   Vue.prototype.$bus = new Vue()

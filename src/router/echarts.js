@@ -6,16 +6,14 @@ export default {
   path: '/echarts',
   name: 'echarts',
   component: Layout,
-  children: [
-    {
-      path: 'index',
-      name: '/echarts/index',
-      component: Index,
-      meta: {
-        icon: 'icon-ditumap29',
-        tag: '/echarts/index',
-        title: '图表'
-      }
+  children: [{
+    path: 'index',
+    name: '/echarts/index',
+    component: Index,
+    meta: {
+      icon: 'icon-ditumap29',
+      tag: '/echarts/index',
+      title: '图表'
     }
-  ]
+  }]
 }

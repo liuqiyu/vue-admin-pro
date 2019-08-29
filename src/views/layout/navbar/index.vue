@@ -9,7 +9,7 @@
              text-color="#1D2331"
              :collapse="isCollapse"
              active-text-color="#4676E5">
-      <nav-item v-for="(route, index) in routes"
+      <nav-item v-for="(route, index) in menuRoutes"
                 :key="index"
                 :item="route"
                 :base-path="route.path"></nav-item>
@@ -27,7 +27,7 @@ export default {
   },
   computed: {
     ...mapGetters([
-      'routes',
+      'menuRoutes',
       'isCollapse'
     ])
   },

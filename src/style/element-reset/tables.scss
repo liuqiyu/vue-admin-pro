@@ -1,5 +1,9 @@
 .v-admin {
   .el-table {
+    &.el-table--border {
+      border-color: #DFE9FC;
+    }
+
     thead {
       tr th {
         padding: 0 !important;

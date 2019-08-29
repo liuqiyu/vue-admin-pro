@@ -1,7 +1,9 @@
 import NProgress from 'nprogress' // progress bar
 import 'nprogress/nprogress.css' // progress bar style
 import router from './router'
-import { getSession } from '@/utils/auth'
+import {
+  getSession
+} from '@/utils/auth'
 
 router.beforeEach((to, from, next) => {
   NProgress.start()

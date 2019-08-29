@@ -8,17 +8,17 @@
         Vue Admin Pro
       </h1>
     </div>
-    <right-tools></right-tools>
+    <right-bar></right-bar>
   </div>
 </template>
 
 <script>
-import rightTools from './right-tools'
+import rightBar from './right-bar'
 
 export default {
   name: 'index',
   components: {
-    rightTools
+    rightBar
   }
 }
 </script>
@@ -31,7 +31,7 @@ export default {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 0 20px;
+  padding: 0 0 0 20px;
   .logo {
     display: flex;
     flex-direction: row;

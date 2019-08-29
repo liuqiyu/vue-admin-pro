@@ -5,6 +5,7 @@
         <el-button :key="idx"
                    :size="tool.size || 'mini'"
                    :icon="tool.icon || ''"
+                   v-auth="tool.auth || null"
                    type="primary"
                    plain
                    :disabled="setDisabled(tool)"

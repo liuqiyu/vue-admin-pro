@@ -3,6 +3,7 @@ import Vuex from 'vuex'
 import router from './modules/router'
 import tagsView from './modules/tagsView'
 import user from './modules/user'
+import roles from './modules/roles'
 
 Vue.use(Vuex)
 
@@ -10,7 +11,8 @@ export default new Vuex.Store({
   modules: {
     router,
     tagsView,
-    user
+    user,
+    roles
   },
   state: {
     isCollapse: false
@@ -18,7 +20,8 @@ export default new Vuex.Store({
   getters: {
     isCollapse: state => state.isCollapse,
     cachedViews: state => state.tagsView.cachedViews,
-    routes: state => state.router.routes
+    menuRoutes: state => state.router.routes,
+    roles: state => state.roles.roles
   },
   mutations: {
     IS_COLLAPSE (state) {
