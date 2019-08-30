@@ -64,16 +64,12 @@ export default {
     submitForm () {
       this.$refs['ruleForm'].validate(async (valid) => {
         if (valid) {
-          this.$store.dispatch('login', {
+          this.$store.dispatch('user/login', {
             username: this.formData.username,
             password: this.formData.password
           }).then(res => {
-            if (res.code === 200) {
-              this.$message.success(res.message)
-              this.$router.push({ path: this.redirect || '/' })
-            } else {
-              this.$message.error('登陆失败！')
-            }
+            this.$message.success('登录成功！')
+            this.$router.push({ path: this.redirect || '/' })
           })
         } else {
           console.log('error submit!!')

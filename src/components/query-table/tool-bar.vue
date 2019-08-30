@@ -2,7 +2,8 @@
   <div class="v-tool-bar">
     <div class="tool-list">
       <template v-for="(tool, idx) in tools">
-        <el-button :key="idx"
+        <el-button v-show="setShow(tool)"
+                   :key="idx"
                    :size="tool.size || 'mini'"
                    :icon="tool.icon || ''"
                    v-auth="tool.auth || null"
@@ -36,6 +37,12 @@ export default {
         return tool.disabled()
       }
       return tool.disabled
+    },
+    setShow (tool) {
+      if (tool.show && typeof tool.show === 'function') {
+        return tool.show()
+      }
+      return !!tool.show || true
     }
   }
 }
@@ -44,7 +51,7 @@ export default {
 <style scoped lang="scss">
 .v-tool-bar {
   // margin-bottom: 10px;
-  padding-bottom: 5px;
+  // padding-bottom: 5px;
   .tool-list {
     text-align: left;
     font-size: 14px;

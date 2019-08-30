@@ -88,21 +88,17 @@ export default {
     async fetchTable () {
       try {
         this.loading = true
-        const res = await this.$http.post(this.tables.url.method, {
-          params: {
-            id: 1234
-          }
-        })
+        const res = await this.$http.post(this.tables.url.method)
         console.log('query-table请求数据！', res)
         if (this.tables.type === 'customHeader') {
-          this.tables.columns = res.data.header
+          this.tables.columns = res.header
         }
-        this.tableData = res.data.data
+        this.tableData = res.data
         this.tableData.forEach((item, index) => {
           this.$set(this.tableData[index], 'index', ((this.currentPage - 1) * this.pageSize) + (1 + index))
         })
-        // this.total = data.total
-        this.total = 100
+        this.total = res.total
+        console.log(this.tableData)
         this.loading = false
       } catch (e) {
         console.log(e)
@@ -150,6 +146,7 @@ export default {
   }
   .v-tool-bar {
     flex: none;
+    padding-bottom: 5px;
   }
   .v-pagination {
     flex: none;

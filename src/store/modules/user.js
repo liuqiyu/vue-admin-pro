@@ -1,7 +1,12 @@
 import http from './../../utils/http'
-import { setSession, removeSession, getSession } from '@/utils/auth'
+import {
+  setSession,
+  removeSession,
+  getSession
+} from '@/utils/auth'
 
 const user = {
+  namespaced: true,
   state: {
     sessionID: getSession(),
     userInfo: JSON.parse(localStorage.getItem('userInfo')) || {}
@@ -16,15 +21,17 @@ const user = {
     }
   },
   actions: {
-    login ({ commit }, formData) {
+    login ({
+      commit
+    }, formData) {
       return new Promise((resolve, reject) => {
         http
           .post('/login', formData)
           .then(res => {
-            setSession(res.data.sessionID)
-            sessionStorage.setItem('userInfo', JSON.stringify(res.data.data))
-            commit('SET_SESSIONID', res.data.sessionID)
-            commit('SEET_USERINFO', res.data.data)
+            setSession(res.sessionID)
+            sessionStorage.setItem('userInfo', JSON.stringify(res.data))
+            commit('SET_SESSIONID', res.sessionID)
+            commit('SEET_USERINFO', res.data)
             resolve(res)
           })
           .catch(err => {
@@ -32,7 +39,9 @@ const user = {
           })
       })
     },
-    logout ({ commit }) {
+    logout ({
+      commit
+    }) {
       return new Promise((resolve, reject) => {
         http
           .post('/logout')

@@ -9,6 +9,7 @@
 
 <script>
 export default {
+  name: 'details-table',
   data () {
     return {
       formFields: [
@@ -51,12 +52,13 @@ export default {
         },
         {
           label: '新增',
-          auth: 'addTable1',
+          auth: 'addTable',
           icon: 'iconfont icon-xinzeng',
           func: () => this.handleAdd()
         },
         {
           label: '删除',
+          auth: 'deleteTable',
           icon: 'iconfont icon-shanchu',
           disabled: () => {
             return !this.multipleSelection.length > 0
@@ -76,7 +78,6 @@ export default {
           selectionChange: row => {
             this.multipleSelection = row
             console.log('选中', this.multipleSelection)
-            // if (row.length > 0)
           }
         },
         columns: [
@@ -113,15 +114,11 @@ export default {
           options: [
             {
               label: '详情',
-              // icon: 'iconfont iconwenjian',
-              // type: 'icon', // icon 只是图标
               func: row => this.handleUpdate(row) // 回调
             },
             {
-              label: '删除1',
+              label: '删除',
               auth: 'aaa',
-              // icon: 'iconfont iconwenjian',
-              // type: 'icon', // icon 只是图标
               func: row => this.handleDel(row) // 回调
             }
           ]
@@ -132,11 +129,13 @@ export default {
   },
   methods: {
     handleUpdate (row) {
+      console.log(row)
       this.$router.push({
-        path: '/table/details/details'
+        path: '/table/details/details/1'
       })
     },
     handleAdd () {
+
     },
     handleDel (row) {
       this.$confirm('删除已选择数据?', '提示', {

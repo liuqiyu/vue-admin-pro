@@ -4,6 +4,10 @@
       border-color: #DFE9FC;
     }
 
+    &.el-table--striped .el-table__body tr.el-table__row--striped td {
+      background-color: #F9FBFF;
+    }
+
     thead {
       tr th {
         padding: 0 !important;
