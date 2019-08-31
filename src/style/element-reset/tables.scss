@@ -12,7 +12,7 @@
     }
 
     &.el-table--striped .el-table__body tr.el-table__row--striped td {
-      background-color: #F9FBFF;
+      background-color: #f9fbff;
     }
 
     thead {
@@ -46,6 +46,18 @@
       .cell {
         color: #333 !important;
       }
+    }
+  }
+
+  .empty {
+    h2 {
+      font-size: 24px;
+      color: #53607e;
+    }
+    p {
+      color: #53607e;
+      font-size: 14px;
+      line-height: 20px;
     }
   }
 }
