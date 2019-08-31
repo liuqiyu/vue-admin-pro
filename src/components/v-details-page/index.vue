@@ -17,7 +17,9 @@
           </slot>
         </div>
       </div>
-
+      <div class="right-bar">
+        <tool-bar :tools="tools"></tool-bar>
+      </div>
     </header>
     <div class="content">
       <slot></slot>
@@ -31,7 +33,12 @@ export default {
   name: 'v-details-page',
   props: {
     options: {
-      type: Object
+      type: Object,
+      default: () => { }
+    },
+    tools: {
+      type: Array,
+      default: () => []
     }
   },
   computed: {

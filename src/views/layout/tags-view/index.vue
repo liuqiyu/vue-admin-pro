@@ -76,7 +76,7 @@ export default {
     initTags () {
       const affixTags = this.filterAffixTags(this.routes)
       affixTags.forEach((item) => {
-        this.$store.dispatch('addView', item)
+        this.$store.dispatch('tagsView/addView', item)
       })
     },
     filterAffixTags (routes, basePath = '/') {
@@ -104,7 +104,7 @@ export default {
       console.log(this.$route)
       const { name } = this.$route
       if (name) {
-        this.$store.dispatch('addView', this.$route)
+        this.$store.dispatch('tagsView/addView', this.$route)
       }
       return false
     },

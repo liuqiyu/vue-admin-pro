@@ -34,7 +34,7 @@ export const layoutRoutes = [{
 ...routerModule
 ]
 
-store.commit('SET_ROUTER', layoutRoutes)
+store.commit('router/SET_ROUTER', layoutRoutes)
 
 const routes = [{
   path: '/login',

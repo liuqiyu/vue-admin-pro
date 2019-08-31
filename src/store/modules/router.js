@@ -1,4 +1,5 @@
 const router = {
+  namespaced: true,
   state: {
     routes: []
   },

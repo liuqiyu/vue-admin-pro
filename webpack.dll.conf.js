@@ -8,7 +8,8 @@ const dllPath = 'public/vendor'
 module.exports = {
   entry: {
     // 需要提取的库文件
-    vendor: ['vue', 'vue-router', 'vuex', 'axios', 'element-ui', 'echarts', 'moment', 'nprogress', 'screenfull', 'lodash']
+    // vendor: ['vue', 'vue-router', 'vuex', 'axios', 'element-ui', 'echarts', 'moment', 'nprogress', 'screenfull', 'lodash']
+    vendor: ['axios', 'element-ui', 'echarts', 'moment', 'nprogress', 'screenfull', 'lodash']
   },
   output: {
     path: path.join(__dirname, dllPath),

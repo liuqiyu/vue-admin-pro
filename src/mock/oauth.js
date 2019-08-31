@@ -1,6 +1,7 @@
 import Mock from 'mockjs'
-import { host } from './../config'
-import { success } from './send'
+import {
+  host
+} from './../config'
 
 Mock.mock(host + '/login', 'post', () => {
   const data = {
@@ -10,9 +11,21 @@ Mock.mock(host + '/login', 'post', () => {
       password: 123456
     }
   }
-  return success(data, '登陆成功！')
+  return {
+    data: {
+      data: data
+    },
+    message: '登陆成功！',
+    code: 200
+  }
 })
 
 Mock.mock(host + '/logout', 'post', () => {
-  return success({}, '注销成功')
+  return {
+    data: {
+      data: {}
+    },
+    message: '注销成功',
+    code: 200
+  }
 })

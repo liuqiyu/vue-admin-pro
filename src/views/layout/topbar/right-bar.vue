@@ -38,7 +38,7 @@ export default {
         cancelButtonText: '取消',
         type: 'warning'
       }).then(() => {
-        this.$store.dispatch('logout').then(res => {
+        this.$store.dispatch('user/logout').then(res => {
           console.log('注销')
           if (res.code === 200) {
             this.$message.success(res.message)
