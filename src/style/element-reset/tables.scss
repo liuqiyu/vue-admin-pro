@@ -1,14 +1,21 @@
 .v-admin {
   .el-table {
+    // 右侧边框
+    &.el-table--group::after,
+    &.el-table--border::after,
+    &.el-table::before {
+      z-index: 6;
+      background-color: #dfe9fc !important;
+    }
     &.el-table--border {
-      border-color: #DFE9FC;
+      border-color: #dfe9fc;
     }
 
     thead {
       tr th {
         padding: 0 !important;
         border-bottom: none !important;
-        background: #EBF1FC !important;
+        background: #ebf1fc !important;
         border-right-color: rgba(195, 213, 255, 0.5);
 
         .cell {

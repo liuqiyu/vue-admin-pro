@@ -6,9 +6,9 @@
                  :tables="tables"></query-table>
     <!--弹出框-->
     <v-dialog v-bind="dialogOption"
-               @close="closeDynamicDialog"
-               :view.sync="dialogOption.view"
-               :visible.sync="dialogOption.show">
+              @close="closeDynamicDialog"
+              :view.sync="dialogOption.view"
+              :visible.sync="dialogOption.show">
       <component :is="dialogOption.view"
                  :dialog-data="dialogData"
                  @close="closeDynamicDialog">
@@ -20,6 +20,7 @@
 <script>
 import detailsDialog from './details-dialog'
 export default {
+  name: 'custom-header-table',
   data () {
     return {
       dialogOption: {
@@ -110,8 +111,7 @@ export default {
           options: [
             {
               label: '详情',
-              // icon: 'iconfont iconwenjian',
-              // type: 'icon', // icon 只是图标
+              auth: '',
               func: row => this.handleUpdate(row) // 回调
             }
           ]

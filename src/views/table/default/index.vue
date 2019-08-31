@@ -20,6 +20,7 @@
 <script>
 import detailsDialog from './details-dialog'
 export default {
+  name: 'default-table',
   data () {
     return {
       dialogOption: {

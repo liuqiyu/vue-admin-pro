@@ -9,6 +9,7 @@
 
 <script>
 export default {
+  name: 'details-table',
   data () {
     return {
       formFields: [
@@ -51,7 +52,7 @@ export default {
         },
         {
           label: '新增',
-          auth: 'addTable1',
+          auth: 'addTable12',
           icon: 'iconfont icon-xinzeng',
           func: () => this.handleAdd()
         },
@@ -118,8 +119,8 @@ export default {
               func: row => this.handleUpdate(row) // 回调
             },
             {
-              label: '删除1',
-              auth: 'aaa',
+              label: '删除',
+              auth: 'deleteTable1',
               // icon: 'iconfont iconwenjian',
               // type: 'icon', // icon 只是图标
               func: row => this.handleDel(row) // 回调
