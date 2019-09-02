@@ -111,8 +111,7 @@ export default {
           options: [
             {
               label: '详情',
-              // icon: 'iconfont iconwenjian',
-              // type: 'icon', // icon 只是图标
+              auth: '',
               func: row => this.handleUpdate(row) // 回调
             }
           ]

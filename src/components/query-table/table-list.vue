@@ -7,7 +7,7 @@
               class="v-table"
               :height="tableHeight"
               :data="tableData"
-              :default-sort="{prop: 'name', order: 'descending'}"
+              :default-sort="options.defaultSort ? {prop: options.defaultSort.prop, order: options.defaultSort.order} : {}"
               style="width: 100%"
               @sort-change="sortChange"
               @row-dblclick="rowDblClick"
@@ -24,7 +24,7 @@
       </el-table-column>
       <template v-for="(col, i) in columns">
         <el-table-column class="table-column"
-                         sortable="custom"
+                         :sortable="col.sort ? true : false"
                          :prop="col.key"
                          :key="col.key + i"
                          :label="col.label"
@@ -86,7 +86,12 @@
           </template>
         </template>
       </el-table-column>
-      <template slot="empty">暂无五五五五五五五五</template>
+      <template slot="empty">
+        <div class="empty">
+          <h2>页面暂无内容</h2>
+          <p>抱歉，页面暂无内容，请看看其他页面</p>
+        </div>
+      </template>
     </el-table>
   </div>
 </template>
@@ -186,7 +191,7 @@ export default {
       // console.log(column)
       // console.log(prop)
       // console.log(order)
-      this.$emit('sortChange', { column, prop, order })
+      this.$emit('sort-change', { column, prop, order })
     },
     handleResize () {
       // const bodyHeight = window.innerHeight || document.documentElement.clientHeight

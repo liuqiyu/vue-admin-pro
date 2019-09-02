@@ -52,7 +52,7 @@ export default {
         },
         {
           label: '新增',
-          auth: 'addTable',
+          auth: 'addTable1',
           icon: 'iconfont icon-xinzeng',
           func: () => this.handleAdd()
         },
@@ -74,6 +74,10 @@ export default {
         options: {
           type: 'selection',
           page: true,
+          defaultSort: {
+            prop: 'name',
+            order: 'descending'
+          },
           // 选中后操作
           selectionChange: row => {
             this.multipleSelection = row
@@ -94,7 +98,8 @@ export default {
           {
             label: '年龄',
             key: 'age',
-            width: '180'
+            width: '180',
+            sort: true
           },
           {
             label: '性别',
@@ -118,7 +123,9 @@ export default {
             },
             {
               label: '删除',
-              auth: 'aaa',
+              auth: 'deleteTable1',
+              // icon: 'iconfont iconwenjian',
+              // type: 'icon', // icon 只是图标
               func: row => this.handleDel(row) // 回调
             }
           ]

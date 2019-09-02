@@ -1,18 +1,25 @@
 .v-admin {
   .el-table {
+    // 右侧边框
+    &.el-table--group::after,
+    &.el-table--border::after,
+    &.el-table::before {
+      z-index: 6;
+      background-color: #dfe9fc !important;
+    }
     &.el-table--border {
-      border-color: #DFE9FC;
+      border-color: #dfe9fc;
     }
 
     &.el-table--striped .el-table__body tr.el-table__row--striped td {
-      background-color: #F9FBFF;
+      background-color: #f9fbff;
     }
 
     thead {
       tr th {
         padding: 0 !important;
         border-bottom: none !important;
-        background: #EBF1FC !important;
+        background: #ebf1fc !important;
         border-right-color: rgba(195, 213, 255, 0.5);
 
         .cell {
@@ -39,6 +46,18 @@
       .cell {
         color: #333 !important;
       }
+    }
+  }
+
+  .empty {
+    h2 {
+      font-size: 24px;
+      color: #53607e;
+    }
+    p {
+      color: #53607e;
+      font-size: 14px;
+      line-height: 20px;
     }
   }
 }
