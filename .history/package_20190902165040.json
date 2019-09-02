@@ -43,7 +43,6 @@
     "eslint": "^5.8.0",
     "eslint-plugin-vue": "^5.0.0",
     "husky": "^3.0.5",
-    "lint-staged": "^9.2.5",
     "mockjs": "^1.0.1-beta3",
     "node-sass": "^4.9.0",
     "sass-loader": "^7.1.0",

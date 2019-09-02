@@ -6,20 +6,8 @@
     "dev": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "prod": "node vue.prod.js",
-    "report": "vue-cli-service build --report",
     "dll": "webpack -p --progress --config ./webpack.dll.conf.js",
     "lint": "vue-cli-service lint"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "src/**/*.{js,vue}": [
-      "eslint --fix",
-      "git add"
-    ]
   },
   "dependencies": {
     "axios": "^0.18.0",
@@ -42,8 +30,6 @@
     "clean-webpack-plugin": "^3.0.0",
     "eslint": "^5.8.0",
     "eslint-plugin-vue": "^5.0.0",
-    "husky": "^3.0.5",
-    "lint-staged": "^9.2.5",
     "mockjs": "^1.0.1-beta3",
     "node-sass": "^4.9.0",
     "sass-loader": "^7.1.0",

@@ -13,7 +13,7 @@ app.get('/', function (req, res) {
   res.sendFile('dist/index.html')
 })
 
-const port = process.env.PORT || 9422
+const port = process.env.PORT || 9999
 module.exports = app.listen(port, () => {
   console.log(`Server listening on http://localhost:${port}, Ctrl+C to stop`)
 })
