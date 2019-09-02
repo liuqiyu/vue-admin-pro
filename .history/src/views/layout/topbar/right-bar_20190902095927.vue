@@ -1,17 +1,19 @@
 <template>
   <div class="right-bar">
-    <el-avatar class="avatar"
-               :size="30">
-      <img src="@/images/avatar.png" /></el-avatar>
     <el-dropdown trigger="click">
       <span class="el-dropdown-link">
+        <el-avatar class="avatar"
+                   :size="30">
+          <img src="@/images/avatar.png" /></el-avatar>
         <span class="name">
           刘岂宇
         </span>
-        <i class="el-icon-caret-bottom el-icon--right"></i>
+        <i class="el-icon-arrow-down el-icon--right"></i>
       </span>
-      <el-dropdown-menu slot="dropdown">
-        <el-dropdown-item @click.native="modifyUserinfo">修改信息</el-dropdown-item>
+      <el-dropdown-menu slot="dropdown"
+                        :icon="'el-icon-caret-bottom'">
+        <el-dropdown-item @click.native="modifyUserinfo"
+                          icon="'el-icon-caret-bottom">修改信息</el-dropdown-item>
       </el-dropdown-menu>
     </el-dropdown>
     <div class="logout">
@@ -63,16 +65,15 @@ export default {
   display: flex;
   align-items: center;
   height: 100%;
-  .avatar {
-    margin-right: 12px;
-  }
   /deep/ .el-dropdown {
-    cursor: pointer;
     .el-dropdown-link {
       /*display: block;*/
       height: 40px;
       display: flex;
       align-items: center;
+      .avatar {
+        margin-right: 12px;
+      }
       .name {
         color: #f1f1f1;
       }

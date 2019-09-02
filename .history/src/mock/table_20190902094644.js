@@ -155,18 +155,152 @@ Mock.mock(host + '/getTable', 'post', () => {
   }
 })
 
-Mock.mock(host + '/getTableDetails', 'post', () => {
-  const data = {
+Mock.mock(host + '/getTable', 'post', () => {
+  const list = [{
+    name: '刘依冉',
+    age: '12天',
+    gender: 2,
+    nickname: '依依',
+    address: '南山'
+  },
+  {
+    name: '刘依冉',
+    age: '12天',
+    gender: 2,
+    nickname: '依依',
+    address: '南山'
+  },
+  {
+    name: '刘依冉',
+    age: '12天',
+    gender: 2,
+    nickname: '依依',
+    address: '南山'
+  },
+  {
+    name: '刘依冉',
+    age: '12天',
+    gender: 2,
+    nickname: '依依',
+    address: '南山'
+  },
+  {
+    name: '刘依冉',
+    age: '12天',
+    gender: 2,
+    nickname: '依依',
+    address: '南山'
+  },
+  {
+    name: '刘依冉',
+    age: '12天',
+    gender: 2,
+    nickname: '依依',
+    address: '南山'
+  },
+  {
+    name: '刘依冉',
+    age: '12天',
+    gender: 2,
+    nickname: '依依',
+    address: '南山'
+  },
+  {
+    name: '刘依冉',
+    age: '12天',
+    gender: 2,
+    nickname: '依依',
+    address: '南山'
+  },
+  {
+    name: '刘依冉',
+    age: '12天',
+    gender: 2,
+    nickname: '依依',
+    address: '南山'
+  },
+  {
+    name: '刘依冉',
+    age: '12天',
+    gender: 2,
+    nickname: '依依',
+    address: '南山'
+  },
+  {
+    name: '刘依冉',
+    age: '12天',
+    gender: 2,
+    nickname: '依依',
+    address: '南山'
+  },
+  {
+    name: '刘依冉',
+    age: '12天',
+    gender: 2,
+    nickname: '依依',
+    address: '南山'
+  },
+  {
+    name: '刘依冉',
+    age: '12天',
+    gender: 2,
+    nickname: '依依',
+    address: '南山'
+  },
+  {
+    name: '刘依冉',
+    age: '12天',
+    gender: 2,
+    nickname: '依依',
+    address: '南山'
+  },
+  {
+    name: '刘依冉',
+    age: '12天',
+    gender: 2,
+    nickname: '依依',
+    address: '南山'
+  },
+  {
+    name: '刘依冉',
+    age: '12天',
+    gender: 2,
+    nickname: '依依',
+    address: '南山'
+  },
+  {
+    name: '刘依冉',
+    age: '12天',
+    gender: 2,
+    nickname: '依依',
+    address: '南山'
+  },
+  {
+    name: '刘依冉',
+    age: '12天',
+    gender: 2,
+    nickname: '依依',
+    address: '南山'
+  },
+  {
+    name: '刘依冉',
+    age: '12天',
+    gender: 2,
+    nickname: '依依',
+    address: '南山'
+  },
+  {
     name: '刘依冉',
     age: '12天',
     gender: 2,
     nickname: '依依',
     address: '南山'
   }
-
+  ]
+  // return success(list)
   return {
     data: {
-      data: data
+      data: list
     },
     message: '操作成功',
     code: 200

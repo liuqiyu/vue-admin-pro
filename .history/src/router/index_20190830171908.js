@@ -44,21 +44,7 @@ const routes = [{
   },
   component: login
 },
-...layoutRoutes,
-{
-  path: '/404',
-  name: '404',
-  component: () => import('@/views/error/404')
-},
-{
-  path: '/401',
-  name: '401',
-  component: () => import('@/views/error/401')
-},
-{
-  path: '*',
-  redirect: '/404'
-}
+...layoutRoutes
 ]
 
 export default new Router({

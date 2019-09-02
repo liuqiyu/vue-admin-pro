@@ -9,7 +9,7 @@ const port = 9420 // dev port
 
 module.exports = {
   // publicPath: '/',
-  outputDir: 'dist',
+  // outputDir: 'dist',
   // assetsDir: 'static',
   devServer: {
     port,

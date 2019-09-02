@@ -54,10 +54,6 @@ const routes = [{
   path: '/401',
   name: '401',
   component: () => import('@/views/error/401')
-},
-{
-  path: '*',
-  redirect: '/404'
 }
 ]
 

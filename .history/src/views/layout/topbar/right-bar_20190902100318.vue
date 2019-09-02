@@ -67,7 +67,6 @@ export default {
     margin-right: 12px;
   }
   /deep/ .el-dropdown {
-    cursor: pointer;
     .el-dropdown-link {
       /*display: block;*/
       height: 40px;

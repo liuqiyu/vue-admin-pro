@@ -63,16 +63,13 @@ export default {
   display: flex;
   align-items: center;
   height: 100%;
-  .avatar {
-    margin-right: 12px;
-  }
   /deep/ .el-dropdown {
-    cursor: pointer;
     .el-dropdown-link {
       /*display: block;*/
       height: 40px;
       display: flex;
       align-items: center;
+
       .name {
         color: #f1f1f1;
       }

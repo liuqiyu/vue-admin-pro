@@ -43,7 +43,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "~@/style/variable";
+@import "./../../style/variable";
 .v-layout {
   width: 100%;
   height: 100%;
