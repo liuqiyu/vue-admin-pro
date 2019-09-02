@@ -1,41 +1,6 @@
 # aspire-sz
 
 ## 项目目录
-+---assets
-|   +---401_images
-|   +---404_images
-|   \---images
-+---components
-|   +---query-table
-|   +---v-details-page
-|   \---v-dialog
-+---config
-+---directives
-+---images
-+---mock
-+---router
-+---store
-|   \---modules
-+---style
-|   \---element-reset
-+---utils
-\---views
-    +---admin
-    +---dashboard
-    +---dialog
-    +---echarts
-    +---error
-    +---layout
-    |   +---breadcrumb
-    |   +---navbar
-    |   +---tags-view
-    |   \---topbar
-    +---login
-    +---nested-route
-    \---table
-        +---custom-header
-        +---default
-        \---details
 
 ## 功能结构
 
