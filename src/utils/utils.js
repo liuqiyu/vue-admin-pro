@@ -57,3 +57,58 @@ export function deepClone (source) {
   })
   return targetObj
 }
+
+/**
+ * 判断值得类型是否是 Object
+ *
+ * @export
+ * @param {*} obj
+ * @returns
+ */
+export function isObject (obj) {
+  return toString.call(obj) === '[object Object]'
+}
+
+/**
+ * 判断值得类型是否是 String
+ *
+ * @export
+ * @param {*} obj
+ * @returns
+ */
+export function isString (obj) {
+  return toString.call(obj) === '[object String]'
+}
+
+/**
+ * 判断值得类型是否是 Number
+ *
+ * @export
+ * @param {*} obj
+ * @returns
+ */
+export function isNumber (obj) {
+  return toString.call(obj) === '[object Number]'
+}
+
+/**
+ * 判断值得类型是否是 Function
+ *
+ * @export
+ * @param {*} obj
+ * @returns
+ */
+export function isFunction (obj) {
+  return toString.call(obj) === '[object Function]'
+}
+
+/**
+ * 判断值得类型是否是 Array
+ *
+ * @export
+ * @param {*} obj
+ * @returns
+ */
+export function isArray (obj) {
+  return toString.call(obj) === '[object Array]'
+}
