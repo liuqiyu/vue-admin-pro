@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import countTo from 'vue-count-to'
 import directives from '../directives'
 // import http from './../utils/http'
 // 全局组件
@@ -25,6 +26,7 @@ const install = () => {
   components.forEach(component => {
     Vue.component(component.name, component)
   })
+  Vue.component('countTo', countTo)
   setPrototype(Vue)
   setDirective(Vue)
 }

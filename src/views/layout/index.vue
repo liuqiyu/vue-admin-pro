@@ -7,6 +7,11 @@
           <el-scrollbar class="scrollbar-wrapper">
             <navbar></navbar>
           </el-scrollbar>
+          <div class="collapse-trigger"
+               @click="menuTrigger">
+            <span ref="collapseIcon"
+                  class="iconfont icon-shouqi"></span>
+          </div>
         </div>
         <el-main class="v-main">
           <tagsView></tagsView>
@@ -22,7 +27,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapMutations } from 'vuex'
 import topbar from './topbar'
 import navbar from './navbar'
 import tagsView from './tags-view'
@@ -38,6 +43,15 @@ export default {
       'isCollapse',
       'cachedViews'
     ])
+  },
+  methods: {
+    ...mapMutations([
+      'IS_COLLAPSE'
+    ]),
+    menuTrigger () {
+      this.$refs.collapseIcon.classList.toggle('retract')
+      this.IS_COLLAPSE()
+    }
   }
 }
 </script>
@@ -76,13 +90,44 @@ export default {
       flex: none;
       background: #fff;
       box-shadow: 0 0 8px 0 #cadaf5;
+      display: flex;
+      flex-direction: column;
       .scrollbar-wrapper {
+        flex: 1;
         height: 100%;
         margin: 0 !important;
         overflow-x: hidden;
         overflow-y: auto;
+        border-bottom: 1px solid #dee9fc;
         /deep/ .el-scrollbar__wrap {
           overflow-x: hidden !important;
+        }
+      }
+      .collapse-trigger {
+        position: relative;
+        flex: none;
+        width: 100%;
+        height: 34px;
+        background-image: linear-gradient(
+          90deg,
+          #e1e7f3 14%,
+          rgba(234, 234, 234, 0) 100%
+        );
+        span {
+          position: absolute;
+          top: 0;
+          right: 0;
+          display: block;
+          width: 64px;
+          height: 34px;
+          background: #fff;
+          line-height: 34px;
+          text-align: center;
+          cursor: pointer;
+          &.retract {
+            transform: rotateY(180deg);
+            -webkit-transform: rotateY(180deg); /* Safari 与 Chrome */
+          }
         }
       }
     }
