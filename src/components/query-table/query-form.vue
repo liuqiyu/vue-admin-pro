@@ -18,7 +18,7 @@
                      :key="index"></form-item>
         </el-col>
         <el-col :span="4"
-                :class="{moreLine: moreLine}">
+                :class="{lineFeed: lineFeed}">
           <div class="query-form-btns">
             <el-button type="primary"
                        icon="iconfont icon-sousuo"
@@ -28,7 +28,8 @@
             <el-button type="text"
                        icon="iconfont icon-zhongzhi"
                        @click="onReset">重置</el-button>
-            <el-button type="text"
+            <el-button v-if="needControl || false"
+                       type="text"
                        @click="onControl">
               {{status ? '展开' : '收起'}}
               <i class=" el-icon--right"
@@ -54,7 +55,8 @@ export default {
   data () {
     return {
       model: {},
-      moreLine: false,
+      lineFeed: false,
+      needControl: false,
       status: 'close'
     }
   },
@@ -114,16 +116,23 @@ export default {
           total += item.lg
         }
 
-        this.$set(this.formFields[index], 'show', true)
-
         if (total > 24) {
-          this.moreLine = true
+          this.needControl = true
           this.status = 'close'
           this.$set(this.formFields[index], 'show', false)
         } else {
-          this.moreLine = false
+          this.needControl = false
+          this.status = 'close'
+          this.$set(this.formFields[index], 'show', true)
         }
       })
+
+      // 换行
+      if (total + 4 > 24) {
+        this.lineFeed = true
+      } else {
+        this.lineFeed = false
+      }
     },
     createModel () {
       // const total = 0
@@ -158,8 +167,9 @@ export default {
       }
     }
   }
-  .moreLine {
+  .lineFeed {
     float: right;
+    text-align: right;
   }
   .el-row {
     .el-col {
