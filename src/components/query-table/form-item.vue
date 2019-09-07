@@ -1,5 +1,6 @@
 <template>
-  <el-form-item :label="item.label">
+  <el-form-item class="query-form-item"
+                :label="item.label">
     <!--input 文本-->
     <el-input v-if="item.type === 'text'"
               :value="value"
@@ -20,11 +21,12 @@
     <el-select v-else-if="item.type === 'select'"
                :disabled="isDisabled(item)"
                :value="value"
-               :multiple="item.multiple"
+               :multiple="item.multiple || false"
                :placeholder="item.placeholder"
                clearable
+               :collapse-tags="item.multiple || false"
                @change="bindChange">
-      <el-option v-for="(cell, index) in doSelectOptions()"
+      <el-option v-for="(cell, index) in item.options"
                  :key="cell.value + index"
                  :label="cell.label"
                  :value="cell.value">
@@ -35,8 +37,8 @@
     <el-date-picker v-else-if="item.type === 'daterange'"
                     :value="value"
                     type="daterange"
-                    :format="item.format || 'vv-MM-dd'"
-                    :value-format="item.valueFormat || 'vv-MM-dd'"
+                    :format="item.format || 'yyyy-MM-dd'"
+                    :value-format="item.valueFormat || 'yyyy-MM-dd'"
                     range-separator="至"
                     start-placeholder="开始日期"
                     end-placeholder="结束日期"
@@ -47,8 +49,8 @@
     <el-date-picker v-else-if="item.type === 'datetimerange'"
                     :value="value"
                     type="datetimerange"
-                    :format="item.format || 'vv-MM-dd HH:mm:ss'"
-                    :value-format="item.valueFormat || 'vv-MM-dd HH:mm:ss'"
+                    :format="item.format || 'yyyy-MM-dd HH:mm:ss'"
+                    :value-format="item.valueFormat || 'yyyy-MM-dd HH:mm:ss'"
                     range-separator="至"
                     start-placeholder="开始日期"
                     end-placeholder="结束日期"
@@ -61,11 +63,6 @@
 export default {
   name: 'form-item',
   props: ['value', 'item'],
-  mounted () {
-    // console.log(this.item)
-    // console.log(this.value)
-    // this.model.name = '123';
-  },
   data () {
     return {
       datea: ''
@@ -98,27 +95,36 @@ export default {
       return 'append'
     },
     doSelectOptions () {
-      // if (item.lookup) {
-      // }
-      const data = [
-        {
-          label: '未开始',
-          value: '1'
-        },
-        {
-          label: '已开始',
-          value: '2'
-        },
-        {
-          label: '已结束',
-          value: '3'
-        }
-      ]
-      return data
+      // if ()
+      //   return data
     }
   }
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+.query-form-item {
+  margin-bottom: 10px !important;
+  width: 100%;
+  display: flex !important;
+  flex-direction: row;
+  /deep/ .el-form-item__label {
+    flex: none;
+  }
+
+  /deep/ .el-form-item__content {
+    flex: 1;
+    width: 100%;
+    .el-select,
+    .el-input-number {
+      width: 100%;
+    }
+    .el-date-editor {
+      width: 100%;
+      .el-range-separator {
+        width: 6%;
+      }
+    }
+  }
+}
 </style>

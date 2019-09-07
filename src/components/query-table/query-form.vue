@@ -3,22 +3,40 @@
     <el-form :model="model"
              :inline="true"
              size="mini"
-             label-position="right">
-      <template v-for="(item, index) in formFields">
-        <form-item :item="item"
-                   v-model="model[item.columnName]"
-                   :key="index"></form-item>
-      </template>
-      <el-form-item class="query-form-btns">
-        <el-button type="primary"
-                   icon="iconfont icon-sousuo"
-                   @click="onSubmit">
-          查询
-        </el-button>
-        <el-button type="text"
-                   icon="iconfont icon-zhongzhi"
-                   @click="onReset">重置</el-button>
-      </el-form-item>
+             label-position="right"
+             label-width="70px">
+      <el-row :gutter="10">
+        <el-col v-for="(item, index) in formFields"
+                :xs="item.lg || 6"
+                :sm="item.lg || 6"
+                :lg="item.lg || 6"
+                :xl="item.xl || 4"
+                :key="index">
+          <form-item v-if="!!item.show || false"
+                     :item="item"
+                     v-model="model[item.columnName]"
+                     :key="index"></form-item>
+        </el-col>
+        <el-col :span="4"
+                :class="{moreLine: moreLine}">
+          <div class="query-form-btns">
+            <el-button type="primary"
+                       icon="iconfont icon-sousuo"
+                       @click="onSubmit">
+              查询
+            </el-button>
+            <el-button type="text"
+                       icon="iconfont icon-zhongzhi"
+                       @click="onReset">重置</el-button>
+            <el-button type="text"
+                       @click="onControl">
+              {{status ? '展开' : '收起'}}
+              <i class=" el-icon--right"
+                 :class="!status ? 'el-icon-arrow-up' : 'el-icon-arrow-down'"></i>
+            </el-button>
+          </div>
+        </el-col>
+      </el-row>
     </el-form>
   </div>
 </template>
@@ -35,17 +53,39 @@ export default {
   },
   data () {
     return {
-      model: {}
+      model: {},
+      moreLine: false,
+      status: 'close'
     }
   },
   created () {
-    this.createModel()
-    console.log(this.model)
+    this.initForm()
   },
   components: {
     formItem
   },
   methods: {
+    initForm () {
+      this.formFields.forEach((item, index) => {
+        this.$set(this.model, item.columnName, item.defaultValue || null)
+
+        switch (item.type) {
+          case 'daterange':
+            this.$set(this.formFields[index], 'lg', 8)
+            this.$set(this.formFields[index], 'xl', 6)
+            break
+          case 'datetimerange':
+            this.$set(this.formFields[index], 'lg', 8)
+            this.$set(this.formFields[index], 'xl', 6)
+            break
+          default:
+            this.$set(this.formFields[index], 'lg', 6)
+            this.$set(this.formFields[index], 'xl', 4)
+            break
+        }
+      })
+      this.formItemControl()
+    },
     onSubmit () {
       console.log('submit!')
       console.log(this.model)
@@ -55,13 +95,45 @@ export default {
       console.log('reset!')
       console.log(this.model)
     },
-    createModel () {
-      this.formFields.forEach((item) => {
-        if (item.type === 'daterange') {
-          this.$set(this.model, item.columnName, [])
+    onControl () {
+      this.status = !this.status
+      this.formItemControl()
+    },
+    formItemControl () {
+      if (!this.status) {
+        this.formFields.forEach((item, index) => {
+          this.$set(this.formFields[index], 'show', true)
+        })
+        return false
+      }
+      let total = 0
+      this.formFields.forEach((item, index) => {
+        if (document.body.clientWidth >= 1920) {
+          total += item.xl
         } else {
-          this.$set(this.model, item.columnName, '')
+          total += item.lg
         }
+
+        this.$set(this.formFields[index], 'show', true)
+
+        if (total > 24) {
+          this.moreLine = true
+          this.status = 'close'
+          this.$set(this.formFields[index], 'show', false)
+        } else {
+          this.moreLine = false
+        }
+      })
+    },
+    createModel () {
+      // const total = 0
+      this.formFields.forEach((item) => {
+        this.$set(this.model, item.columnName, item.defaultValue || null)
+        // if (item.type === 'daterange' || item.type === 'datetimerange' || (item.type === 'select' && item.multiple)) {
+        //   this.$set(this.model, item.columnName, item.defaultValue || [])
+        // } else {
+        //   this.$set(this.model, item.columnName, item.defaultValue || '')
+        // }
       })
     }
   }
@@ -73,13 +145,9 @@ export default {
   background: #ffffff;
   border: 1px solid #dee8f8;
   padding: 10px 10px 0 10px;
-  /deep/ .el-form-item {
-    margin-bottom: 15px;
-    .el-form-item__content {
-      width: 140px !important;
-    }
-  }
   .query-form-btns {
+    margin-left: 20px;
+    margin-bottom: 5px;
     /deep/ .el-button {
       height: 28px;
       .iconfont {
@@ -88,6 +156,14 @@ export default {
         font-size: 12px !important;
         margin-right: 2px;
       }
+    }
+  }
+  .moreLine {
+    float: right;
+  }
+  .el-row {
+    .el-col {
+      // padding: 0 !important;
     }
   }
 }
