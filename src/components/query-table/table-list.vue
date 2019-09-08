@@ -86,12 +86,12 @@
           </template>
         </template>
       </el-table-column>
-      <template slot="empty">
+      <!-- <template slot="empty">
         <div class="empty">
           <h2>页面暂无内容</h2>
           <p>抱歉，页面暂无内容，请看看其他页面</p>
         </div>
-      </template>
+      </template> -->
     </el-table>
   </div>
 </template>

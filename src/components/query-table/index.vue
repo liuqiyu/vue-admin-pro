@@ -1,6 +1,5 @@
 <template>
   <div class="query-table">
-
     <query-form ref="queryForm"
                 class="query-form"
                 v-if="formFields.length > 0"
@@ -66,7 +65,7 @@ export default {
       loading: false,
       tableData: [],
       currentPage: 1,
-      pageSize: 10,
+      pageSize: 20,
       total: 0
     }
   },
@@ -106,12 +105,10 @@ export default {
     },
     handleSizeChange (val) {
       this.pageSize = val
-      console.log(val + '换1')
       this.fetchTable()
     },
     handleCurrentChange (val) {
       this.currentPage = val
-      console.log(val + '换2')
       this.fetchTable()
     },
     sortChange (val) {

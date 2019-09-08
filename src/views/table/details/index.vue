@@ -52,7 +52,7 @@ export default {
         },
         {
           label: '新增',
-          auth: 'addTable1',
+          auth: 'addTable',
           icon: 'iconfont icon-xinzeng',
           func: () => this.handleAdd()
         },
@@ -75,7 +75,7 @@ export default {
           type: 'selection',
           page: true,
           defaultSort: {
-            prop: 'name',
+            prop: 'gender',
             order: 'descending'
           },
           // 选中后操作
@@ -123,7 +123,7 @@ export default {
             },
             {
               label: '删除',
-              auth: 'deleteTable1',
+              // auth: 'deleteTable1',
               // icon: 'iconfont iconwenjian',
               // type: 'icon', // icon 只是图标
               func: row => this.handleDel(row) // 回调
