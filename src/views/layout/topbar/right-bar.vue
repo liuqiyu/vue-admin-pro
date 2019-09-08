@@ -1,5 +1,9 @@
 <template>
   <div class="right-bar">
+    <div class="tools">
+      <span class="iconfont icon-quanping"
+            @click="screenfull"></span>
+    </div>
     <el-avatar class="avatar"
                :size="30">
       <img src="@/images/avatar.png" /></el-avatar>
@@ -22,13 +26,24 @@
 </template>
 
 <script>
+import screenfull from 'screenfull'
+
 export default {
   name: 'right-bar',
   data () {
     return {
+      isFullscreen: false
     }
   },
+  mounted () {
+    this.init()
+  },
   methods: {
+    init () {
+      if (screenfull.enabled) {
+        screenfull.on('change', this.change)
+      }
+    },
     modifyUserinfo () {
       console.log('修改信息')
     },
@@ -53,6 +68,23 @@ export default {
           message: '已取消注销'
         })
       })
+    },
+
+    // 切换全屏
+    screenfull () {
+      if (screenfull.enabled) {
+        screenfull.toggle()
+      }
+    },
+
+    // 变量
+    change () {
+      this.isFullscreen = screenfull.isFullscreen
+    }
+  },
+  beforeDestroy () {
+    if (screenfull.enabled) {
+      screenfull.off('change', this.change)
     }
   }
 }
@@ -63,6 +95,18 @@ export default {
   display: flex;
   align-items: center;
   height: 100%;
+  .tools {
+    margin-right: 10px;
+    span {
+      font-size: 22px;
+      margin-right: 12px;
+      color: #f1f1f1;
+      cursor: pointer;
+      &:hover {
+        color: #fff;
+      }
+    }
+  }
   .avatar {
     margin-right: 12px;
   }

@@ -35,36 +35,116 @@ export default {
         data: {}
       },
       formFields: [
+        // 下拉框
         {
-          label: '姓名',
-          type: 'text',
-          placeholder: '请输入姓名',
-          columnName: 'text'
+          label: '下拉框',
+          type: 'select',
+          placeholder: '请选择下拉框',
+          columnName: 'select',
+          defaultValue: 1, // 初始化默认值
+          options: [
+            {
+              value: 1,
+              label: '你好1'
+            },
+            {
+              value: 2,
+              label: '你好2'
+            }
+          ]
         },
         {
-          label: '昵称',
-          type: 'text',
-          placeholder: '请输入昵称',
-          columnName: 'text'
+          label: '下拉框',
+          type: 'select',
+          multiple: true,
+          placeholder: '请选择下拉框',
+          columnName: 'select1',
+          defaultValue: [1, 2], // 初始化默认值
+          options: [
+            {
+              value: 1,
+              label: '你好1'
+            },
+            {
+              value: 2,
+              label: '你好2'
+            }
+          ]
+        },
+        // 下拉框
+        {
+          label: '下拉框',
+          type: 'select',
+          multiple: true,
+          placeholder: '请选择下拉框',
+          columnName: 'select1',
+          defaultValue: [1, 2], // 初始化默认值
+          options: [
+            {
+              value: 1,
+              label: '你好1'
+            },
+            {
+              value: 2,
+              label: '你好2'
+            }
+          ]
+        },
+        // 下拉框
+        {
+          label: '下拉框',
+          type: 'select',
+          placeholder: '请选择下拉框',
+          columnName: 'select',
+          defaultValue: 1, // 初始化默认值
+          options: [
+            {
+              value: 1,
+              label: '你好1'
+            },
+            {
+              value: 2,
+              label: '你好2'
+            }
+          ]
         },
         {
-          label: '年龄',
-          type: 'text',
-          placeholder: '请输入年龄',
-          columnName: 'text'
+          label: '下拉框',
+          type: 'select',
+          multiple: true,
+          placeholder: '请选择下拉框',
+          columnName: 'select1',
+          defaultValue: [1, 2], // 初始化默认值
+          options: [
+            {
+              value: 1,
+              label: '你好1'
+            },
+            {
+              value: 2,
+              label: '你好2'
+            }
+          ]
         },
+        // 下拉框
         {
-          label: '性别',
-          type: 'text',
-          placeholder: '请输入性别',
-          columnName: 'text'
-        },
-        {
-          label: '地址',
-          type: 'text',
-          placeholder: '请输入地址',
-          columnName: 'text'
+          label: '下拉框',
+          type: 'select',
+          placeholder: '请选择下拉框',
+          columnName: 'select',
+          defaultValue: 1, // 初始化默认值
+          options: [
+            {
+              value: 1,
+              label: '你好1'
+            },
+            {
+              value: 2,
+              label: '你好2'
+            }
+          ]
         }
+
       ],
       tools: [
         {
@@ -152,6 +232,8 @@ export default {
       },
       multipleSelection: []
     }
+  },
+  mounted () {
   },
   components: {
     detailsDialog

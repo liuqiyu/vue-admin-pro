@@ -8,7 +8,7 @@ export default {
   path: '/error',
   name: 'Error',
   meta: {
-    icon: 'icon-biaoge',
+    icon: 'icon-yichangguanli',
     tag: '/table/index',
     title: '错误页面'
   },
