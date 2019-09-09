@@ -1,5 +1,12 @@
 <template>
-  <div>3-1</div>
+  <div>
+    <el-alert title="3-1"
+              type="info"
+              show-icon>
+    </el-alert>
+
+    <router-view></router-view>
+  </div>
 </template>
 
 <script>

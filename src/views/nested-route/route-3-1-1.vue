@@ -1,11 +1,9 @@
 <template>
   <div>
-    <el-alert title="3"
-              type="success"
+    <el-alert title="3-1-1"
+              type="warning"
               show-icon>
     </el-alert>
-
-    <router-view></router-view>
   </div>
 </template>
 

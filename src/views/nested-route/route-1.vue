@@ -1,5 +1,10 @@
 <template>
-  <div>1</div>
+  <div>
+    <el-alert title="1"
+              type="success"
+              show-icon>
+    </el-alert>
+  </div>
 </template>
 
 <script>
