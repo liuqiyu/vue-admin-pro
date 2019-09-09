@@ -1,10 +1,4 @@
 import Layout from './../views/layout'
-const Route1 = () =>
-  import(/* webpackChunkName: "nested-route" */ './../views/nested-route/route-1.vue')
-const Route2 = () =>
-  import(/* webpackChunkName: "nested-route" */ './../views/nested-route/route-2.vue')
-const Route3 = () =>
-  import(/* webpackChunkName: "nested-route" */ './../views/nested-route/route-3.vue')
 
 export default {
   path: '/nested-route',
@@ -18,7 +12,8 @@ export default {
   children: [{
     path: 'route1',
     name: 'route1',
-    component: Route1,
+    component: () =>
+        import(/* webpackChunkName: "nested-route" */ './../views/nested-route/route-1.vue'),
     meta: {
       tag: '/echarts/index',
       title: '路由1'
@@ -27,7 +22,8 @@ export default {
   {
     path: 'route2',
     name: 'route2',
-    component: Route2,
+    component: () =>
+        import(/* webpackChunkName: "nested-route" */ './../views/nested-route/route-2.vue'),
     meta: {
       tag: '/echarts/index',
       title: '路由2'
@@ -36,7 +32,8 @@ export default {
   {
     path: 'route3',
     name: 'route3',
-    component: Route3,
+    component: () =>
+        import(/* webpackChunkName: "nested-route" */ './../views/nested-route/route-3.vue'),
     meta: {
       tag: '/echarts/index',
       title: '路由3',
@@ -45,7 +42,8 @@ export default {
     children: [{
       path: 'route3-1',
       name: 'route3-1',
-      component: Route1,
+      component: () =>
+          import(/* webpackChunkName: "nested-route" */ './../views/nested-route/route-3-1.vue'),
       meta: {
         tag: '/echarts/index',
         title: '路由3-1',
@@ -54,7 +52,8 @@ export default {
       children: [{
         path: 'route3-1-1',
         name: 'route3-1-1',
-        component: Route1,
+        component: () =>
+            import(/* webpackChunkName: "nested-route" */ './../views/nested-route/route-3-1-1.vue'),
         meta: {
           tag: '/echarts/index',
           title: '路由3-1-1'

@@ -1,6 +1,4 @@
 import Layout from './../views/layout'
-const Index = () =>
-  import(/* webpackChunkName: "echarts" */ './../views/echarts/index')
 
 export default {
   path: '/echarts',
@@ -9,7 +7,8 @@ export default {
   children: [{
     path: 'index',
     name: '/echarts/index',
-    component: Index,
+    component: () =>
+      import(/* webpackChunkName: "echarts" */ './../views/echarts/index'),
     meta: {
       icon: 'icon-ditumap29',
       tag: '/echarts/index',

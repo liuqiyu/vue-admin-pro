@@ -1,5 +1,4 @@
 import Layout from './../views/layout'
-const Index = () => import(/* webpackChunkName: "dialog" */ './../views/dialog')
 
 export default {
   path: '/dialog',
@@ -8,7 +7,7 @@ export default {
   children: [{
     path: 'index',
     name: '/dialog/index',
-    component: Index,
+    component: () => import(/* webpackChunkName: "dialog" */ './../views/dialog'),
     meta: {
       icon: 'icon-danchuceng',
       tag: '/dialog',
