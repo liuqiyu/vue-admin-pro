@@ -5,7 +5,7 @@ import 'babel-polyfill'
 import App from './App.vue'
 import router from './router/index'
 import store from './store/index'
-import AspUI from './components'
+import VUI from './components'
 import './style/index.scss'
 import http from './utils/http'
 import * as filters from '@/utils/filter'
@@ -32,7 +32,7 @@ try {
 Vue.use(ElementUI, {
   size: 'mini'
 })
-Vue.use(AspUI)
+Vue.use(VUI)
 
 Vue.prototype.$http = http
 
