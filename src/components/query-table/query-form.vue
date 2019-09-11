@@ -116,23 +116,18 @@ export default {
           total += item.lg
         }
 
-        if (total > 24) {
+        if (total + 4 > 24) {
           this.needControl = true
           this.status = 'close'
           this.$set(this.formFields[index], 'show', false)
+          this.lineFeed = true
         } else {
           this.needControl = false
           this.status = 'close'
           this.$set(this.formFields[index], 'show', true)
+          this.lineFeed = false
         }
       })
-
-      // 换行
-      if (total + 4 > 24) {
-        this.lineFeed = true
-      } else {
-        this.lineFeed = false
-      }
     },
     createModel () {
       // const total = 0
@@ -155,7 +150,7 @@ export default {
   border: 1px solid #dee8f8;
   padding: 10px 10px 0 10px;
   .query-form-btns {
-    margin-left: 20px;
+    margin-left: 5px;
     margin-bottom: 5px;
     /deep/ .el-button {
       height: 28px;

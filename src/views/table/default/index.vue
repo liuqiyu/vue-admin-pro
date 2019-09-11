@@ -107,42 +107,6 @@ export default {
               label: '你好2'
             }
           ]
-        },
-        {
-          label: '下拉框',
-          type: 'select',
-          multiple: true,
-          placeholder: '请选择下拉框',
-          columnName: 'select1',
-          defaultValue: [1, 2], // 初始化默认值
-          options: [
-            {
-              value: 1,
-              label: '你好1'
-            },
-            {
-              value: 2,
-              label: '你好2'
-            }
-          ]
-        },
-        // 下拉框
-        {
-          label: '下拉框',
-          type: 'select',
-          placeholder: '请选择下拉框',
-          columnName: 'select',
-          defaultValue: 1, // 初始化默认值
-          options: [
-            {
-              value: 1,
-              label: '你好1'
-            },
-            {
-              value: 2,
-              label: '你好2'
-            }
-          ]
         }
 
       ],
