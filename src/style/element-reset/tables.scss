@@ -1,0 +1,61 @@
+.smart-admin {
+  .el-table {
+
+    // 右侧边框
+    &.el-table--group::after,
+    &.el-table--border::after,
+    &.el-table::before {
+      z-index: 6;
+      background-color: #dfe9fc !important;
+    }
+
+    &.el-table--border {
+      border-color: #dfe9fc;
+    }
+
+    &.el-table--striped .el-table__body tr.el-table__row--striped td {
+      background-color: #f9fbff;
+    }
+
+    thead {
+      tr th {
+        padding: 0 !important;
+        border-bottom: none !important;
+        background: #ebf1fc !important;
+        border-right-color: rgba(195, 213, 255, 0.5);
+
+        .cell {
+          height: 34px;
+          line-height: 34px;
+          padding: 0 4px !important;
+          color: #333 !important;
+        }
+      }
+    }
+
+    td {
+      padding: 0 !important;
+      border: none !important;
+
+      .cell {
+        height: 34px;
+        line-height: 34px;
+        color: #666 !important;
+        padding: 0 4px !important;
+      }
+    }
+  }
+
+  .empty {
+    h2 {
+      font-size: 24px;
+      color: #53607e;
+    }
+
+    p {
+      color: #53607e;
+      font-size: 14px;
+      line-height: 20px;
+    }
+  }
+}

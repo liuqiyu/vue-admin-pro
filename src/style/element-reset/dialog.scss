@@ -1,0 +1,30 @@
+.smart-admin {
+  .el-dialog {
+    .el-dialog__header {
+      border-bottom: 1px solid #DEE9FC;
+      padding: 15px 20px !important;
+
+      .el-dialog__headerbtn {
+        top: 15px !important;
+
+        >i {
+          color: #7EA1EE;
+        }
+      }
+    }
+  }
+
+
+  .el-dialog__body {
+    .smart-dialog__body {
+      padding: 15px 30px !important;
+    }
+
+    .smart-dialog__footer {
+      border-top: 1px solid #DFE9FC;
+      text-align: right;
+      background: #F1F5FA;
+      padding: 10px 20px;
+    }
+  }
+}

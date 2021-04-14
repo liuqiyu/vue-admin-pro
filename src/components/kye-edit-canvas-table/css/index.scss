@@ -1,0 +1,281 @@
+.kye-edit-canvas-table {
+  width: 100%;
+  position: relative;
+  .edit-box {
+    width: 100%;
+    position: relative;
+  }
+  .scrollContentWrap {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid #dcdae2;
+  }
+  .scrollContent {
+    overflow: hidden;
+    clear: both;
+  }
+  .fl {
+    float: left;
+  }
+  .fixedTop {
+    width: 100%;
+    height: 33px;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+  }
+  .fixedColumn {
+    width: 50px;
+    user-select: none;
+    overflow: hidden;
+    display: flex;
+    background: #ffffff;
+    .leftIndex {
+      width: 50px;
+      text-align: center;
+      flex: 1;
+      .leftIndeHeander {
+        height: 33px;
+        line-height: 33px;
+        background: #ebebeb;
+        font-weight: bold;
+        border-bottom: 1px solid #dcdae2
+      }
+      .leftIndexNumber {
+        li {
+          height: 32px;
+          line-height: 32px;
+          box-sizing: border-box;
+          border-bottom: 1px solid #dcdae2;
+          text-align: left;
+          box-sizing: border-box;
+          padding: 0 10px;
+        }
+      }
+    }
+    .leftCheckbox {
+      width: 50px;
+      text-align: center;
+      flex: 1;
+      .leftCheckboxHeader {
+        width: 50px;
+        height: 33px;
+        line-height: 33px;
+        background: #ebebeb;
+        border-bottom: 1px solid #dcdae2;
+        border-right: 1px solid #dcdae2;
+        box-sizing: border-box;
+      }
+      ul {
+        width: 100%;
+        li {
+          width: 100%;
+          height: 32px;
+          line-height: 32px;
+          text-align: center;
+          border-bottom: 1px solid #dcdae2;
+          border-right: 1px solid #dcdae2;
+        }
+      }
+    }
+  }
+  .nodeData {
+    text-align: center;
+    background: #ffffff;
+    margin-top: -3px;
+    border-top: 1px solid #ebebeb;
+    height: 32px;
+    line-height: 32px;
+    color: #909399;
+  }
+  .fixedLeft {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 3;
+    height: 100%;
+    overflow: hidden;
+    border: 1px solid #dcdae2;
+    .leftIndex .leftIndeHeander {
+      border-bottom: 0
+    }
+    .leftCheckbox .leftCheckboxHeader {
+      border-bottom: 0
+    }
+  }
+  .fixedRightbox {
+    height: 300px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    overflow: hidden;
+    border-top: 1px solid #dcdae2;
+    border-right: 1px solid #dcdae2;
+    border-bottom: 1px solid #dcdae2;
+    z-index: 3;
+    .fixedRightHeader {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 33px;
+      z-index: 1;
+      width: 100%;
+    }
+  }
+  .canvas-box {
+    user-select: none;
+    overflow: hidden;
+    position: relative;
+    .edit-wrap {
+      position: absolute;
+      width: 100%;
+      height: 0;
+      left: 0;
+      top: 32px;
+    }
+  }
+  .fixedHeanderWrap {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: 1;
+    border-top: 1px solid #dcdae2;
+    background: #ebebeb;
+  }
+  .fixedHeanderContent {
+    height: 100%;
+    .leftIndex .leftIndeHeander {
+      border-bottom: 0
+    }
+    .leftCheckbox .leftCheckboxHeader {
+      border-bottom: 0
+    }
+  }
+  .fixedTableHeander {
+    display: flex;
+    height: 32px;
+    background: #ebebeb;
+    float: left;
+    user-select: none;
+    div {
+      height: 32px;
+      border-left: 1px solid #dcdae2;
+      position: relative;
+      box-sizing: border-box;
+      .text {
+        overflow: hidden;
+        line-height: 32px;
+        width: 100%;
+        height: 32px;
+        box-sizing: border-box;
+        padding: 0 6px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        font-weight: bold;
+        user-select: none;
+      }
+      i {
+        position: absolute;
+        background: transparent;
+        width: 8px;
+        height: 100%;
+        display: block;
+        top: 0;
+        right: -4px;
+        &:hover {
+          cursor: col-resize;
+        }
+      }
+    }
+  }
+  .fixedRight {
+    box-sizing: border-box;
+    border-left: 1px solid #dcdae2;
+    background: #ffffff;
+    .rightHeader {
+      height: 33px;
+      line-height: 33px;
+      background: #ebebeb;
+      font-weight: bold;
+      // border-bottom: 1px solid #dcdae2;
+      box-sizing: border-box;
+      padding: 0 10px;
+    }
+    .rightOparations {
+      width: 100%;
+      li {
+        width: 100%;
+        height: 32px;
+        line-height: 32px;
+        border-bottom: 1px solid #dcdae2;
+      }
+    }
+  }
+  .scrollingLeft {
+    box-shadow: 3px 0 8px rgba(0,0,0,0.14);
+  }
+  .scrollingRight {
+    box-shadow: -3px 0 8px rgba(0,0,0,0.14);
+  }
+  .edit-cell {
+    box-sizing: border-box;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 32px;
+    padding: 2px 6px 0 6px;
+  }
+  .hScroll {
+    height: 12px;
+    overflow: hidden;
+    position: absolute;
+    user-select: none;
+    bottom: -13px;
+    left: 0;
+    width: 100%;
+    .hScrollBar {
+      width: 100px;
+      height: 12px;
+      border-radius: 12px;
+      position: absolute;
+      left: 0;
+      top: 0;
+      background: #aa90e8;
+      cursor: pointer;
+      user-select: none;
+    }
+  }
+  .vScroll {
+    width: 12px;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    user-select: none;
+    z-index: 10;
+    .vScrollBar {
+      height: 100px;
+      width: 12px;
+      border-radius: 12px;
+      position: absolute;
+      left: 0;
+      top: 0;
+      background: #aa90e8;
+      cursor: pointer;
+      user-select: none;
+    }
+  }
+  .dividLine {
+    width: 1px;
+    position: absolute;
+    height: 100%;
+    background: #dcdae2;
+    left: -100px;
+    top: 0;
+    z-index: 10;
+  }
+}

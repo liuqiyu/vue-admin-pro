@@ -1,0 +1,72 @@
+@import "~@/style/variable";
+
+.smart-admin {
+  .el-scrollbar__bar.is-horizontal {
+    display: none !important;
+    background: red;
+  }
+
+  .hideMenu {
+    .smart-menu {
+      width: 64px !important;
+    }
+
+    .el-menu-item {
+      .el-tooltip {
+        padding: 0 !important;
+
+        >.icon {
+          margin-left: 20px;
+        }
+      }
+    }
+
+    .el-submenu>.el-submenu__title {
+      padding: 0 !important;
+
+      >.icon {
+        margin-left: 20px;
+        margin-right: 16px;
+      }
+
+      >span {
+        height: 0;
+        width: 0;
+        overflow: hidden;
+        visibility: hidden;
+        // display: inline-block;
+      }
+
+      >.el-submenu__icon-arrow {
+        display: none;
+      }
+    }
+  }
+
+  .menu-scrollbar {
+    height: 100%;
+    flex: 1;
+
+    .scrollbar-wrapper {
+      overflow-x: hidden !important;
+
+      .menu-wrapper {
+        height: 100%;
+      }
+
+      .menu-wrapper>.menu-item-wrapper {
+        border-bottom: 1px solid $menuBorderColor;
+      }
+    }
+  }
+
+  .sidebar-container {
+    .el-menu {
+      border-right: none;
+    }
+
+    .icon {
+      margin-right: 16px;
+    }
+  }
+}

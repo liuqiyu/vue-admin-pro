@@ -1,0 +1,59 @@
+/*
+T01 21 16 B     T02 21 14 B     T03 21 12 B     T04 21 12 N     T05 22 12 N
+T06 23 12 N     T07 $d 12 N     T08 $t 12 N     T09 12 12 N     T10 11 16 B
+T11 11 14 B     T12 11 12 B     T13 11 12 N     T14 -- 12 B     T15 21 14 N
+T16 22 14 N     T17 白 12 B     T18 -- 12 B     T19 白 12 N
+*/
+
+$defaultColor: #666;
+//主色
+$top-bg: #173997;
+$menu-bg: #292c31;
+//自定义
+$theme: #4676e5;
+$borderColor: #dee8f8; // 边框颜色
+$disable-color: #dddddd;
+
+// base color
+$blue: #324157;
+$light-blue: #3a71a8;
+$red: #c03639;
+$pink: #e65d6e;
+$green: #30b08f;
+$tiffany: #4ab7bd;
+$yellow: #fec171;
+$panGreen: #30b08f;
+
+// sidebar
+$menuText: #1d2331;
+$menuActiveText: $theme;
+$subMenuText: #778096;
+$subMenuActiveText: #409eff;
+
+$menuBg: #fff;
+$menuHover: #e8f0fc;
+$menuItemHeight: 46px; // 高度
+$menuBorderColor: #dee9fc; // 下划线颜色
+
+$subMenuBg: #1f2d3d;
+$subMenuHover: #778096;
+
+$sideBarWidth: 200px;
+
+// the :export directive is the magic sauce for webpack
+// https://www.bluematador.com/blog/how-to-share-variables-between-js-and-sass
+:export {
+  theme: $theme;
+  borderColor: $borderColor;
+  defaultColor: $defaultColor;
+  menuText: $menuText;
+  menuActiveText: $menuActiveText;
+  subMenuActiveText: $subMenuActiveText;
+  menuBg: $menuBg;
+  menuItemHeight: $menuItemHeight;
+  menuBorderColor: $menuBorderColor;
+  menuHover: $menuHover;
+  subMenuBg: $subMenuBg;
+  subMenuHover: $subMenuHover;
+  sideBarWidth: $sideBarWidth;
+}

@@ -1,29 +1,70 @@
 import Vue from 'vue'
-import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import Router from 'vue-router'
+import Layout from '@/views/layout'
+import { getRoutes } from '@/utils/router'
+import login from '@/views/login'
 
-Vue.use(VueRouter)
+Vue.use(Router)
+// 路由模块
+const routerModule = getRoutes(
+  require.context('./', false, /\.js$/),
+  './index.js'
+)
 
-const routes = [
+// 异步路由
+export const asyncRoutes = [
+  ...routerModule,
+  // 外链
   {
-    path: '/',
-    name: 'Home',
-    component: Home
+    path: 'link',
+    component: Layout,
+    children: [
+      {
+        path: 'https://github.com/liuqiyu/vue-admin-pro',
+        meta: { title: '外链', icon: 'icon-caozuo-wailian' }
+      }
+    ]
   },
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    path: '*',
+    hidden: true,
+    redirect: '/error/404'
   }
 ]
 
-const router = new VueRouter({
-  mode: 'history',
-  base: process.env.BASE_URL,
-  routes
-})
+// 常量路由
+export const constantRoutes = [
+  {
+    path: '/login',
+    name: 'login',
+    hidden: true,
+    meta: {
+      title: '登录页'
+    },
+    component: login
+  },
+  {
+    path: '',
+    redirect: 'dashboard',
+    component: Layout,
+    children: [
+      {
+        path: 'dashboard',
+        name: 'dashboard',
+        component: () => import('@/views/dashboard'),
+        meta: {
+          icon: 'icon-shouye2',
+          activeMenu: '/dashboard',
+          title: '首页',
+          affix: true
+        }
+      }
+    ]
+  }
+]
 
-export default router
+export default new Router({
+  mode: 'hash',
+  base: process.env.BASE_URL,
+  routes: constantRoutes
+})
