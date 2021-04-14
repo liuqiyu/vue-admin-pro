@@ -2,7 +2,7 @@
   .smart-table-form {
     position: relative;
 
-    &:before {
+    &::before {
       position: absolute;
       top: -1px;
       left: 0;
@@ -12,7 +12,7 @@
       background: #e1e7f3;
     }
 
-    &:after {
+    &::after {
       position: absolute;
       top: 0;
       left: 0;
@@ -40,7 +40,7 @@
         height: 100%;
         padding-right: 20px;
 
-        &:before {
+        &::before {
           position: absolute;
           right: 8px;
           line-height: 48px;

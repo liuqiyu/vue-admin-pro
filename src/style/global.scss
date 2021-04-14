@@ -44,22 +44,22 @@ body,
 
 // 滚动条样式,仅对Chrome有效
 ::-webkit-scrollbar {
-  width: 10px; //y轴上的滚动条宽度
-  height: 10px; //x轴上滚动条高度
+  width: 10px; // y轴上的滚动条宽度
+  height: 10px; // x轴上滚动条高度
 }
 
 ::-webkit-scrollbar-track {
   border-radius: 3px;
-  /*滚动条的背景区域的圆角*/
+  // 滚动条的背景区域的圆角
   background-color: #fdf8f5;
-  /*滚动条的背景颜色*/
+  // 滚动条的背景颜色 
 }
 
 ::-webkit-scrollbar-thumb {
   border-radius: 3px;
-  /*滚动条的圆角*/
+  // 滚动条的圆角
   background-color: #ccc;
-  /*滚动条的背景颜色*/
+  // 滚动条的背景颜色
 }
 
 ::-webkit-scrollbar-thumb:hover {

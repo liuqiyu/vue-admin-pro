@@ -34,7 +34,7 @@ export default {
 @import "~@/style/variable";
 .smart-content-cell {
   background: #ffffff;
-  &:not(:first-child) {
+  &::not(:first-child) {
     margin-top: 30px;
   }
   header {
@@ -51,7 +51,7 @@ export default {
       letter-spacing: 0;
       padding: 0 12px;
     }
-    &:before {
+    &::before {
       content: "";
       width: 3px;
       height: 12px;

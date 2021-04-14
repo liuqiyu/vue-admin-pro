@@ -1,9 +1,17 @@
-@import "~@/style/variable";
-
 .smart-admin {
   .el-scrollbar__bar.is-horizontal {
     display: none !important;
     background: red;
+  }
+
+  .sidebar-container {
+    .el-menu {
+      border-right: none;
+    }
+
+    .icon {
+      margin-right: 16px;
+    }
   }
 
   .hideMenu {
@@ -57,16 +65,6 @@
       .menu-wrapper>.menu-item-wrapper {
         border-bottom: 1px solid $menuBorderColor;
       }
-    }
-  }
-
-  .sidebar-container {
-    .el-menu {
-      border-right: none;
-    }
-
-    .icon {
-      margin-right: 16px;
     }
   }
 }

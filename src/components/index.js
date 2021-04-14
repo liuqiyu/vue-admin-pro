@@ -11,10 +11,6 @@ import countTo from 'vue-count-to'
 import directives from '../directives'
 import * as filters from '@/utils/filter'
 // 全局组件
-import kyeEditCanvasTable from './kye-edit-canvas-table/index.vue'
-import kyeCanvasTable from './kye-canvas-table'
-import kyeEditTable from './kye-edit-table'
-import kyeSearchTips from './kye-search-tips'
 import SmartQueryTable from './smart-query-table'
 import SmartButtonList from './smart-tool-list'
 import SmartQueyForm from './smart-query-form'
@@ -23,10 +19,9 @@ import SmartDetailsPage from './smart-details-page'
 import SmartContentPage from './smart-content-page'
 import SmartThemePicker from './smart-theme-picker'
 import SmartBody from './smart-body'
-import SmartCanvasTable from './smart-canvas-table'
 
-const components = [kyeEditCanvasTable, kyeCanvasTable, kyeEditTable, kyeSearchTips, SmartQueryTable, SmartButtonList, SmartQueyForm, SmartDialog, SmartDetailsPage,
-  SmartContentPage, SmartThemePicker, SmartBody, SmartCanvasTable
+const components = [SmartQueryTable, SmartButtonList, SmartQueyForm, SmartDialog, SmartDetailsPage,
+  SmartContentPage, SmartThemePicker, SmartBody
 ]
 
 export const PAGINATION = {

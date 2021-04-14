@@ -108,7 +108,7 @@ export default {
   ::v-deep .el-menu-item {
     height: $menuItemHeight;
     line-height: $menuItemHeight;
-    &:hover,
+    &::hover,
     &.focus {
       background-color: $menuHover !important;
     }
@@ -119,7 +119,7 @@ export default {
   ::v-deep .el-submenu__title {
     height: $menuItemHeight;
     line-height: $menuItemHeight;
-    &:hover,
+    &::hover,
     &.focus {
       background-color: $menuHover !important;
     }

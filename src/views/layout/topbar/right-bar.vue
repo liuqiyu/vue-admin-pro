@@ -7,7 +7,8 @@
     </div>
     <el-avatar class="avatar"
                :size="30">
-      <img src="@/images/avatar.png" /></el-avatar>
+      <img src="@/images/avatar.png" />
+    </el-avatar>
     <el-dropdown trigger="click">
       <span class="el-dropdown-link">
         <span class="name">
@@ -107,7 +108,7 @@ export default {
       margin-right: 12px;
       color: #f1f1f1;
       cursor: pointer;
-      &:hover {
+      &::hover {
         color: #fff;
       }
     }
@@ -118,7 +119,6 @@ export default {
   ::v-deep .el-dropdown {
     cursor: pointer;
     .el-dropdown-link {
-      /*display: block;*/
       height: 40px;
       display: flex;
       align-items: center;

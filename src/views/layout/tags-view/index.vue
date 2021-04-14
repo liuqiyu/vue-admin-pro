@@ -215,7 +215,7 @@ export default {
     .close {
       color: rgba(0, 0, 0, 0.3);
       font-size: 13px;
-      &:hover {
+      &::hover {
         color: #45b8fb;
       }
     }
@@ -223,7 +223,7 @@ export default {
       border-color: #45b8fb;
       color: #000;
       position: relative;
-      &:before {
+      &::before {
         content: "";
         background: #45b8fb;
         display: inline-block;
@@ -234,7 +234,7 @@ export default {
         margin-right: 2px;
       }
     }
-    &:last-of-type {
+    &::last-of-type {
       margin-right: 15px;
     }
   }
@@ -254,7 +254,7 @@ export default {
       margin: 0;
       padding: 7px 16px;
       cursor: pointer;
-      &:hover {
+      &::hover {
         background: #eee;
       }
     }

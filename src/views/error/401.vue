@@ -101,7 +101,7 @@ export default {
     a {
       color: #008489;
       text-decoration: none;
-      &:hover {
+      &::hover {
         text-decoration: underline;
       }
     }

@@ -1,20 +1,16 @@
 .smart-admin {
   .el-table {
 
-    // 右侧边框
-    &.el-table--group::after,
-    &.el-table--border::after,
-    &.el-table::before {
-      z-index: 6;
-      background-color: #dfe9fc !important;
-    }
+    td {
+      padding: 0 !important;
+      border: none !important;
 
-    &.el-table--border {
-      border-color: #dfe9fc;
-    }
-
-    &.el-table--striped .el-table__body tr.el-table__row--striped td {
-      background-color: #f9fbff;
+      .cell {
+        height: 34px;
+        line-height: 34px;
+        color: #666 !important;
+        padding: 0 4px !important;
+      }
     }
 
     thead {
@@ -33,16 +29,20 @@
       }
     }
 
-    td {
-      padding: 0 !important;
-      border: none !important;
+    // 右侧边框
+    &.el-table--group::after,
+    &.el-table--border::after,
+    &.el-table::before {
+      z-index: 6;
+      background-color: #dfe9fc !important;
+    }
 
-      .cell {
-        height: 34px;
-        line-height: 34px;
-        color: #666 !important;
-        padding: 0 4px !important;
-      }
+    &.el-table--border {
+      border-color: #dfe9fc;
+    }
+
+    &.el-table--striped .el-table__body tr.el-table__row--striped td {
+      background-color: #f9fbff;
     }
   }
 

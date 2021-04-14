@@ -1,7 +1,5 @@
 @import './variable';
 
-/* http://meyerweb.com/eric/tools/css/reset/ */
-/* v1.0 | 20080212 */
 html,
 body,
 div,
@@ -71,8 +69,8 @@ td {
 }
 
 *,
-*:before,
-*:after {
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
 }
@@ -98,7 +96,7 @@ button,
 input,
 select,
 textarea {
-  font-family: Microsoft Yahei, 微软雅黑, Microsoft Sans Serif, sans-serif !important;
+  font-family: Microsoft Yahei, 微软雅黑, Microsoft Sans serif, sans-serif !important;
 }
 
 ol,
@@ -116,20 +114,18 @@ q {
   quotes: none;
 }
 
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
+blockquote::before,
+blockquote::after,
+q::before,
+q::after {
   content: '';
   content: none;
 }
 
-/* remember to define focus styles! */
-:focus {
-  outline: 0;
-}
+// q::focus {
+//   outline: 0;
+// }
 
-/* remember to highlight inserts somehow! */
 ins {
   text-decoration: none;
 }
@@ -138,7 +134,6 @@ del {
   text-decoration: line-through;
 }
 
-/* tables still need 'cellspacing="0"' in the markup */
 table {
   border-spacing: 0;
   border-collapse: separate;
@@ -146,7 +141,6 @@ table {
   color: $defaultColor;
 }
 
-/* 去掉 input type=number 的默认样式 */
 input[type='number'] {
   -moz-appearance: textfield;
 }
