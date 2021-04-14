@@ -70,20 +70,20 @@ export default {
 }
 </script>
 
-<style rel="stylesheet/scss" lang="scss" scoped>
-::v-deep .scroll-container {
+<style lang="scss" scoped>
+.scroll-container {
   white-space: nowrap;
   position: relative;
   overflow: hidden;
   width: 100%;
 
-  .el-scrollbar__bar {
+  ::v-deep .el-scrollbar__bar {
     bottom: 0;
   }
-  .el-scrollbar__wrap {
+  ::v-deep .el-scrollbar__wrap {
     height: 49px;
   }
-  .el-scrollbar__wrap {
+  ::v-deep .el-scrollbar__wrap {
     overflow: hidden;
   }
 }
