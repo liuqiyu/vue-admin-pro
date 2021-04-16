@@ -7,6 +7,7 @@ module.exports = {
     "no-empty-source": null,
     "color-hex-length": null, // 指定十六进制颜色的长度
     "font-family-no-missing-generic-family-keyword": null,
+    "function-linear-gradient-no-nonstandard-direction": null, // 禁止在线性梯度方向值（），根据标准语法是无效的呼叫。
     "selector-pseudo-class-no-unknown": null, // 不允许未知的伪类选择器
     "selector-pseudo-element-no-unknown": null, // 不允许未知的伪元素选择器
     "no-duplicate-selectors": null, // 不允许重复的选择器

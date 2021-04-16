@@ -1,30 +1,21 @@
 import Layout from '@/views/layout'
 
 export default {
-  path: '/echarts',
+  path: '/grid',
   component: Layout,
-  showRoot: true, // will show root menu
+  showRoot: false, // will show root menu
   meta: {
     icon: 'icon-chart',
     title: '图表'
   },
   children: [
     {
-      path: 'map',
-      name: 'echarts-map',
+      path: 'grid',
+      name: 'grid',
       component: () =>
-        import(/* webpackChunkName: "echarts" */ '@/views/echarts/map'),
+        import(/* webpackChunkName: "echarts" */ '@/views/grid'),
       meta: {
-        title: '地图'
-      }
-    },
-    {
-      path: 'line',
-      name: 'echarts-line',
-      component: () =>
-        import(/* webpackChunkName: "echarts" */ '@/views/echarts/line'),
-      meta: {
-        title: '折线'
+        title: '布局'
       }
     }
   ]
