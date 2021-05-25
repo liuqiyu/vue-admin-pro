@@ -25,7 +25,8 @@
                        type="primary"
                        icon="el-icon-search"
                        @click="handleSubmit">查询</el-button>
-            <el-button class="reset"
+            <el-button type="primary"
+                       plain
                        icon="el-icon-refresh-right"
                        @click="onReset">重置</el-button>
           </div>
